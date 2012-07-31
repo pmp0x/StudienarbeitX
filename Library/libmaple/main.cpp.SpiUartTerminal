@@ -1,0 +1,74 @@
+/*
+
+  SpiUartTerminal - tool to help troubleshoot problems with WiFly shield
+
+  This code will initialise and test the SC16IS750 UART-SPI bridge then enable you
+  to send commands to the WiFly module.
+
+  Copyright (c) 2010 SparkFun Electronics. http://sparkfun.com LGPL 3.0
+
+ */
+
+#include <WiFly-Shield/SpiUart.h>
+#include "WiFly-Shield/WiFlyDevice.h"
+
+void setup() {
+
+   extern SpiUartDevice SpiSerialUSB;
+
+   extern WiFlyDevice WiFly;
+
+  SerialUSB.begin(9600);
+  SerialUSB.println("SPI UART on WiFly Shield terminal tool");
+  SerialUSB.println("--------------------------------------");
+  SerialUSB.println();
+  SerialUSB.println("This is a tool to help you troubleshoot problems with the WiFly shield.");
+  SerialUSB.println("For consistent results unplug & replug power to your Arduino and WiFly shield.");
+  SerialUSB.println("(Ensure the SerialUSB monitor is not open when you remove power.)");
+  SerialUSB.println();
+
+  SerialUSB.println("Attempting to connect to SPI UART...");
+  SpiSerialUSB.begin();
+  SerialUSB.println("Connected to SPI UART.");
+  SerialUSB.println();
+
+  SerialUSB.println(" * Use $$$ (with no line ending) to enter WiFly command mode. (\"CMD\")");
+  SerialUSB.println(" * Then send each command followed by a carriage return.");
+  SerialUSB.println();
+
+  SerialUSB.println("Waiting for input.");
+  SerialUSB.println();
+
+}
+
+
+void loop() {
+  // Terminal routine
+
+  // Always display a response uninterrupted by typing
+  // but note that this makes the terminal unresponsive
+  // while a response is being received.
+  while(SpiSerialUSB.available() > 0) {
+    SerialUSB.write(SpiSerialUSB.read());
+  }
+
+  if(SerialUSB.available()) { // Outgoing data
+    SpiSerialUSB.write(SerialUSB.read());
+  }
+}
+
+// Force init to be called *first*, i.e. before static object allocation.
+// Otherwise, statically allocated objects that need libmaple may fail.
+__attribute__((constructor)) void premain() {
+    init();
+}
+
+int main(void) {
+    setup();
+
+    while (true) {
+        loop();
+    }
+
+    return 0;
+}
