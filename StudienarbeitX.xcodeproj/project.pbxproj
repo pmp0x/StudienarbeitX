@@ -6,6 +6,197 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2C5060D015C853FE007DAC8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060CF15C853FE007DAC8A /* main.cpp */; };
+		2C5060DA15C85475007DAC8A /* adc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6A15C84856007DAC8A /* adc.h */; };
+		2C5060DB15C85475007DAC8A /* bitband.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6B15C84856007DAC8A /* bitband.h */; };
+		2C5060DC15C85475007DAC8A /* bkp.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6C15C84856007DAC8A /* bkp.h */; };
+		2C5060DD15C85475007DAC8A /* dac.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6D15C84856007DAC8A /* dac.h */; };
+		2C5060DE15C85475007DAC8A /* delay.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6E15C84856007DAC8A /* delay.h */; };
+		2C5060DF15C85475007DAC8A /* dma.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6F15C84856007DAC8A /* dma.h */; };
+		2C5060E015C85475007DAC8A /* dma_common.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7015C84856007DAC8A /* dma_common.h */; };
+		2C5060E115C85475007DAC8A /* exti.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7115C84856007DAC8A /* exti.h */; };
+		2C5060E215C85475007DAC8A /* flash.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7215C84856007DAC8A /* flash.h */; };
+		2C5060E315C85475007DAC8A /* fsmc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7315C84856007DAC8A /* fsmc.h */; };
+		2C5060E415C85475007DAC8A /* gpio.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7415C84856007DAC8A /* gpio.h */; };
+		2C5060E515C85475007DAC8A /* i2c.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7515C84856007DAC8A /* i2c.h */; };
+		2C5060E615C85475007DAC8A /* i2c_common.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7615C84856007DAC8A /* i2c_common.h */; };
+		2C5060E715C85475007DAC8A /* iwdg.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7715C84856007DAC8A /* iwdg.h */; };
+		2C5060E815C85475007DAC8A /* libmaple.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7815C84856007DAC8A /* libmaple.h */; };
+		2C5060E915C85475007DAC8A /* libmaple_types.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7915C84856007DAC8A /* libmaple_types.h */; };
+		2C5060EA15C85475007DAC8A /* nvic.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7A15C84856007DAC8A /* nvic.h */; };
+		2C5060EB15C85475007DAC8A /* pwr.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7B15C84856007DAC8A /* pwr.h */; };
+		2C5060EC15C85475007DAC8A /* rcc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7C15C84856007DAC8A /* rcc.h */; };
+		2C5060ED15C85475007DAC8A /* ring_buffer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7D15C84856007DAC8A /* ring_buffer.h */; };
+		2C5060EE15C85475007DAC8A /* scb.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7E15C84856007DAC8A /* scb.h */; };
+		2C5060EF15C85475007DAC8A /* spi.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F7F15C84856007DAC8A /* spi.h */; };
+		2C5060F015C85475007DAC8A /* stm32.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8015C84856007DAC8A /* stm32.h */; };
+		2C5060F115C85475007DAC8A /* syscfg.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8115C84856007DAC8A /* syscfg.h */; };
+		2C5060F215C85475007DAC8A /* systick.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8215C84856007DAC8A /* systick.h */; };
+		2C5060F315C85475007DAC8A /* timer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8315C84856007DAC8A /* timer.h */; };
+		2C5060F415C85475007DAC8A /* usart.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8415C84856007DAC8A /* usart.h */; };
+		2C5060F515C85475007DAC8A /* usb.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8515C84856007DAC8A /* usb.h */; };
+		2C5060F615C85475007DAC8A /* usb_cdcacm.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8615C84856007DAC8A /* usb_cdcacm.h */; };
+		2C5060F715C85475007DAC8A /* util.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8715C84856007DAC8A /* util.h */; };
+		2C5060F815C85498007DAC8A /* LiquidCrystal.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50600B15C84856007DAC8A /* LiquidCrystal.h */; };
+		2C5060F915C85498007DAC8A /* Servo.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601015C84856007DAC8A /* Servo.h */; };
+		2C5060FA15C85498007DAC8A /* HardWire.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601315C84856007DAC8A /* HardWire.h */; };
+		2C5060FB15C85498007DAC8A /* Wire.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601615C84856007DAC8A /* Wire.h */; };
+		2C5060FC15C85498007DAC8A /* WireBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601815C84856007DAC8A /* WireBase.h */; };
+		2C5060FD15C854B6007DAC8A /* bit_constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609815C84856007DAC8A /* bit_constants.h */; };
+		2C5060FE15C854B6007DAC8A /* bits.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609915C84856007DAC8A /* bits.h */; };
+		2C5060FF15C854B6007DAC8A /* boards.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609A15C84856007DAC8A /* boards.h */; };
+		2C50610015C854B6007DAC8A /* ext_interrupts.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609B15C84856007DAC8A /* ext_interrupts.h */; };
+		2C50610115C854B6007DAC8A /* HardwareSerial.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609C15C84856007DAC8A /* HardwareSerial.h */; };
+		2C50610215C854B6007DAC8A /* HardwareSPI.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609D15C84856007DAC8A /* HardwareSPI.h */; };
+		2C50610315C854B6007DAC8A /* HardwareTimer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609E15C84856007DAC8A /* HardwareTimer.h */; };
+		2C50610415C854B6007DAC8A /* io.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609F15C84856007DAC8A /* io.h */; };
+		2C50610515C854B6007DAC8A /* Print.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A015C84856007DAC8A /* Print.h */; };
+		2C50610615C854B6007DAC8A /* pwm.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A115C84856007DAC8A /* pwm.h */; };
+		2C50610715C854B6007DAC8A /* usb_serial.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A215C84856007DAC8A /* usb_serial.h */; };
+		2C50610815C854B6007DAC8A /* wirish.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A315C84856007DAC8A /* wirish.h */; };
+		2C50610915C854B6007DAC8A /* wirish_debug.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A415C84856007DAC8A /* wirish_debug.h */; };
+		2C50610A15C854B6007DAC8A /* wirish_math.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A515C84856007DAC8A /* wirish_math.h */; };
+		2C50610B15C854B6007DAC8A /* wirish_time.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A615C84856007DAC8A /* wirish_time.h */; };
+		2C50610C15C854B6007DAC8A /* wirish_types.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A715C84856007DAC8A /* wirish_types.h */; };
+		2C50610D15C854B6007DAC8A /* WProgram.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060A815C84856007DAC8A /* WProgram.h */; };
+		2C50610E15C854D3007DAC8A /* SpiUart.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50572415C83094007DAC8A /* SpiUart.h */; };
+		2C50610F15C854EC007DAC8A /* Debug.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056F715C83094007DAC8A /* Debug.h */; };
+		2C50611015C854EC007DAC8A /* WiFlySerial.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056F815C83094007DAC8A /* WiFlySerial.h */; };
+		2C50611115C855BA007DAC8A /* WiFlySerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056FF15C83094007DAC8A /* WiFlySerial.cpp */; };
+		2C50611215C85629007DAC8A /* LiquidCrystal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50600A15C84856007DAC8A /* LiquidCrystal.cpp */; };
+		2C50611315C85629007DAC8A /* Servo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50600F15C84856007DAC8A /* Servo.cpp */; };
+		2C50611415C85629007DAC8A /* HardWire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601215C84856007DAC8A /* HardWire.cpp */; };
+		2C50611515C85629007DAC8A /* Wire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601515C84856007DAC8A /* Wire.cpp */; };
+		2C50611615C85629007DAC8A /* WireBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601715C84856007DAC8A /* WireBase.cpp */; };
+		2C50611715C85629007DAC8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601A15C84856007DAC8A /* main.cpp */; };
+		2C50611815C85629007DAC8A /* USB-Serial-Example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50606915C84856007DAC8A /* USB-Serial-Example.cpp */; };
+		2C50611915C85629007DAC8A /* boards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50608F15C84856007DAC8A /* boards.cpp */; };
+		2C50611A15C85629007DAC8A /* cxxabi-compat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609115C84856007DAC8A /* cxxabi-compat.cpp */; };
+		2C50611B15C85629007DAC8A /* ext_interrupts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609215C84856007DAC8A /* ext_interrupts.cpp */; };
+		2C50611C15C85629007DAC8A /* HardwareSerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609315C84856007DAC8A /* HardwareSerial.cpp */; };
+		2C50611D15C85629007DAC8A /* HardwareSPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609415C84856007DAC8A /* HardwareSPI.cpp */; };
+		2C50611E15C85629007DAC8A /* HardwareTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50609515C84856007DAC8A /* HardwareTimer.cpp */; };
+		2C50611F15C85629007DAC8A /* Print.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060AA15C84856007DAC8A /* Print.cpp */; };
+		2C50612015C85629007DAC8A /* pwm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060AB15C84856007DAC8A /* pwm.cpp */; };
+		2C50612115C85629007DAC8A /* boards_setup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060B015C84856007DAC8A /* boards_setup.cpp */; };
+		2C50612215C85629007DAC8A /* wirish_debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060B215C84856007DAC8A /* wirish_debug.cpp */; };
+		2C50612315C85629007DAC8A /* wirish_digital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060B315C84856007DAC8A /* wirish_digital.cpp */; };
+		2C50612415C85629007DAC8A /* boards_setup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060B515C84856007DAC8A /* boards_setup.cpp */; };
+		2C50612515C85629007DAC8A /* wirish_debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060B715C84856007DAC8A /* wirish_debug.cpp */; };
+		2C50612615C85629007DAC8A /* wirish_digital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060B815C84856007DAC8A /* wirish_digital.cpp */; };
+		2C50612715C85629007DAC8A /* usb_serial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060BA15C84856007DAC8A /* usb_serial.cpp */; };
+		2C50612815C85629007DAC8A /* wirish_analog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060BB15C84856007DAC8A /* wirish_analog.cpp */; };
+		2C50612915C85629007DAC8A /* wirish_digital.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060BC15C84856007DAC8A /* wirish_digital.cpp */; };
+		2C50612A15C85629007DAC8A /* wirish_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060BD15C84856007DAC8A /* wirish_math.cpp */; };
+		2C50612B15C85629007DAC8A /* wirish_shift.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060BE15C84856007DAC8A /* wirish_shift.cpp */; };
+		2C50612C15C85629007DAC8A /* wirish_time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060BF15C84856007DAC8A /* wirish_time.cpp */; };
+		2C50612D15C8565A007DAC8A /* SpiUart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50572C15C83094007DAC8A /* SpiUart.cpp */; };
+		2C50612E15C8573D007DAC8A /* adc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F5D15C84856007DAC8A /* adc.c */; };
+		2C50612F15C8573D007DAC8A /* dac.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F5E15C84856007DAC8A /* dac.c */; };
+		2C50613015C8573D007DAC8A /* dma.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F5F15C84856007DAC8A /* dma.c */; };
+		2C50613115C8573D007DAC8A /* dma_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6015C84856007DAC8A /* dma_private.h */; };
+		2C50613215C8573D007DAC8A /* exc.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6115C84856007DAC8A /* exc.S */; };
+		2C50613315C8573D007DAC8A /* exti.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6215C84856007DAC8A /* exti.c */; };
+		2C50613415C8573D007DAC8A /* exti_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6315C84856007DAC8A /* exti_private.h */; };
+		2C50613515C8573D007DAC8A /* flash.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6415C84856007DAC8A /* flash.c */; };
+		2C50613615C8573D007DAC8A /* gpio.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6515C84856007DAC8A /* gpio.c */; };
+		2C50613715C8573D007DAC8A /* i2c.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6615C84856007DAC8A /* i2c.c */; };
+		2C50613815C8573D007DAC8A /* i2c_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6715C84856007DAC8A /* i2c_private.h */; };
+		2C50613915C8573D007DAC8A /* iwdg.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8815C84856007DAC8A /* iwdg.c */; };
+		2C50613A15C8573D007DAC8A /* nvic.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8915C84856007DAC8A /* nvic.c */; };
+		2C50613B15C8573D007DAC8A /* pwr.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8A15C84856007DAC8A /* pwr.c */; };
+		2C50613C15C8573D007DAC8A /* rcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8B15C84856007DAC8A /* rcc.c */; };
+		2C50613D15C8573D007DAC8A /* rcc_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8C15C84856007DAC8A /* rcc_private.h */; };
+		2C50613E15C8573D007DAC8A /* rules.mk in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8D15C84856007DAC8A /* rules.mk */; };
+		2C50613F15C8573E007DAC8A /* spi.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8E15C84856007DAC8A /* spi.c */; };
+		2C50614015C8573E007DAC8A /* spi_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F8F15C84856007DAC8A /* spi_private.h */; };
+		2C50614115C8573E007DAC8A /* stm32_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9015C84856007DAC8A /* stm32_private.h */; };
+		2C50614215C8573E007DAC8A /* adc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9215C84856007DAC8A /* adc.c */; };
+		2C50614315C8573E007DAC8A /* bkp.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9315C84856007DAC8A /* bkp.c */; };
+		2C50614415C8573E007DAC8A /* dma.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9415C84856007DAC8A /* dma.c */; };
+		2C50614515C8573E007DAC8A /* exti.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9515C84856007DAC8A /* exti.c */; };
+		2C50614615C8573E007DAC8A /* fsmc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9615C84856007DAC8A /* fsmc.c */; };
+		2C50614715C8573E007DAC8A /* gpio.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9715C84856007DAC8A /* gpio.c */; };
+		2C50614815C8573E007DAC8A /* i2c.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9815C84856007DAC8A /* i2c.c */; };
+		2C50614915C8573E007DAC8A /* adc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9B15C84856007DAC8A /* adc.h */; };
+		2C50614A15C8573E007DAC8A /* dac.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9C15C84856007DAC8A /* dac.h */; };
+		2C50614B15C8573E007DAC8A /* dma.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9D15C84856007DAC8A /* dma.h */; };
+		2C50614C15C8573E007DAC8A /* exti.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9E15C84856007DAC8A /* exti.h */; };
+		2C50614D15C8573E007DAC8A /* flash.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F9F15C84856007DAC8A /* flash.h */; };
+		2C50614E15C8573E007DAC8A /* gpio.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA015C84856007DAC8A /* gpio.h */; };
+		2C50614F15C8573E007DAC8A /* i2c.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA115C84856007DAC8A /* i2c.h */; };
+		2C50615015C8573E007DAC8A /* nvic.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA215C84856007DAC8A /* nvic.h */; };
+		2C50615115C8573E007DAC8A /* pwr.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA315C84856007DAC8A /* pwr.h */; };
+		2C50615215C8573E007DAC8A /* rcc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA415C84856007DAC8A /* rcc.h */; };
+		2C50615315C8573E007DAC8A /* spi.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA515C84856007DAC8A /* spi.h */; };
+		2C50615415C8573E007DAC8A /* stm32.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA615C84856007DAC8A /* stm32.h */; };
+		2C50615515C8573E007DAC8A /* timer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA715C84856007DAC8A /* timer.h */; };
+		2C50615615C8573E007DAC8A /* usart.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FA815C84856007DAC8A /* usart.h */; };
+		2C50615715C8573E007DAC8A /* isrs.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FAA15C84856007DAC8A /* isrs.S */; };
+		2C50615815C8573E007DAC8A /* vector_table.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FAB15C84856007DAC8A /* vector_table.S */; };
+		2C50615915C8573E007DAC8A /* rcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FAC15C84856007DAC8A /* rcc.c */; };
+		2C50615A15C8573E007DAC8A /* rules.mk in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FAD15C84856007DAC8A /* rules.mk */; };
+		2C50615B15C8573E007DAC8A /* spi.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FAE15C84856007DAC8A /* spi.c */; };
+		2C50615C15C8573E007DAC8A /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FAF15C84856007DAC8A /* timer.c */; };
+		2C50615D15C8573E007DAC8A /* usart.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB015C84856007DAC8A /* usart.c */; };
+		2C50615E15C8573E007DAC8A /* isrs.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB215C84856007DAC8A /* isrs.S */; };
+		2C50615F15C8573E007DAC8A /* vector_table.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB315C84856007DAC8A /* vector_table.S */; };
+		2C50616015C8573E007DAC8A /* adc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB515C84856007DAC8A /* adc.c */; };
+		2C50616115C8573E007DAC8A /* dma.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB615C84856007DAC8A /* dma.c */; };
+		2C50616215C8573E007DAC8A /* exti.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB715C84856007DAC8A /* exti.c */; };
+		2C50616315C8573E007DAC8A /* fsmc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB815C84856007DAC8A /* fsmc.c */; };
+		2C50616415C8573E007DAC8A /* gpio.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FB915C84856007DAC8A /* gpio.c */; };
+		2C50616515C8573E007DAC8A /* adc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FBC15C84856007DAC8A /* adc.h */; };
+		2C50616615C8573E007DAC8A /* dac.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FBD15C84856007DAC8A /* dac.h */; };
+		2C50616715C8573E007DAC8A /* dma.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FBE15C84856007DAC8A /* dma.h */; };
+		2C50616815C8573E007DAC8A /* exti.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FBF15C84856007DAC8A /* exti.h */; };
+		2C50616915C8573E007DAC8A /* flash.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC015C84856007DAC8A /* flash.h */; };
+		2C50616A15C8573E007DAC8A /* gpio.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC115C84856007DAC8A /* gpio.h */; };
+		2C50616B15C8573E007DAC8A /* nvic.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC215C84856007DAC8A /* nvic.h */; };
+		2C50616C15C8573E007DAC8A /* pwr.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC315C84856007DAC8A /* pwr.h */; };
+		2C50616D15C8573E007DAC8A /* rcc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC415C84856007DAC8A /* rcc.h */; };
+		2C50616E15C8573E007DAC8A /* spi.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC515C84856007DAC8A /* spi.h */; };
+		2C50616F15C8573E007DAC8A /* stm32.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC615C84856007DAC8A /* stm32.h */; };
+		2C50617015C8573E007DAC8A /* timer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC715C84856007DAC8A /* timer.h */; };
+		2C50617115C8573E007DAC8A /* usart.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC815C84856007DAC8A /* usart.h */; };
+		2C50617215C8573E007DAC8A /* isrs.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FC915C84856007DAC8A /* isrs.S */; };
+		2C50617315C8573E007DAC8A /* rcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FCA15C84856007DAC8A /* rcc.c */; };
+		2C50617415C8573E007DAC8A /* rules.mk in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FCB15C84856007DAC8A /* rules.mk */; };
+		2C50617515C8573E007DAC8A /* spi.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FCC15C84856007DAC8A /* spi.c */; };
+		2C50617615C8573E007DAC8A /* syscfg.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FCD15C84856007DAC8A /* syscfg.c */; };
+		2C50617715C8573E007DAC8A /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FCE15C84856007DAC8A /* timer.c */; };
+		2C50617815C8573E007DAC8A /* usart.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FCF15C84856007DAC8A /* usart.c */; };
+		2C50617915C8573E007DAC8A /* vector_table.S in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD015C84856007DAC8A /* vector_table.S */; };
+		2C50617A15C8573E007DAC8A /* systick.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD115C84856007DAC8A /* systick.c */; };
+		2C50617B15C8573E007DAC8A /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD215C84856007DAC8A /* timer.c */; };
+		2C50617C15C8573E007DAC8A /* timer_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD315C84856007DAC8A /* timer_private.h */; };
+		2C50617D15C8573E007DAC8A /* usart.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD415C84856007DAC8A /* usart.c */; };
+		2C50617E15C8573E007DAC8A /* usart_private.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD515C84856007DAC8A /* usart_private.c */; };
+		2C50617F15C8573E007DAC8A /* usart_private.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD615C84856007DAC8A /* usart_private.h */; };
+		2C50618015C8573E007DAC8A /* README in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD815C84856007DAC8A /* README */; };
+		2C50618115C8573E007DAC8A /* rules.mk in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FD915C84856007DAC8A /* rules.mk */; };
+		2C50618215C8573E007DAC8A /* usb.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FDB15C84856007DAC8A /* usb.c */; };
+		2C50618315C8573E007DAC8A /* usb_cdcacm.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FDC15C84856007DAC8A /* usb_cdcacm.c */; };
+		2C50618415C8573E007DAC8A /* usb_descriptors.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FDD15C84856007DAC8A /* usb_descriptors.h */; };
+		2C50618515C8573E007DAC8A /* usb_lib_globals.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FDE15C84856007DAC8A /* usb_lib_globals.h */; };
+		2C50618615C8573E007DAC8A /* usb_reg_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FDF15C84856007DAC8A /* usb_reg_map.c */; };
+		2C50618715C8573E007DAC8A /* usb_reg_map.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE015C84856007DAC8A /* usb_reg_map.h */; };
+		2C50618815C8573E007DAC8A /* usb_core.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE215C84856007DAC8A /* usb_core.c */; };
+		2C50618915C8573E007DAC8A /* usb_core.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE315C84856007DAC8A /* usb_core.h */; };
+		2C50618A15C8573E007DAC8A /* usb_def.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE415C84856007DAC8A /* usb_def.h */; };
+		2C50618B15C8573E007DAC8A /* usb_init.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE515C84856007DAC8A /* usb_init.c */; };
+		2C50618C15C8573E007DAC8A /* usb_init.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE615C84856007DAC8A /* usb_init.h */; };
+		2C50618D15C8573E007DAC8A /* usb_lib.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE715C84856007DAC8A /* usb_lib.h */; };
+		2C50618E15C8573E007DAC8A /* usb_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE815C84856007DAC8A /* usb_mem.c */; };
+		2C50618F15C8573E007DAC8A /* usb_mem.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FE915C84856007DAC8A /* usb_mem.h */; };
+		2C50619015C8573E007DAC8A /* usb_regs.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FEA15C84856007DAC8A /* usb_regs.c */; };
+		2C50619115C8573E007DAC8A /* usb_regs.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FEB15C84856007DAC8A /* usb_regs.h */; };
+		2C50619215C8573E007DAC8A /* usb_type.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FEC15C84856007DAC8A /* usb_type.h */; };
+		2C50619315C8573E007DAC8A /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FED15C84856007DAC8A /* util.c */; };
+		2C50619D15C85A4F007DAC8A /* real-main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5055C415C83093007DAC8A /* real-main.cpp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2C5055C115C82F2A007DAC8A /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
 		2C5055C315C83093007DAC8A /* real-main 2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "real-main 2.cpp"; sourceTree = "<group>"; };
@@ -1609,7 +1800,7 @@
 		2C50609115C84856007DAC8A /* cxxabi-compat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "cxxabi-compat.cpp"; sourceTree = "<group>"; };
 		2C50609215C84856007DAC8A /* ext_interrupts.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ext_interrupts.cpp; sourceTree = "<group>"; };
 		2C50609315C84856007DAC8A /* HardwareSerial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareSerial.cpp; sourceTree = "<group>"; };
-		2C50609415C84856007DAC8A /* HardwareSPI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareSPI.cpp; sourceTree = "<group>"; };
+		2C50609415C84856007DAC8A /* HardwareSPI.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = HardwareSPI.cpp; sourceTree = "<group>"; };
 		2C50609515C84856007DAC8A /* HardwareTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareTimer.cpp; sourceTree = "<group>"; };
 		2C50609815C84856007DAC8A /* bit_constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bit_constants.h; sourceTree = "<group>"; };
 		2C50609915C84856007DAC8A /* bits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bits.h; sourceTree = "<group>"; };
@@ -1649,6 +1840,9 @@
 		2C5060BD15C84856007DAC8A /* wirish_math.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wirish_math.cpp; sourceTree = "<group>"; };
 		2C5060BE15C84856007DAC8A /* wirish_shift.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wirish_shift.cpp; sourceTree = "<group>"; };
 		2C5060BF15C84856007DAC8A /* wirish_time.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wirish_time.cpp; sourceTree = "<group>"; };
+		2C5060CC15C853FE007DAC8A /* Indexing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Indexing; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5060CF15C853FE007DAC8A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2C5060D115C853FE007DAC8A /* Indexing.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Indexing.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -1665,6 +1859,7 @@
 				2C50573915C83094007DAC8A /* real-main.cpp */,
 				2C50573A15C83094007DAC8A /* rules.mk */,
 				2C5055C115C82F2A007DAC8A /* Test.cpp */,
+				2C5060CE15C853FE007DAC8A /* Indexing */,
 				2C50574015C830F4007DAC8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -2657,6 +2852,7 @@
 		2C50574015C830F4007DAC8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				2C5060CC15C853FE007DAC8A /* Indexing */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -5332,6 +5528,15 @@
 			path = stm32f2;
 			sourceTree = "<group>";
 		};
+		2C5060CE15C853FE007DAC8A /* Indexing */ = {
+			isa = PBXGroup;
+			children = (
+				2C5060CF15C853FE007DAC8A /* main.cpp */,
+				2C5060D115C853FE007DAC8A /* Indexing.1 */,
+			);
+			path = Indexing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -5379,6 +5584,24 @@
 		};
 /* End PBXLegacyTarget section */
 
+/* Begin PBXNativeTarget section */
+		2C5060CB15C853FE007DAC8A /* Indexing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C5060D315C853FE007DAC8A /* Build configuration list for PBXNativeTarget "Indexing" */;
+			buildPhases = (
+				2C5060C815C853FE007DAC8A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Indexing;
+			productName = Indexing;
+			productReference = 2C5060CC15C853FE007DAC8A /* Indexing */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
 		2C5055B615C82EF3007DAC8A /* Project object */ = {
 			isa = PBXProject;
@@ -5397,12 +5620,211 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				2C5060CB15C853FE007DAC8A /* Indexing */,
 				2C5060C415C84B3B007DAC8A /* install */,
 				2C5060C015C84B13007DAC8A /* make */,
 				2C505AC315C833BB007DAC8A /* clean */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C5060C815C853FE007DAC8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C50612E15C8573D007DAC8A /* adc.c in Sources */,
+				2C50612F15C8573D007DAC8A /* dac.c in Sources */,
+				2C50613015C8573D007DAC8A /* dma.c in Sources */,
+				2C50613115C8573D007DAC8A /* dma_private.h in Sources */,
+				2C50613215C8573D007DAC8A /* exc.S in Sources */,
+				2C50613315C8573D007DAC8A /* exti.c in Sources */,
+				2C50613415C8573D007DAC8A /* exti_private.h in Sources */,
+				2C50613515C8573D007DAC8A /* flash.c in Sources */,
+				2C50613615C8573D007DAC8A /* gpio.c in Sources */,
+				2C50613715C8573D007DAC8A /* i2c.c in Sources */,
+				2C50613815C8573D007DAC8A /* i2c_private.h in Sources */,
+				2C50613915C8573D007DAC8A /* iwdg.c in Sources */,
+				2C50613A15C8573D007DAC8A /* nvic.c in Sources */,
+				2C50613B15C8573D007DAC8A /* pwr.c in Sources */,
+				2C50613C15C8573D007DAC8A /* rcc.c in Sources */,
+				2C50613D15C8573D007DAC8A /* rcc_private.h in Sources */,
+				2C50613E15C8573D007DAC8A /* rules.mk in Sources */,
+				2C50613F15C8573E007DAC8A /* spi.c in Sources */,
+				2C50614015C8573E007DAC8A /* spi_private.h in Sources */,
+				2C50614115C8573E007DAC8A /* stm32_private.h in Sources */,
+				2C50614215C8573E007DAC8A /* adc.c in Sources */,
+				2C50614315C8573E007DAC8A /* bkp.c in Sources */,
+				2C50614415C8573E007DAC8A /* dma.c in Sources */,
+				2C50614515C8573E007DAC8A /* exti.c in Sources */,
+				2C50614615C8573E007DAC8A /* fsmc.c in Sources */,
+				2C50614715C8573E007DAC8A /* gpio.c in Sources */,
+				2C50614815C8573E007DAC8A /* i2c.c in Sources */,
+				2C50614915C8573E007DAC8A /* adc.h in Sources */,
+				2C50614A15C8573E007DAC8A /* dac.h in Sources */,
+				2C50614B15C8573E007DAC8A /* dma.h in Sources */,
+				2C50614C15C8573E007DAC8A /* exti.h in Sources */,
+				2C50614D15C8573E007DAC8A /* flash.h in Sources */,
+				2C50614E15C8573E007DAC8A /* gpio.h in Sources */,
+				2C50614F15C8573E007DAC8A /* i2c.h in Sources */,
+				2C50615015C8573E007DAC8A /* nvic.h in Sources */,
+				2C50615115C8573E007DAC8A /* pwr.h in Sources */,
+				2C50615215C8573E007DAC8A /* rcc.h in Sources */,
+				2C50615315C8573E007DAC8A /* spi.h in Sources */,
+				2C50615415C8573E007DAC8A /* stm32.h in Sources */,
+				2C50615515C8573E007DAC8A /* timer.h in Sources */,
+				2C50615615C8573E007DAC8A /* usart.h in Sources */,
+				2C50615715C8573E007DAC8A /* isrs.S in Sources */,
+				2C50615815C8573E007DAC8A /* vector_table.S in Sources */,
+				2C50615915C8573E007DAC8A /* rcc.c in Sources */,
+				2C50615A15C8573E007DAC8A /* rules.mk in Sources */,
+				2C50615B15C8573E007DAC8A /* spi.c in Sources */,
+				2C50615C15C8573E007DAC8A /* timer.c in Sources */,
+				2C50615D15C8573E007DAC8A /* usart.c in Sources */,
+				2C50615E15C8573E007DAC8A /* isrs.S in Sources */,
+				2C50615F15C8573E007DAC8A /* vector_table.S in Sources */,
+				2C50616015C8573E007DAC8A /* adc.c in Sources */,
+				2C50616115C8573E007DAC8A /* dma.c in Sources */,
+				2C50616215C8573E007DAC8A /* exti.c in Sources */,
+				2C50616315C8573E007DAC8A /* fsmc.c in Sources */,
+				2C50616415C8573E007DAC8A /* gpio.c in Sources */,
+				2C50616515C8573E007DAC8A /* adc.h in Sources */,
+				2C50616615C8573E007DAC8A /* dac.h in Sources */,
+				2C50616715C8573E007DAC8A /* dma.h in Sources */,
+				2C50616815C8573E007DAC8A /* exti.h in Sources */,
+				2C50616915C8573E007DAC8A /* flash.h in Sources */,
+				2C50616A15C8573E007DAC8A /* gpio.h in Sources */,
+				2C50616B15C8573E007DAC8A /* nvic.h in Sources */,
+				2C50616C15C8573E007DAC8A /* pwr.h in Sources */,
+				2C50616D15C8573E007DAC8A /* rcc.h in Sources */,
+				2C50616E15C8573E007DAC8A /* spi.h in Sources */,
+				2C50616F15C8573E007DAC8A /* stm32.h in Sources */,
+				2C50617015C8573E007DAC8A /* timer.h in Sources */,
+				2C50617115C8573E007DAC8A /* usart.h in Sources */,
+				2C50617215C8573E007DAC8A /* isrs.S in Sources */,
+				2C50617315C8573E007DAC8A /* rcc.c in Sources */,
+				2C50617415C8573E007DAC8A /* rules.mk in Sources */,
+				2C50617515C8573E007DAC8A /* spi.c in Sources */,
+				2C50617615C8573E007DAC8A /* syscfg.c in Sources */,
+				2C50617715C8573E007DAC8A /* timer.c in Sources */,
+				2C50617815C8573E007DAC8A /* usart.c in Sources */,
+				2C50617915C8573E007DAC8A /* vector_table.S in Sources */,
+				2C50617A15C8573E007DAC8A /* systick.c in Sources */,
+				2C50617B15C8573E007DAC8A /* timer.c in Sources */,
+				2C50617C15C8573E007DAC8A /* timer_private.h in Sources */,
+				2C50617D15C8573E007DAC8A /* usart.c in Sources */,
+				2C50617E15C8573E007DAC8A /* usart_private.c in Sources */,
+				2C50617F15C8573E007DAC8A /* usart_private.h in Sources */,
+				2C50618015C8573E007DAC8A /* README in Sources */,
+				2C50618115C8573E007DAC8A /* rules.mk in Sources */,
+				2C50618215C8573E007DAC8A /* usb.c in Sources */,
+				2C50618315C8573E007DAC8A /* usb_cdcacm.c in Sources */,
+				2C50618415C8573E007DAC8A /* usb_descriptors.h in Sources */,
+				2C50618515C8573E007DAC8A /* usb_lib_globals.h in Sources */,
+				2C50618615C8573E007DAC8A /* usb_reg_map.c in Sources */,
+				2C50618715C8573E007DAC8A /* usb_reg_map.h in Sources */,
+				2C50618815C8573E007DAC8A /* usb_core.c in Sources */,
+				2C50618915C8573E007DAC8A /* usb_core.h in Sources */,
+				2C50618A15C8573E007DAC8A /* usb_def.h in Sources */,
+				2C50618B15C8573E007DAC8A /* usb_init.c in Sources */,
+				2C50618C15C8573E007DAC8A /* usb_init.h in Sources */,
+				2C50618D15C8573E007DAC8A /* usb_lib.h in Sources */,
+				2C50618E15C8573E007DAC8A /* usb_mem.c in Sources */,
+				2C50618F15C8573E007DAC8A /* usb_mem.h in Sources */,
+				2C50619015C8573E007DAC8A /* usb_regs.c in Sources */,
+				2C50619115C8573E007DAC8A /* usb_regs.h in Sources */,
+				2C50619215C8573E007DAC8A /* usb_type.h in Sources */,
+				2C50619315C8573E007DAC8A /* util.c in Sources */,
+				2C50612D15C8565A007DAC8A /* SpiUart.cpp in Sources */,
+				2C50611215C85629007DAC8A /* LiquidCrystal.cpp in Sources */,
+				2C50611315C85629007DAC8A /* Servo.cpp in Sources */,
+				2C50611415C85629007DAC8A /* HardWire.cpp in Sources */,
+				2C50611515C85629007DAC8A /* Wire.cpp in Sources */,
+				2C50611615C85629007DAC8A /* WireBase.cpp in Sources */,
+				2C50611715C85629007DAC8A /* main.cpp in Sources */,
+				2C50611815C85629007DAC8A /* USB-Serial-Example.cpp in Sources */,
+				2C50611915C85629007DAC8A /* boards.cpp in Sources */,
+				2C50611A15C85629007DAC8A /* cxxabi-compat.cpp in Sources */,
+				2C50611B15C85629007DAC8A /* ext_interrupts.cpp in Sources */,
+				2C50611C15C85629007DAC8A /* HardwareSerial.cpp in Sources */,
+				2C50611D15C85629007DAC8A /* HardwareSPI.cpp in Sources */,
+				2C50611E15C85629007DAC8A /* HardwareTimer.cpp in Sources */,
+				2C50611F15C85629007DAC8A /* Print.cpp in Sources */,
+				2C50612015C85629007DAC8A /* pwm.cpp in Sources */,
+				2C50612115C85629007DAC8A /* boards_setup.cpp in Sources */,
+				2C50612215C85629007DAC8A /* wirish_debug.cpp in Sources */,
+				2C50612315C85629007DAC8A /* wirish_digital.cpp in Sources */,
+				2C50612415C85629007DAC8A /* boards_setup.cpp in Sources */,
+				2C50612515C85629007DAC8A /* wirish_debug.cpp in Sources */,
+				2C50612615C85629007DAC8A /* wirish_digital.cpp in Sources */,
+				2C50612715C85629007DAC8A /* usb_serial.cpp in Sources */,
+				2C50612815C85629007DAC8A /* wirish_analog.cpp in Sources */,
+				2C50612915C85629007DAC8A /* wirish_digital.cpp in Sources */,
+				2C50612A15C85629007DAC8A /* wirish_math.cpp in Sources */,
+				2C50612B15C85629007DAC8A /* wirish_shift.cpp in Sources */,
+				2C50612C15C85629007DAC8A /* wirish_time.cpp in Sources */,
+				2C50610F15C854EC007DAC8A /* Debug.h in Sources */,
+				2C50611015C854EC007DAC8A /* WiFlySerial.h in Sources */,
+				2C50610E15C854D3007DAC8A /* SpiUart.h in Sources */,
+				2C5060FD15C854B6007DAC8A /* bit_constants.h in Sources */,
+				2C5060FE15C854B6007DAC8A /* bits.h in Sources */,
+				2C5060FF15C854B6007DAC8A /* boards.h in Sources */,
+				2C50610015C854B6007DAC8A /* ext_interrupts.h in Sources */,
+				2C50610115C854B6007DAC8A /* HardwareSerial.h in Sources */,
+				2C50610215C854B6007DAC8A /* HardwareSPI.h in Sources */,
+				2C50610315C854B6007DAC8A /* HardwareTimer.h in Sources */,
+				2C50610415C854B6007DAC8A /* io.h in Sources */,
+				2C50610515C854B6007DAC8A /* Print.h in Sources */,
+				2C50610615C854B6007DAC8A /* pwm.h in Sources */,
+				2C50610715C854B6007DAC8A /* usb_serial.h in Sources */,
+				2C50610815C854B6007DAC8A /* wirish.h in Sources */,
+				2C50610915C854B6007DAC8A /* wirish_debug.h in Sources */,
+				2C50610A15C854B6007DAC8A /* wirish_math.h in Sources */,
+				2C50610B15C854B6007DAC8A /* wirish_time.h in Sources */,
+				2C50610C15C854B6007DAC8A /* wirish_types.h in Sources */,
+				2C50610D15C854B6007DAC8A /* WProgram.h in Sources */,
+				2C5060F815C85498007DAC8A /* LiquidCrystal.h in Sources */,
+				2C5060F915C85498007DAC8A /* Servo.h in Sources */,
+				2C5060FA15C85498007DAC8A /* HardWire.h in Sources */,
+				2C5060FB15C85498007DAC8A /* Wire.h in Sources */,
+				2C5060FC15C85498007DAC8A /* WireBase.h in Sources */,
+				2C5060DA15C85475007DAC8A /* adc.h in Sources */,
+				2C5060DB15C85475007DAC8A /* bitband.h in Sources */,
+				2C5060DC15C85475007DAC8A /* bkp.h in Sources */,
+				2C5060DD15C85475007DAC8A /* dac.h in Sources */,
+				2C5060DE15C85475007DAC8A /* delay.h in Sources */,
+				2C5060DF15C85475007DAC8A /* dma.h in Sources */,
+				2C5060E015C85475007DAC8A /* dma_common.h in Sources */,
+				2C5060E115C85475007DAC8A /* exti.h in Sources */,
+				2C5060E215C85475007DAC8A /* flash.h in Sources */,
+				2C5060E315C85475007DAC8A /* fsmc.h in Sources */,
+				2C5060E415C85475007DAC8A /* gpio.h in Sources */,
+				2C5060E515C85475007DAC8A /* i2c.h in Sources */,
+				2C5060E615C85475007DAC8A /* i2c_common.h in Sources */,
+				2C5060E715C85475007DAC8A /* iwdg.h in Sources */,
+				2C5060E815C85475007DAC8A /* libmaple.h in Sources */,
+				2C5060E915C85475007DAC8A /* libmaple_types.h in Sources */,
+				2C5060EA15C85475007DAC8A /* nvic.h in Sources */,
+				2C5060EB15C85475007DAC8A /* pwr.h in Sources */,
+				2C5060EC15C85475007DAC8A /* rcc.h in Sources */,
+				2C5060ED15C85475007DAC8A /* ring_buffer.h in Sources */,
+				2C5060EE15C85475007DAC8A /* scb.h in Sources */,
+				2C5060EF15C85475007DAC8A /* spi.h in Sources */,
+				2C5060F015C85475007DAC8A /* stm32.h in Sources */,
+				2C5060F115C85475007DAC8A /* syscfg.h in Sources */,
+				2C5060F215C85475007DAC8A /* systick.h in Sources */,
+				2C5060F315C85475007DAC8A /* timer.h in Sources */,
+				2C5060F415C85475007DAC8A /* usart.h in Sources */,
+				2C5060F515C85475007DAC8A /* usb.h in Sources */,
+				2C5060F615C85475007DAC8A /* usb_cdcacm.h in Sources */,
+				2C5060F715C85475007DAC8A /* util.h in Sources */,
+				2C5060D015C853FE007DAC8A /* main.cpp in Sources */,
+				2C50611115C855BA007DAC8A /* WiFlySerial.cpp in Sources */,
+				2C50619D15C85A4F007DAC8A /* real-main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		2C5055BC15C82EF4007DAC8A /* Debug */ = {
@@ -5423,8 +5845,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**/**";
 				LIB_MAPLE_HOME = /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple;
 				ONLY_ACTIVE_ARCH = YES;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -5442,6 +5866,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LIB_MAPLE_HOME = /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -5491,6 +5916,28 @@
 			};
 			name = Release;
 		};
+		2C5060D415C853FE007DAC8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C5060D515C853FE007DAC8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -5526,6 +5973,15 @@
 			buildConfigurations = (
 				2C5060C615C84B3B007DAC8A /* Debug */,
 				2C5060C715C84B3B007DAC8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C5060D315C853FE007DAC8A /* Build configuration list for PBXNativeTarget "Indexing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C5060D415C853FE007DAC8A /* Debug */,
+				2C5060D515C853FE007DAC8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

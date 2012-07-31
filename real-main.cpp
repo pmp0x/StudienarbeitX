@@ -13,13 +13,14 @@
 //#include <WiFlySerial/WiFlySerial.h>
 //#include <WiFlyShield/WiFlyDevice.h>
 
-//HardwareSPI spi(1);
+HardwareSPI spi(1);
 //SpiUartDevice SpiSerial;
 //WiFlyDevice WiFly;
 //WiFlySerial WiFly;
 
 void setup()
 {
+	pinMode(10, OUTPUT);
 
 
 
