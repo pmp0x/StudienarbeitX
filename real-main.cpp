@@ -9,25 +9,37 @@
 
 #include <libmaple.h>
 #include <wirish.h>
-//#include <WiFlyShield/SpiUart.h>
-//#include <WiFlySerial/WiFlySerial.h>
-//#include <WiFlyShield/WiFlyDevice.h>
+#include <WiFlyShield/SpiUart.h>
+#include <WiFlySerial/WiFlySerial.h>
+// #include <WiFlyShield/WiFlyDevice.h>
 
 HardwareSPI spi(1);
-//SpiUartDevice SpiSerial;
+SpiUartDevice SpiSerial;
 //WiFlyDevice WiFly;
-//WiFlySerial WiFly;
+WiFlySerial WiFly;
 
 void setup()
 {
-	pinMode(10, OUTPUT);
-
-
-
+	
+	spi.begin(SPI_562_500KHZ, MSBFIRST, 0);
+    SpiSerial.begin(&spi);
+    while (!SerialUSB.available());
+    SerialUSB.println("Foo");
+    SpiSerial.begin(&spi, 9600);
+	delay(100);
+	
+    WiFly.begin(&SpiSerial);
+	
 }
 
 void loop()
 {
+	while(SpiSerial.available() > 0 ){
+        SerialUSB.write(SpiSerial.read());
+    }
+    while(SerialUSB.available()){
+        SpiSerial.write(SerialUSB.read());
+    }
 
 
 

@@ -69,6 +69,43 @@ boolean WiFlyDevice::findInResponse(const char *toMatch,
   return true;
 }
 
+void WiFlySerial::reboot() {
+    char szCommand[SMALL_COMMAND_BUFFER_SIZE];
+    
+    DEBUG_LOG(1, "Entered softwareReboot");
+    
+	for (int retryCount = 0;
+         retryCount < SOFTWARE_REBOOT_RETRY_ATTEMPTS;
+         retryCount++) {
+        
+        // TODO: Have the post-boot delay here rather than in enterCommandMode()?
+        
+        if (!enterCommandMode(isAfterBoot)) {
+            return false; // If the included retries have failed we give up
+        }
+        
+        uart->println("reboot");
+        
+        // For some reason the full "*Reboot*" message doesn't always
+        // seem to be received so we look for the later "*READY*" message instead.
+        
+        // TODO: Extract information from boot? e.g. version and MAC address
+        
+        if (findInResponse("*READY*", 2000)) {
+            return true;
+        }
+    }
+    
+    return false;
+    
+    GetBuffer_P(STI_WIFLYDEVICE_REBOOT, szCommand, SMALL_COMMAND_BUFFER_SIZE);
+    // DebugPrint(szCommand);
+    
+    if (!SendCommandSimple( szCommand ,   WiFlyFixedPrompts[WIFLY_MSG_AOK] )) {
+        DebugPrint( GetBuffer_P(STI_WIFLYDEVICE_ERR_START_FAIL, szCommand, SMALL_COMMAND_BUFFER_SIZE));
+        while (1) {}; // Hang. TODO: Handle differently?
+    }
+}
 
 
 WiFlyDevice::WiFlyDevice() {

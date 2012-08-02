@@ -282,18 +282,18 @@ uint8_t* BufferToIP_Array(char* pBuffer, uint8_t* pIP) {
 // Convert a Buffer holding an IP address to a byte array.
 // Minimal safety checks - be careful!
 char* IP_ArrayToBuffer( const uint8_t* pIP, char* pBuffer, int buflen) {
-
-  memset (pBuffer,'\0',buflen);
- 
-    for (int i =0; i< UC_N_IP_BYTES; i++) {
-      itoa( (int) pIP[i], strchr(pBuffer,'\0'), 10);
-      if (i < UC_N_IP_BYTES -1 ) {
-        strcat(pBuffer, ".");
-      }
-    }
-
     
-  return pBuffer;
+    memset (pBuffer,'\0',buflen);
+    
+    for (int i =0; i< UC_N_IP_BYTES; i++) {
+        itoa( (int) pIP[i], strchr(pBuffer,'\0'), 10);
+        if (i < UC_N_IP_BYTES -1 ) {
+            strcat(pBuffer, ".");
+        }
+    }
+    
+    
+    return pBuffer;
 }
 
 /*
@@ -359,8 +359,8 @@ WiFlySerial::WiFlySerial(byte pinReceive, byte pinSend) : uart (pinReceive, pinS
 //
 // Parameters: none.
 // Returns: true on initialize success, false on failure.
-boolean WiFlySerial::begin() {
-  boolean bStart = false;
+bool WiFlySerial::begin() {
+  bool bStart = false;
   char szCmd[SMALL_COMMAND_BUFFER_SIZE];
   char szResponse[COMMAND_BUFFER_SIZE];
 //  char szIndicator[INDICATOR_BUFFER_SIZE];  
@@ -438,15 +438,15 @@ boolean WiFlySerial::begin() {
 //#define PROMPT_OPEN 128
 //#define PROMPT_CLOSE 256
 
-int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const char *pExpectedPrompt, const boolean bCollecting,  const unsigned long WaitTime, const boolean bPromptAfterResult) {
+int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const char *pExpectedPrompt, const bool bCollecting,  const unsigned long WaitTime, const bool bPromptAfterResult) {
   
   byte iPromptFound = PROMPT_NONE;  
   char chResponse = 'A';
   int  bufpos = 0;
   int  bufsize = buflen -1;  //terminating null for bufsize
   int  iPromptIndex = 0;
-  boolean bWaiting = true;
-  boolean bReceivedCR = false;
+  bool bWaiting = true;
+  bool bReceivedCR = false;
   
  WiFlyFixedPrompts[WIFLY_MSG_EXPECTED] = (char*) pExpectedPrompt;
  WiFlyFixedPrompts[WIFLY_MSG_PROMPT] = (char*) szWiFlyPrompt;
@@ -526,10 +526,10 @@ int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const 
 // 
 // Returns true for Command mode entered, false if not (something weird afoot).
 
-boolean WiFlySerial::StartCommandMode(char* pBuffer, const int bufSize) {
+bool WiFlySerial::StartCommandMode(char* pBuffer, const int bufSize) {
   byte iPromptResult = 0;
   char* responseBuffer;
-  boolean bWaiting = true;
+  bool bWaiting = true;
   int nTries = 0;
   
 
@@ -613,9 +613,9 @@ boolean WiFlySerial::StartCommandMode(char* pBuffer, const int bufSize) {
 // Parameters: None
 // Sets global szWiFlyPrompt
 // Returns command prompt on success or empty string on failure
-boolean WiFlySerial::GetCmdPrompt () {
+bool WiFlySerial::GetCmdPrompt () {
  
-  boolean bOk = false;
+  bool bOk = false;
   char responseBuffer[RESPONSE_BUFFER_SIZE];
     
   if ( StartCommandMode(responseBuffer, RESPONSE_BUFFER_SIZE)  ) {
@@ -659,10 +659,10 @@ boolean WiFlySerial::GetCmdPrompt () {
 // bPromptAfterResult true=commands end with a version-prompt, false=version-prompt precedes results.
 //
 // Returns true on SuccessIndicator presence, false if absent.
-boolean WiFlySerial::SendCommand( char *pCmd,  char *SuccessIndicator, char* pResultBuffer, const int bufsize, 
-              const boolean bCollecting, const  unsigned long iWaitTime, const boolean bClear, const boolean bPromptAfterResult) {
+bool WiFlySerial::SendCommand( char *pCmd,  char *SuccessIndicator, char* pResultBuffer, const int bufsize, 
+              const bool bCollecting, const  unsigned long iWaitTime, const bool bClear, const bool bPromptAfterResult) {
   
-  boolean bCommandOK = false;
+  bool bCommandOK = false;
   char ch;
   int iResponse = 0;
   int iTry = 0;
@@ -724,7 +724,7 @@ boolean WiFlySerial::SendCommand( char *pCmd,  char *SuccessIndicator, char* pRe
 }
 
 // convenient and version with own small ignored response buffer.
-boolean WiFlySerial::SendCommandSimple( char* pCommand,  char* pSuccessIndicator) {
+bool WiFlySerial::SendCommandSimple( char* pCommand,  char* pSuccessIndicator) {
  
   char bufResponse[INDICATOR_BUFFER_SIZE];
 
@@ -745,7 +745,7 @@ boolean WiFlySerial::SendCommandSimple( char* pCommand,  char* pSuccessIndicator
 // bufsize        size of the buffer
 //
 // Returns true on command success, false on failure.
-boolean WiFlySerial::SendInquiry( char *Command, char* pBuffer, const int bufsize) {
+bool WiFlySerial::SendInquiry( char *Command, char* pBuffer, const int bufsize) {
 
   return  SendCommand(Command,  szWiFlyPrompt, pBuffer, bufsize, true);
     
@@ -759,10 +759,10 @@ boolean WiFlySerial::SendInquiry( char *Command, char* pBuffer, const int bufsiz
 // Command        The inquiry-command to send
 //
 // Returns true on command success, false on failure.
-boolean WiFlySerial::SendInquirySimple( char *Command ) {
+bool WiFlySerial::SendInquirySimple( char *Command ) {
   char InquiryBuffer[RESPONSE_BUFFER_SIZE];
 
-  boolean bSendInquiry = false;
+  bool bSendInquiry = false;
   bSendInquiry = SendCommand(Command,  szWiFlyPrompt, InquiryBuffer, RESPONSE_BUFFER_SIZE, true);
   // should trim to returned result less ExpectedPrompt
   
@@ -778,7 +778,7 @@ boolean WiFlySerial::SendInquirySimple( char *Command ) {
 // Parameters: 
 // None
 // Returns true on command success, false on failure.
-boolean WiFlySerial::exitCommandMode() {
+bool WiFlySerial::exitCommandMode() {
 
   char szCmd[INDICATOR_BUFFER_SIZE]; // exit command is short
   char szPrompt[INDICATOR_BUFFER_SIZE]; // exit Prompt is short:  EXIT (which looks like 'exit' but in upper case).
@@ -818,9 +818,9 @@ char* WiFlySerial::showNetworkScan( char* pNetScan, const int buflen) {
 // Switching from one to the other requires a reboot of the WiFly.
 // For UDP, set all other settings first (unlike example in manual) ; UDP traffic will start upon WiFly reboot.
 // This version does not attempt to determine current mode. Reboot forced.
-boolean WiFlySerial::setProtocol( unsigned int iProtocol) {
+bool WiFlySerial::setProtocol( unsigned int iProtocol) {
   
-  boolean bOk = false;
+  bool bOk = false;
   unsigned int iMode = 0, iTmp; 
   char bufMode[10];  
   
@@ -869,7 +869,7 @@ boolean WiFlySerial::setProtocol( unsigned int iProtocol) {
 // Opening a connection switches to Data mode from Command mode.
 //
 // Note: Open and Scan each generate a version-prompt BEFORE results, not after.
-boolean WiFlySerial::openConnection(const char* pURL, const unsigned long iWaitTime) {
+bool WiFlySerial::openConnection(const char* pURL, const unsigned long iWaitTime) {
   char bufOpen[INDICATOR_BUFFER_SIZE];
   char bufCommand[COMMAND_BUFFER_SIZE];
   
@@ -914,15 +914,15 @@ boolean WiFlySerial::openConnection(const char* pURL, const unsigned long iWaitT
 //
 // returns true on closure, false on failure to close.
 // 
-boolean WiFlySerial::closeConnection(boolean bSafeClose) {
+bool WiFlySerial::closeConnection(bool bSafeClose) {
   // if a connection is open then close it.
   char chDrain;
   
   if ( bWiFlyConnectionOpen ) {
       // first see if connection is *STILL* open. 
-      boolean bClosed = false;
-      boolean bTrySafeClose = bSafeClose;
-      boolean bDoClose = true;
+      bool bClosed = false;
+      bool bTrySafeClose = bSafeClose;
+      bool bDoClose = true;
       
       // repeat until closed...
       while ( bWiFlyConnectionOpen ) {
@@ -985,11 +985,11 @@ int WiFlySerial::drain() {
 //
 // returns            true on connection, false on internal failure.
 //
-boolean WiFlySerial::serveConnection( const unsigned long reconnectWaitTime )
+bool WiFlySerial::serveConnection( const unsigned long reconnectWaitTime )
 {
   char bufRequest[COMMAND_BUFFER_SIZE];
   int iRequest;
-  boolean bReturn = false;
+  bool bReturn = false;
    
    
   iRequest = ScanForPattern( bufRequest, COMMAND_BUFFER_SIZE, WiFlyFixedPrompts[WIFLY_MSG_OPEN], false,reconnectWaitTime );
@@ -1168,7 +1168,7 @@ long WiFlySerial::getDeviceStatus() {
 // None. 
 // Returns true on success, false on failure.
 // 
-boolean WiFlySerial::isTCPConnected() { 
+bool WiFlySerial::isTCPConnected() { 
   
   if ( (fStatus & 0x8000) == 0 ) {
     
@@ -1191,7 +1191,7 @@ boolean WiFlySerial::isTCPConnected() {
 // None. 
 // Returns true on success, false on failure.
 // 
-boolean WiFlySerial::isAssociated() {
+bool WiFlySerial::isAssociated() {
   
   if ( (fStatus & 0x8000) == 0 ) {
     
@@ -1213,7 +1213,7 @@ boolean WiFlySerial::isAssociated() {
 // Parameters
 // None. 
 // 
-boolean WiFlySerial::isAuthenticated() {
+bool WiFlySerial::isAuthenticated() {
   
   if ( (fStatus & 0x8000) == 0 ) {
     
@@ -1235,7 +1235,7 @@ boolean WiFlySerial::isAuthenticated() {
 // Parameters
 // None. 
 // 
-boolean WiFlySerial::isDNSfound() {
+bool WiFlySerial::isDNSfound() {
   
   if ( (fStatus & 0x8000) == 0 ) {
     
@@ -1257,7 +1257,7 @@ boolean WiFlySerial::isDNSfound() {
 // Parameters
 // None. 
 // 
-boolean WiFlySerial::isDNScontacted() {
+bool WiFlySerial::isDNScontacted() {
 if ( (fStatus & 0x8000) == 0 ) {
     
     getDeviceStatus();
@@ -1298,7 +1298,7 @@ int WiFlySerial::getChannel() {
 // Parameters
 // None. 
 // 
-boolean WiFlySerial::isInCommandMode() {
+bool WiFlySerial::isInCommandMode() {
   
   return  bWiFlyInCommandMode;
 
@@ -1313,7 +1313,7 @@ boolean WiFlySerial::isInCommandMode() {
 // Parameters
 // None. 
 // 
-boolean WiFlySerial::isConnectionOpen() {
+bool WiFlySerial::isConnectionOpen() {
   
   return  bWiFlyConnectionOpen;
 
@@ -1422,8 +1422,8 @@ char* WiFlySerial::getLibraryVersion(char* pbuf, int buflen) {
 //
 // Parameters: None
 // Returns:  IP netmask, or empty string on failure.
-boolean WiFlySerial::isifUp() {
-  boolean bReturn = false;
+bool WiFlySerial::isifUp() {
+  bool bReturn = false;
   char buf[COMMAND_BUFFER_SIZE];
   
   ExtractDetailIdx( STI_WIFLYDEVICE_GET_IP_DETAILS, buf, COMMAND_BUFFER_SIZE, STI_WIFLYDEVICE_GET_IP_UP_IND, STI_WIFLYDEVICE_RETURN ) ;
@@ -1449,7 +1449,7 @@ boolean WiFlySerial::isifUp() {
 char* WiFlySerial::ExtractLineFromBuffer(const int idString,  char* pBuffer, const int bufsize, const char* pStartPattern, const char* pTerminator) {
   char* pStart;
   char* pTerm;
-  boolean bOk = false;
+  bool bOk = false;
   char szCommand[SMALL_COMMAND_BUFFER_SIZE];
   char* pResponse = pBuffer;
    
@@ -1485,9 +1485,9 @@ char* WiFlySerial::ExtractLineFromBuffer(const int idString,  char* pBuffer, con
 // Parameters: 
 //
 // Returns true on command success, false on failure.
-boolean WiFlySerial::leave() {
+bool WiFlySerial::leave() {
 
-  boolean bSendLeave = false;
+  bool bSendLeave = false;
   char szCmd[COMMAND_BUFFER_SIZE];
   char szReply[INDICATOR_BUFFER_SIZE];
   
@@ -1501,14 +1501,14 @@ boolean WiFlySerial::leave() {
     
 }
 
-boolean WiFlySerial::setSSID( const char* pSSID){
+bool WiFlySerial::setSSID( const char* pSSID){
 
   return issueSetting( STI_WIFLYDEVICE_SET_SSID, pSSID );
 
 }
 
 
-boolean WiFlySerial::setPassphrase( const char* pPassphrase) {
+bool WiFlySerial::setPassphrase( const char* pPassphrase) {
  
   return issueSetting( STI_WIFLYDEVICE_SET_PASSPHRASE, pPassphrase );
 
@@ -1516,14 +1516,14 @@ boolean WiFlySerial::setPassphrase( const char* pPassphrase) {
 
 
 // Sets NTP server address
-boolean WiFlySerial::setNTP(const char* pNTP) {
+bool WiFlySerial::setNTP(const char* pNTP) {
   
   return issueSetting( STI_WIFLYDEVICE_SET_NTP, pNTP );
   
  }
 
 // Sets frequency for NTP updates
-boolean WiFlySerial::setNTP_Update_Frequency(const char* pNTP_Update) {
+bool WiFlySerial::setNTP_Update_Frequency(const char* pNTP_Update) {
   
   return issueSetting( STI_WIFLYDEVICE_SET_NTP_ENABLE, pNTP_Update );
 }
@@ -1533,12 +1533,12 @@ boolean WiFlySerial::setNTP_Update_Frequency(const char* pNTP_Update) {
 // fltUTC_Offset_Hours  Number of hours from UTC  (e.g. PST = -8 )
 // Setting is used during setTime().
 // returns true always.
-boolean WiFlySerial::setNTP_UTC_Offset(float fltUTC_Offset_hours) {
+bool WiFlySerial::setNTP_UTC_Offset(float fltUTC_Offset_hours) {
 	lUTC_Offset_seconds = (long) (fltUTC_Offset_hours * 60 * 60);
 	return true;
 }
 // Sets WiFly DNS name
-boolean WiFlySerial::setDeviceID( const char* pDeviceID) {
+bool WiFlySerial::setDeviceID( const char* pDeviceID) {
  
   return issueSetting( STI_WIFLYDEVICE_SET_DEVICEID, pDeviceID );
 
@@ -1552,7 +1552,7 @@ boolean WiFlySerial::setDeviceID( const char* pDeviceID) {
 //               Command and parameter must be less than COMMAND_BUFFER_SIZE
 //
 // Returns - true on Command success, false on fail.
-boolean WiFlySerial::issueSetting( int idxCommand, const char* pParam) {
+bool WiFlySerial::issueSetting( int idxCommand, const char* pParam) {
  
   char szReply[INDICATOR_BUFFER_SIZE];
 //  char szIndicator[INDICATOR_BUFFER_SIZE];
@@ -1567,7 +1567,7 @@ boolean WiFlySerial::issueSetting( int idxCommand, const char* pParam) {
 // SetUseDCHP
 // Sets DHCP to requested mode 
 
-boolean WiFlySerial::setDHCPMode(const int iDHCPMode) {
+bool WiFlySerial::setDHCPMode(const int iDHCPMode) {
   char bufMode[10];
   
   itoa( iDHCPMode, bufMode, 10);
@@ -1579,7 +1579,7 @@ boolean WiFlySerial::setDHCPMode(const int iDHCPMode) {
 // Sets static IP address
 // Parameters:
 // pIP      null-terminated character string of the IP address e.g. '192.168.1.3'
-boolean WiFlySerial::setIP( const char* pIP) {
+bool WiFlySerial::setIP( const char* pIP) {
 
   return issueSetting( STI_WIFLYDEVICE_SET_IP, pIP );
 }
@@ -1588,7 +1588,7 @@ boolean WiFlySerial::setIP( const char* pIP) {
 // Sets static IP netmask
 // Parameters:
 // pNM      null-terminated character string of the netmask e.g. '255.255.255.0'
-boolean WiFlySerial::setNetMask( const char* pNM) {
+bool WiFlySerial::setNetMask( const char* pNM) {
 
   return issueSetting( STI_WIFLYDEVICE_SET_NETMASK, pNM );
 }
@@ -1597,7 +1597,7 @@ boolean WiFlySerial::setNetMask( const char* pNM) {
 // Sets static Gateway address
 // Parameters:
 // pGW      null-terminated character string of the Gateway address e.g. '192.168.1.254'
-boolean WiFlySerial::setGateway( const char* pGW) {
+bool WiFlySerial::setGateway( const char* pGW) {
 
   return issueSetting( STI_WIFLYDEVICE_SET_GATEWAY, pGW );
 }
@@ -1606,7 +1606,7 @@ boolean WiFlySerial::setGateway( const char* pGW) {
 // Sets static DNS address
 // Parameters:
 // pDNS      null-terminated character string of the DNS address e.g. '192.168.1.1'
-boolean WiFlySerial::setDNS( const char* pDNS) {
+bool WiFlySerial::setDNS( const char* pDNS) {
 
   return issueSetting( STI_WIFLYDEVICE_SET_DNS, pDNS );
 }
@@ -1615,7 +1615,7 @@ boolean WiFlySerial::setDNS( const char* pDNS) {
 // Sets wifi Channel 
 // Parameters:
 // pChannel      null-terminated character string of the channel e.g. '6'
-boolean WiFlySerial::setChannel( const char* pChannel) {
+bool WiFlySerial::setChannel( const char* pChannel) {
   
 
   return issueSetting( STI_WIFLYDEVICE_SET_CHANNEL, pChannel );
@@ -1625,7 +1625,7 @@ boolean WiFlySerial::setChannel( const char* pChannel) {
 // Sets wifi Authentication mode 
 // Parameters:
 // iAuthMode      Authentication mode of type WIFLY_AUTH_XXXX
-boolean WiFlySerial::setAuthMode( int iAuthMode) {
+bool WiFlySerial::setAuthMode( int iAuthMode) {
   char bufMode[10];
   
   itoa( iAuthMode, bufMode, 10);
@@ -1637,7 +1637,7 @@ boolean WiFlySerial::setAuthMode( int iAuthMode) {
 // Parameters:
 // iJoinMode     join mode of type WIFLY_JOIN_XXXXXX
 
-boolean WiFlySerial::setJoinMode( int iJoinMode) {
+bool WiFlySerial::setJoinMode( int iJoinMode) {
   char bufMode[10];
   
   itoa( iJoinMode, bufMode, 10);
@@ -1649,7 +1649,7 @@ boolean WiFlySerial::setJoinMode( int iJoinMode) {
 // Parameters:
 // iLocalPort    Port to listen to.
 
-boolean WiFlySerial::setLocalPort( int iNewLocalPort) {
+bool WiFlySerial::setLocalPort( int iNewLocalPort) {
   char bufPort[10];
   
   itoa( iNewLocalPort, bufPort, 10);
@@ -1662,7 +1662,7 @@ boolean WiFlySerial::setLocalPort( int iNewLocalPort) {
 // Parameters:
 // iRemotePort    Port to contact on remote server.
 
-boolean WiFlySerial::setRemotePort( int iNewRemotePort) {
+bool WiFlySerial::setRemotePort( int iNewRemotePort) {
   char bufPort[10];
   
   itoa( iNewRemotePort, bufPort, 10);
@@ -1695,7 +1695,7 @@ void WiFlySerial::reboot() {
 // Joins a network with previously supplied setSSID and passphrase.
 //
 // returns true on success, false on failure
-boolean WiFlySerial::join() {
+bool WiFlySerial::join() {
 
   char szSSID[COMMAND_BUFFER_SIZE];
   getSSID( szSSID, COMMAND_BUFFER_SIZE );
@@ -1708,9 +1708,9 @@ boolean WiFlySerial::join() {
 //
 // returns true on success, false on failure.
 // Todo: support spaces in passphrase.
-boolean WiFlySerial::join(char* pSSID) {
+bool WiFlySerial::join(char* pSSID) {
 
-  boolean bJoined = false;
+  bool bJoined = false;
   char szCmd[COMMAND_BUFFER_SIZE];
   setSSID(pSSID);
   GetBuffer_P(STI_WIFLYDEVICE_INDEX_JOIN, szCmd, COMMAND_BUFFER_SIZE);

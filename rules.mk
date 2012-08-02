@@ -37,7 +37,7 @@ CFLAGS_$(d) += -I$(EXAMPLE_INCLUDE_DIR)
 # CXXFLAGS_$(d) are extra flags passed to the C++ compiler. We'll need
 # our include directory, and we'll also add an extra definition as a
 # demo (look in getter.cpp for how it's used).
-CXXFLAGS_$(d) := -DMY_MAGIC_NUMBER=0x1eaf1ab5 -I$(EXAMPLE_INCLUDE_DIR) $(WIFLY_INCLUDES) $(MAPLESD_INCLUDES) $(TINYWS_INCLUDES)
+CXXFLAGS_$(d) := -DMY_MAGIC_NUMBER=0x1eaf1ab5 -I$(EXAMPLE_INCLUDE_DIR) $(WIFLY_INCLUDES) $(WIFLYSERIAL_INCLUDES) $(MAPLESD_INCLUDES) $(TINYWS_INCLUDES)
 
 # ASFLAGS_$(d) are extra flags passed to the assembler. We don't
 # have any assembly language files in this example, so we'll just

@@ -72,6 +72,8 @@ Copyright GPL 2.0 Tom Waldock 2011
 #define WIFLY_DEFAULT_LOCAL_PORT 2000
 #define WIFLY_DEFAULT_BAUD_RATE 9600
 
+#define SOFTWARE_REBOOT_RETRY_ATTEMPTS 5
+
 #define COMMAND_MODE_GUARD_TIME     300 // in milliseconds.  Must be at least 250ms.
 #define DEFAULT_WAIT_TIME           1000UL  // waiting time for a command
 #define ATTN_WAIT_TIME              1000UL  // waiting time for a reponse after a $$$ attention signal
@@ -144,199 +146,9 @@ Copyright GPL 2.0 Tom Waldock 2011
 // WiFly-specific prompt codes
 static char* WiFlyFixedPrompts[N_PROMPTS] = { "","AOK", "CMD", "ERR: ?", "",">","*CLOS*","*OPEN*","ERR:Connected" };
 static byte  WiFlyFixedFlags[N_PROMPTS] = {PROMPT_EXPECTED_TOKEN_FOUND, PROMPT_AOK, PROMPT_CMD_MODE, PROMPT_CMD_ERR, PROMPT_READY,      PROMPT_READY,PROMPT_CLOSE, PROMPT_OPEN, PROMPT_OPEN_ALREADY};
+char * itoa( int value, char* result, int base );
 
 
-
-
-// Strings stored in Program space
-const char  s_WIFLYDEVICE_LIBRARY_VERSION[] __FLASH__ = "WiFlySerial v1.08" ;
-const char  s_WIFLYDEVICE_JOIN[] __FLASH__ = "join " ;
-const char  s_WIFLYDEVICE_OPEN[] __FLASH__ = "open " ;
-const char  s_WIFLYDEVICE_CLOSE[] __FLASH__ = "close" ;
-const char  s_WIFLYDEVICE_ASSOCIATED[] __FLASH__ = "ssociated" ;
-const char  s_WIFLYDEVICE_ATTN[] __FLASH__ = "$$$";
-const char  s_WIFLYDEVICE_VER[] __FLASH__ = "ver" ;
-const char  s_WIFLYDEVICE_LEAVE_CMD_MODE[] __FLASH__ ="exit";
-const char  s_WIFLYDEVICE_REBOOT[] __FLASH__ ="reboot";
-const char  s_WIFLYDEVICE_SAVE[] __FLASH__ ="save";
-const char  s_WIFLYDEVICE_GET_MAC[] __FLASH__ =" get mac";
-const char  s_WIFLYDEVICE_GET_MAC_ADDR[] __FLASH__ ="Addr=";
-const char  s_WIFLYDEVICE_GET_IP[] __FLASH__ =" get ip";
-const char  s_WIFLYDEVICE_GET_GW[] __FLASH__ = " "; // "GW=";
-const char  s_WIFLYDEVICE_GET_NM[] __FLASH__ = " "; // "NM=";
-const char  s_WIFLYDEVICE_LEAVE[] __FLASH__ ="leave";
-const char  s_WIFLYDEVICE_SET_SSID[] __FLASH__ =" set wlan s ";
-const char  s_WIFLYDEVICE_SET_CHANNEL[] __FLASH__ =" set wlan c ";
-const char  s_WIFLYDEVICE_SET_WIFI_AUTH[] __FLASH__ =" set wlan a ";
-const char  s_WIFLYDEVICE_SET_WIFI_JOIN[] __FLASH__ =" set wlan j ";
-const char  s_WIFLYDEVICE_SET_PASSPHRASE[] __FLASH__ =" set w p ";
-const char  s_WIFLYDEVICE_NETWORK_SCAN[] __FLASH__ ="scan ";
-const char  s_WIFLYDEVICE_AOK[] __FLASH__ ="";
-const char  s_WIFLYDEVICE_SET_UART_BAUD[] __FLASH__ ="set u b 9600 ";
-const char  s_WIFLYDEVICE_DEAUTH[] __FLASH__ ="Deauth";
-const char  s_WIFLYDEVICE_SET_NTP[] __FLASH__ =" set time a ";
-const char  s_WIFLYDEVICE_SET_NTP_ENABLE[] __FLASH__ ="set time e ";
-const char  s_WIFLYDEVICE_SET_DEVICEID[] __FLASH__ ="set opt deviceid ";
-const char  s_WIFLYDEVICE_IP_DETAILS[] __FLASH__ ="get ip";
-const char  s_WIFLYDEVICE_GET_DNS_DETAILS[] __FLASH__ ="get dns";
-const char  s_WIFLYDEVICE_GET_TIME[] __FLASH__ ="show t t";
-const char  s_WIFLYDEVICE_SET_DHCP[] __FLASH__ ="set ip dhcp ";
-const char  s_WIFLYDEVICE_SET_IP[] __FLASH__ ="set ip a ";
-const char  s_WIFLYDEVICE_SET_NETMASK[] __FLASH__ ="set ip n ";
-const char  s_WIFLYDEVICE_SET_GATEWAY[] __FLASH__ ="set ip g ";
-const char  s_WIFLYDEVICE_SET_DNS[] __FLASH__ ="set dns addr ";
-const char  s_WIFLYDEVICE_SET_LOCAL_PORT[] __FLASH__ ="set ip local ";
-const char  s_WIFLYDEVICE_SET_REMOTE_PORT[] __FLASH__ ="set ip remote  ";
-const char  s_WIFLYDEVICE_SET_PROTOCOL[] __FLASH__ ="set ip proto ";
-const char  s_WIFLYDEVICE_ERR_REBOOOT[] __FLASH__ ="Attempting reboot";
-const char  s_WIFLYDEVICE_ERR_START_FAIL[] __FLASH__ ="Failed to get cmd prompt:Halted.";
-const char  s_WIFLYDEVICE_SET_UART_MODE[] __FLASH__ ="set u m 1 ";
-const char  s_WIFLYDEVICE_GET_WLAN[] __FLASH__ ="get wlan ";
-const char  s_WIFLYDEVICE_GET_RSSI[] __FLASH__ ="show rssi ";
-const char  s_WIFLYDEVICE_GET_BATTERY[] __FLASH__ ="show batt ";
-const char  s_WIFLYDEVICE_GET_STATUS[] __FLASH__ ="show conn ";
-const char  s_WIFLYDEVICE_RETURN[] __FLASH__ ="\r";
-
-const char  s_WIFLYDEVICE_GET_IP_IND[] __FLASH__ ="IP=";
-const char  s_WIFLYDEVICE_GET_NM_IND[] __FLASH__ ="NM=";
-const char  s_WIFLYDEVICE_GET_GW_IND[] __FLASH__ ="GW=";
-const char  s_WIFLYDEVICE_GET_DNS_IND[] __FLASH__ ="DNS=";
-const char  s_WIFLYDEVICE_GET_WLAN_SSID_IND[] __FLASH__ ="SSID=";
-const char  s_WIFLYDEVICE_GET_RSSI_IND[] __FLASH__ ="RSSI=";
-const char  s_WIFLYDEVICE_GET_WLAN_DEV_IND[] __FLASH__ ="DeviceID=";
-const char  s_WIFLYDEVICE_GET_BATTERY_IND[] __FLASH__ ="Batt=";
-const char  s_WIFLYDEVICE_GET_TIME_IND[] __FLASH__ ="RTC=";
-const char  s_WIFLYDEVICE_GET_STATUS_IND[] __FLASH__ ="8";
-const char  s_WIFLYDEVICE_GET_IP_UP_IND[] __FLASH__ ="F=";
-
-// Index of strings
-#define STI_WIFLYDEVICE_INDEX_JOIN        0
-#define STI_WIFLYDEVICE_INDEX_ASSOCIATED  1
-#define STI_WIFLYDEVICE_ATTN              2
-#define STI_WIFLYDEVICE_VER               3
-#define STI_WIFLYDEVICE_GET_MAC           4
-#define STI_WIFLYDEVICE_GET_IP            5
-#define STI_WIFLYDEVICE_GET_GW            6
-#define STI_WIFLYDEVICE_GET_NM            7
-#define STI_WIFLYDEVICE_LEAVE             8
-#define STI_WIFLYDEVICE_SET_SSID          9
-#define STI_WIFLYDEVICE_SET_PASSPHRASE    10
-#define STI_WIFLYDEVICE_NETWORK_SCAN      11
-#define STI_WIFLYDEVICE_AOK               12
-#define STI_WIFLYDEVICE_SET_UART_BAUD     13
-#define STI_WIFLYDEVICE_DEAUTH            14
-#define STI_WIFLYDEVICE_SET_NTP           15
-#define STI_WIFLYDEVICE_SET_NTP_ENABLE    16
-#define STI_WIFLYDEVICE_SET_DEVICEID      17
-#define STI_WIFLYDEVICE_GET_IP_DETAILS    18
-#define STI_WIFLYDEVICE_LEAVE_CMD_MODE    19
-#define STI_WIFLYDEVICE_GET_DNS_DETAILS   20
-#define STI_WIFLYDEVICE_GET_TIME          21
-#define STI_WIFLYDEVICE_SET_DHCP          22
-#define STI_WIFLYDEVICE_SET_IP            23
-#define STI_WIFLYDEVICE_SET_NETMASK       24
-#define STI_WIFLYDEVICE_SET_GATEWAY       25
-#define STI_WIFLYDEVICE_SET_DNS           26
-#define STI_WIFLYDEVICE_ERR_REBOOT        27
-#define STI_WIFLYDEVICE_ERR_START_FAIL    28
-#define STI_WIFLYDEVICE_SET_UART_MODE     29
-#define STI_WIFLYDEVICE_GET_WLAN          30
-#define STI_WIFLYDEVICE_GET_RSSI          31
-#define STI_WIFLYDEVICE_GET_BATTERY       32
-#define STI_WIFLYDEVICE_LIBRARY_VERSION   33
-#define STI_WIFLYDEVICE_SET_CHANNEL       34
-#define STI_WIFLYDEVICE_SET_WIFI_AUTH     35
-#define STI_WIFLYDEVICE_SET_WIFI_JOIN     36
-#define STI_WIFLYDEVICE_GET_STATUS        37
-#define STI_WIFLYDEVICE_GET_MAC_ADDR      38
-#define STI_WIFLYDEVICE_RETURN            39
-#define STI_WIFLYDEVICE_GET_IP_IND        40
-#define STI_WIFLYDEVICE_GET_NM_IND        41
-#define STI_WIFLYDEVICE_GET_GW_IND        42
-#define STI_WIFLYDEVICE_GET_DNS_IND       43
-#define STI_WIFLYDEVICE_GET_WLAN_SSID_IND 44
-#define STI_WIFLYDEVICE_GET_RSSI_IND      45
-#define STI_WIFLYDEVICE_GET_BATTERY_IND   46
-#define STI_WIFLYDEVICE_GET_WLAN_DEV_IND  47
-#define STI_WIFLYDEVICE_GET_TIME_IND      48
-#define STI_WIFLYDEVICE_GET_STATUS_IND    49
-#define STI_WIFLYDEVICE_GET_IP_UP_IND     50
-#define STI_WIFLYDEVICE_OPEN              51
-#define STI_WIFLYDEVICE_REBOOT            52
-#define STI_WIFLYDEVICE_CLOSE             53
-#define STI_WIFLYDEVICE_SET_LOCAL_PORT    54
-#define STI_WIFLYDEVICE_SET_REMOTE_PORT   55
-#define STI_WIFLYDEVICE_SET_PROTOCOL      56
-#define STI_WIFLYDEVICE_SAVE              57
-
-// String Table in Program space
-const char * WiFlyDevice_string_table[] =
-{
-  // 0-based index, see STI_WIFLY_DEVICE_ list above.
-  s_WIFLYDEVICE_JOIN,
-  s_WIFLYDEVICE_ASSOCIATED,
-  s_WIFLYDEVICE_ATTN,
-  s_WIFLYDEVICE_VER,
-  s_WIFLYDEVICE_GET_MAC,
-  s_WIFLYDEVICE_GET_IP,
-  s_WIFLYDEVICE_GET_GW,
-  s_WIFLYDEVICE_GET_NM,
-  s_WIFLYDEVICE_LEAVE,
-  s_WIFLYDEVICE_SET_SSID,
-  // 10 follows
-  s_WIFLYDEVICE_SET_PASSPHRASE,
-  s_WIFLYDEVICE_NETWORK_SCAN,
-  s_WIFLYDEVICE_AOK,
-  s_WIFLYDEVICE_SET_UART_BAUD,
-  s_WIFLYDEVICE_DEAUTH,
-  s_WIFLYDEVICE_SET_NTP,
-  s_WIFLYDEVICE_SET_NTP_ENABLE,
-  s_WIFLYDEVICE_SET_DEVICEID,
-  s_WIFLYDEVICE_IP_DETAILS,
-  s_WIFLYDEVICE_LEAVE_CMD_MODE,
-  // 20 follows
-  s_WIFLYDEVICE_GET_DNS_DETAILS,
-  s_WIFLYDEVICE_GET_TIME,
-  s_WIFLYDEVICE_SET_DHCP,
-  s_WIFLYDEVICE_SET_IP,
-  s_WIFLYDEVICE_SET_NETMASK,
-  s_WIFLYDEVICE_SET_GATEWAY,
-  s_WIFLYDEVICE_SET_DNS,
-  s_WIFLYDEVICE_ERR_REBOOOT,
-  s_WIFLYDEVICE_ERR_START_FAIL,
-  s_WIFLYDEVICE_SET_UART_MODE,
-  // 30 follows
-  s_WIFLYDEVICE_GET_WLAN,
-  s_WIFLYDEVICE_GET_RSSI,
-  s_WIFLYDEVICE_GET_BATTERY,
-  s_WIFLYDEVICE_LIBRARY_VERSION,
-  s_WIFLYDEVICE_SET_CHANNEL,
-  s_WIFLYDEVICE_SET_WIFI_AUTH,
-  s_WIFLYDEVICE_SET_WIFI_JOIN,
-  s_WIFLYDEVICE_GET_STATUS,
-  s_WIFLYDEVICE_GET_MAC_ADDR,
-  s_WIFLYDEVICE_RETURN,
-  // 40 follows
-  s_WIFLYDEVICE_GET_IP_IND,
-  s_WIFLYDEVICE_GET_NM_IND,
-  s_WIFLYDEVICE_GET_GW_IND,
-  s_WIFLYDEVICE_GET_DNS_IND,
-  s_WIFLYDEVICE_GET_WLAN_SSID_IND,
-  s_WIFLYDEVICE_GET_RSSI_IND,
-  s_WIFLYDEVICE_GET_BATTERY_IND,
-  s_WIFLYDEVICE_GET_WLAN_DEV_IND,
-  s_WIFLYDEVICE_GET_TIME_IND,
-  s_WIFLYDEVICE_GET_STATUS_IND,
-  // 50 follows
-  s_WIFLYDEVICE_GET_IP_UP_IND,
-  s_WIFLYDEVICE_OPEN,
-  s_WIFLYDEVICE_REBOOT,
-  s_WIFLYDEVICE_CLOSE,
-  s_WIFLYDEVICE_SET_LOCAL_PORT,
-  s_WIFLYDEVICE_SET_REMOTE_PORT,
-  s_WIFLYDEVICE_SET_PROTOCOL,
-  s_WIFLYDEVICE_SAVE
-};
 
 // Utility functions
 //char* IP_ArrayToBuffer( const uint8_t* pIP, char* pBuffer, int buflen);
@@ -344,107 +156,104 @@ const char * WiFlyDevice_string_table[] =
 
 
 
-class WiFlySerial : public Print {
-  public:
+class WiFlySerial {
+public:
     // Constructors
     WiFlySerial();
-
+    
     // Destructor
-
+    
     // Initialization
     bool begin(SpiUartDevice * TheSpi);  // Initialises this interface Class.
-
+    
     // // Status
     //
     //  // Obtain current device status flags
-    //  long    getDeviceStatus();  // refreshes device status flags.
-    //  bool isAssociated();
-    //  bool isTCPConnected();
-    //  bool isAuthenticated();
-    //  bool isifUp();
-    //  int     getChannel();
-    //  bool isDNSfound();
-    //  bool isDNScontacted();
-    //  bool isInCommandMode();
-    //  bool isConnectionOpen();
+    long    getDeviceStatus();  // refreshes device status flags.
+    bool isAssociated();
+    bool isTCPConnected();
+    bool isAuthenticated();
+    bool isifUp();
+    int     getChannel();
+    bool isDNSfound();
+    bool isDNScontacted();
+    bool isInCommandMode();
+    bool isConnectionOpen();
     //
     //  // Information
     //  // Device Info
-    //  char* showNetworkScan( char* pNetScan, const int buflen);
-    //  char* getLibraryVersion(char* buf, int buflen);
+    char* showNetworkScan( char* pNetScan, const int buflen);
     //
     //  // IP info
-    //  char* getSSID(char* buf, int buflen);
-    //  char* getDeviceID(char* buf, int buflen);
-    //  char* getIP(char* buf, int buflen);
-    //  char* getNetMask(char* buf, int buflen);
-    //  char* getGateway(char* buf, int buflen);
-    //  char* getDNS(char* buf, int buflen);
-    //  char* getMAC(char* buf, int buflen);
-    //  char* getNTP(char* buf, int buflen);
-    //  char* getNTP_Update_Frequency(char* buf, int buflen);
-    //  unsigned long getTime();
-    //  char* getRSSI(char* pBuf, int buflen);
-    //  char* getBattery(char* pBuf, int buflen);
+    char* getSSID(char* buf, int buflen);
+    char* getDeviceID(char* buf, int buflen);
+    char* getIP(char* buf, int buflen);
+    char* getNetMask(char* buf, int buflen);
+    char* getGateway(char* buf, int buflen);
+    char* getDNS(char* buf, int buflen);
+    char* getMAC(char* buf, int buflen);
+    char* getNTP(char* buf, int buflen);
+    char* getNTP_Update_Frequency(char* buf, int buflen);
+    unsigned long getTime();
+    char* getRSSI(char* pBuf, int buflen);
+    char* getBattery(char* pBuf, int buflen);
     //
-    //  // Transmit / Receive / available through exposed SoftwareSerial
-    //  SoftwareSerial uart;
     //
     //  // Configuration Generic Wifi methods
     //
     //  // Generic Wifi methods
-    //  bool setSSID( const char* pSSID);
-    //  bool setPassphrase( const char* pPassphrase);
-    //  bool setDeviceID( const char* pHostname);
-    //  bool setNTP(const char* pNTP_IP);
-    //  bool setNTP_Update_Frequency(const char* pFreq);
-    //  bool setNTP_UTC_Offset(float fltUTC_Offset_hours);
-    //  bool setIP( const char* pIP);
-    //  bool setNetMask( const char* pNM);
-    //  bool setGateway( const char* pGW);
-    //  bool setDNS( const char* pDNS);
-    //  bool setChannel( const char* pChannel);
-    //  bool setLocalPort( int iNewLocalPort = WIFLY_DEFAULT_LOCAL_PORT);
-    //  bool setRemotePort( int iNewRemotePort = WIFLY_DEFAULT_REMOTE_PORT);
-    //  bool setProtocol( unsigned int iProtocol);
-    //  bool setAuthMode( int iAuthMode);
-    //  bool setJoinMode( int iJoinMode);
-    //  bool setDHCPMode(const int iModeDHCP);
+    bool setSSID( const char* pSSID);
+    bool setPassphrase( const char* pPassphrase);
+    bool setDeviceID( const char* pHostname);
+    bool setNTP(const char* pNTP_IP);
+    bool setNTP_Update_Frequency(const char* pFreq);
+    bool setNTP_UTC_Offset(float fltUTC_Offset_hours);
+    bool setIP( const char* pIP);
+    bool setNetMask( const char* pNM);
+    bool setGateway( const char* pGW);
+    bool setDNS( const char* pDNS);
+    bool setChannel( const char* pChannel);
+    bool setLocalPort( int iNewLocalPort = WIFLY_DEFAULT_LOCAL_PORT);
+    bool setRemotePort( int iNewRemotePort = WIFLY_DEFAULT_REMOTE_PORT);
+    bool setProtocol( unsigned int iProtocol);
+    bool setAuthMode( int iAuthMode);
+    bool setJoinMode( int iJoinMode);
+    bool setDHCPMode(const int iModeDHCP);
     //
     //  // wifi network Association
     //
     //  // Joins ssid set with setSSID
-    //  bool join();
-    //  bool join( char* pSSID);
+    bool join();
+    bool join( char* pSSID);
     //
     //  // Leaves current SSID.
-    //  bool leave();
+    bool leave();
     //
     //  // Generic utility
-        bool StartCommandMode(char* pBuffer = NULL, const int bufSize = COMMAND_BUFFER_SIZE );
-    //  bool exitCommandMode();
+    bool StartCommandMode(char* pBuffer = NULL, const int bufSize = COMMAND_BUFFER_SIZE );
+    bool exitCommandMode();
     //  void    reboot();
     //
     //  // Client Connection
-    //  bool openConnection(const char* pURL, const unsigned long WaitTime = JOIN_WAIT_TIME  );
-    //  bool closeConnection(bool bSafeClose = true);
+    bool openConnection(const char* pURL, const unsigned long WaitTime = JOIN_WAIT_TIME  );
+    bool closeConnection(bool bSafeClose = true);
     //
     //  // Server Connection - waits for a client to connect
-    //  bool serveConnection(  const unsigned long reconnectWaitTIme = SERVING_WAIT_TIME );
+    bool serveConnection(  const unsigned long reconnectWaitTIme = SERVING_WAIT_TIME );
     //
     //  // Open-format for RN 131C/G commands
-    //  bool SendInquiry(char *Command, char* pBuffer, const int bufsize = RESPONSE_BUFFER_SIZE );
-    //  bool SendInquirySimple(char *Command);
-    //  bool SendCommand( char *Command,   char *SuccessIndicator, char* pBuffer, const int bufsize,
-    //              const bool bCollecting = true, const unsigned long WaitTime = DEFAULT_WAIT_TIME ,
-    //              const bool bClear = true, const bool bPromptAfterResult = true );
-    //  bool SendCommandSimple( char *Command,   char *SuccessIndicator);
+    bool SendInquiry(char *Command, char* pBuffer, const int bufsize = RESPONSE_BUFFER_SIZE );
+    bool SendInquirySimple(char *Command);
+    bool SendCommand(const char *Command, const char *SuccessIndicator, char* pBuffer, const int bufsize,
+                     const bool bCollecting = true, const unsigned long WaitTime = DEFAULT_WAIT_TIME ,
+                     const bool bClear = true, const bool bPromptAfterResult = true );
+    //	bool SendCommandSimple( char *Command,   char *SuccessIndicator);
     //
     //  // utilities for collecting results or scanning for indicators.
-     int     ScanForPattern( char* responseBuffer, const int bufsize, const char *pExpectedPrompt,
-                  const bool bCapturing = true, const unsigned long WaitTime = DEFAULT_WAIT_TIME, const bool bPromptAfterResult = true   );
-    //  char*   ExtractDetail(char* pCommand, char* pDetail, const int buflen, const char* pFrom, const char* pTo);
-    //  char*   ExtractDetailIdx(const int idxCommand, char* pDetail, int buflen, const int idxSearch, const int idxStop);
+    int     ScanForPattern( char* responseBuffer, const int bufsize, const char *pExpectedPrompt,
+                           const bool bCapturing = true, const unsigned long WaitTime = DEFAULT_WAIT_TIME, const bool bPromptAfterResult = true   );
+    char*   ExtractDetail(const char* pCommand, char* pDetail, const int buflen, const char* pFrom, const char* pTo);
+    char*   ExtractDetailIdx(const int idxCommand, char* pDetail, int buflen, const int idxSearch, const int idxStop);
     //  int     CaptureUntilPrompt( char* responseBuffer, const int bufsize, const char *pExpectedPrompt, const unsigned long WaitTime = DEFAULT_WAIT_TIME  );
     //
     //  int peek();
@@ -453,7 +262,7 @@ class WiFlySerial : public Print {
     //  virtual int available();
     //  virtual void flush();
     //
-    //  int drain ();
+    int drain ();
     //
     //  using Print::write;
     //
@@ -465,33 +274,33 @@ class WiFlySerial : public Print {
     //  void    DebugPrint( const char* pMessage);
     //  void    DebugPrint( const int iNumber);
     //  void    DebugPrint( const char ch);
-
-    private:
-        SpiUartDevice * uart;
-        // internal buffer for command-prompt
-        char    szWiFlyPrompt[INDICATOR_BUFFER_SIZE ];
-
-        // Internal status flags
-        long    fStatus;
-        bool bWiFlyInCommandMode;
-        bool bWiFlyConnectionOpen;
-        char*   pControl;
-
-        // Ports for connections
-        int     iRemotePort;
-        int     iLocalPort;
-        long    lUTC_Offset_seconds;
-
-
-        // bool GetCmdPrompt();
-        char*   GetBuffer_P(const int StringIndex, char* pBuffer, int bufSize);
-        //      char*   ExtractLineFromBuffer(const int idString,  char* pBuffer, const int bufsize, const char* pStartPattern, const char* chTerminator);
-        //      bool issueSetting( int idxCommand, const char* pParam);
-
-        // Internal debug channel.
-       // Print*  pDebugChannel;
-
-
+    
+private:
+    SpiUartDevice * uart;
+    // internal buffer for command-prompt
+    char    szWiFlyPrompt[INDICATOR_BUFFER_SIZE ];
+    
+    // Internal status flags
+    long    fStatus;
+    bool 	bWiFlyInCommandMode;
+    bool	bWiFlyConnectionOpen;
+    char*   pControl;
+    
+    // Ports for connections
+    int     iRemotePort;
+    int     iLocalPort;
+    long    lUTC_Offset_seconds;
+    
+    
+    bool GetCmdPrompt();
+    //char*   GetBuffer_P(const int StringIndex, char* pBuffer, int bufSize);
+    //      char*   ExtractLineFromBuffer(const int idString,  char* pBuffer, const int bufsize, const char* pStartPattern, const char* chTerminator);
+    bool issueSetting( int idxCommand, const char* pParam);
+    
+    // Internal debug channel.
+    // Print*  pDebugChannel;
+    
+    
 };
 
 // static  WiFlySerialv2 wifi ( ARDUINO_RX_PIN, ARDUINO_TX_PIN);

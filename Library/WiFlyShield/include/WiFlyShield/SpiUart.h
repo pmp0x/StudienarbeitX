@@ -66,7 +66,7 @@ class SpiUartDevice : public Print{
 
     uint8 available();
     uint8 read();
-    uint8 bulk_read(uint8 * buf, uint32 size);
+    void bulk_read(uint8 * buf, uint32 size);
 
     void write(byte value);
     void write(const char *str);

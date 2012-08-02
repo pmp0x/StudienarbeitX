@@ -63,7 +63,6 @@
 		2C50610E15C854D3007DAC8A /* SpiUart.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50572415C83094007DAC8A /* SpiUart.h */; };
 		2C50610F15C854EC007DAC8A /* Debug.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056F715C83094007DAC8A /* Debug.h */; };
 		2C50611015C854EC007DAC8A /* WiFlySerial.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056F815C83094007DAC8A /* WiFlySerial.h */; };
-		2C50611115C855BA007DAC8A /* WiFlySerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056FF15C83094007DAC8A /* WiFlySerial.cpp */; };
 		2C50611215C85629007DAC8A /* LiquidCrystal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50600A15C84856007DAC8A /* LiquidCrystal.cpp */; };
 		2C50611315C85629007DAC8A /* Servo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50600F15C84856007DAC8A /* Servo.cpp */; };
 		2C50611415C85629007DAC8A /* HardWire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50601215C84856007DAC8A /* HardWire.cpp */; };
@@ -195,6 +194,7 @@
 		2C50619215C8573E007DAC8A /* usb_type.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FEC15C84856007DAC8A /* usb_type.h */; };
 		2C50619315C8573E007DAC8A /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C505FED15C84856007DAC8A /* util.c */; };
 		2C50619D15C85A4F007DAC8A /* real-main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5055C415C83093007DAC8A /* real-main.cpp */; };
+		2C5B87F115CAE0C900524E9E /* WiFlySerial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056FF15C83094007DAC8A /* WiFlySerial.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -435,7 +435,7 @@
 		2C5056F315C83094007DAC8A /* MemoryFree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryFree.h; sourceTree = "<group>"; };
 		2C5056F415C83094007DAC8A /* WiFly_Test.ino */ = {isa = PBXFileReference; lastKnownFileType = text; path = WiFly_Test.ino; sourceTree = "<group>"; };
 		2C5056F715C83094007DAC8A /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
-		2C5056F815C83094007DAC8A /* WiFlySerial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WiFlySerial.h; sourceTree = "<group>"; };
+		2C5056F815C83094007DAC8A /* WiFlySerial.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = WiFlySerial.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		2C5056F915C83094007DAC8A /* WiFlySerial_old.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WiFlySerial_old.h; sourceTree = "<group>"; };
 		2C5056FA15C83094007DAC8A /* keywords.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = keywords.txt; sourceTree = "<group>"; };
 		2C5056FB15C83094007DAC8A /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -5819,8 +5819,8 @@
 				2C5060F615C85475007DAC8A /* usb_cdcacm.h in Sources */,
 				2C5060F715C85475007DAC8A /* util.h in Sources */,
 				2C5060D015C853FE007DAC8A /* main.cpp in Sources */,
-				2C50611115C855BA007DAC8A /* WiFlySerial.cpp in Sources */,
 				2C50619D15C85A4F007DAC8A /* real-main.cpp in Sources */,
+				2C5B87F115CAE0C900524E9E /* WiFlySerial.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

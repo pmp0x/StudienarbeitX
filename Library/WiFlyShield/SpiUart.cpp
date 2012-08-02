@@ -237,7 +237,7 @@ uint8 SpiUartDevice::read() {
   return readRegister(RHR);
 }
 
-uint8 SpiUartDevice::bulk_read(uint8 * buf, uint32 size){
+void SpiUartDevice::bulk_read(uint8 * buf, uint32 size){
     SPIfoo->transfer(SPI_READ_MODE_FLAG | RHR);
     SPIfoo->read(buf, size);
 }

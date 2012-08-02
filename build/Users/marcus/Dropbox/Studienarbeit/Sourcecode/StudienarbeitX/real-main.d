@@ -38,7 +38,14 @@ build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o:
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareSerial.h \
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/Print.h \
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareTimer.h \
- /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/usb_serial.h
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/usb_serial.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/include/WiFlyShield/SpiUart.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/WProgram.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/wirish.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/include/WiFlyShield/Configuration.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareSPI.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WiFlySerial.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/Debug.h
 
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/include/libmaple/libmaple.h:
 
@@ -117,3 +124,17 @@ build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o:
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareTimer.h:
 
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/usb_serial.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/include/WiFlyShield/SpiUart.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/WProgram.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/wirish.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/include/WiFlyShield/Configuration.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareSPI.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WiFlySerial.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/Debug.h:

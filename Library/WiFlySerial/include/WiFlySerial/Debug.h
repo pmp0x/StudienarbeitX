@@ -19,18 +19,14 @@
 
 #if DEBUG_LEVEL == 0
 
-#define DEBUG_LOG(level, message)
+#define DEBUG_LOG(level, message){}
 
 #else
 
 // TODO: Store strings in PROGMEM?
 // TODO: Modify so lower level messages/conditionals aren't compiled at all?
 
-#define DEBUG_LOG(level, message) \
-  if (DEBUG_LEVEL >= level) {\
-    SerialUSB.print("DEBUG: ");\
-    SerialUSB.println(message);\
-  };
+#define DEBUG_LOG(level, message) {if (3 >= level){SerialUSB.print("DEBUG: "); SerialUSB.println(message); }; }
 
 #endif
 
