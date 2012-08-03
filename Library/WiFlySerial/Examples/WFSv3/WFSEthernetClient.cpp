@@ -24,18 +24,15 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  
  */
-#include "WFSsocket.h"
-#include <WiFlySerial.h>
+#include "WiFlySerial/WFSsocket.h"
+#include <WiFlySerial/WiFlySerial.h>
+#include "string.h"
 
-extern "C" {
-  #include "string.h"
-}
 
-#include "Arduino.h"
 
-#include "WFSEthernet.h"
-#include "WFSEthernetClient.h"
-#include "WFSEthernetServer.h"
+#include "WiFlySerial/WFSEthernet.h"
+#include "WiFlySerial/WFSEthernetClient.h"
+#include "WiFlySerial/WFSEthernetServer.h"
 
 
 uint16_t WFSEthernetClient::_srcport = 1024;
@@ -79,7 +76,7 @@ int WFSEthernetClient::available() {
     
     // WiFly supports single connection at present so only one socket.
     // TODO: support multiple sockets, or at least appear to do so.
-//    return wifi.available(_sock);
+   //    return wifi.available(_sock);
     return wifi.available();
   }
   return 0;

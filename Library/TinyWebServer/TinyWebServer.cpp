@@ -95,7 +95,7 @@ void TinyWebServer::begin() {
 }
 
 // Process headers.
-boolean TinyWebServer::process_headers() {
+bool TinyWebServer::process_headers() {
   if (headers_) {
     // First clear the header values from the previous HTTP request.
     for (int i = 0; headers_[i].header; i++) {
@@ -219,77 +219,77 @@ boolean TinyWebServer::process_headers() {
 }
 
 void TinyWebServer::process() {
-  client_ = server_.available();
-  if (!client_.connected() || !client_.available()) {
-    return;
-  }
-
-  boolean is_complete = get_line(buffer, sizeof(buffer));
-  if (!buffer[0]) {
-    return;
-  }
+    client_ = server_.available();
+    if (!client_.connected() || !client_.available()) {
+        return;
+    }
+    
+    bool is_complete = get_line(buffer, sizeof(buffer));
+    if (!buffer[0]) {
+        return;
+    }
 #if DEBUG
-  Serial << F("TWS:New request: ");
-  Serial.println(buffer);
+    Serial << F("TWS:New request: ");
+    Serial.println(buffer);
 #endif
-  if (!is_complete) {
-    // The requested path is too long.
-    send_error_code(414);
-    client_.stop();
-    return;
-  }
-
-  char* request_type_str = get_field(buffer, 0);
-  request_type_ = UNKNOWN_REQUEST;
-  if (!strcmp("GET", request_type_str)) {
-    request_type_ = GET;
-  } else if (!strcmp("POST", request_type_str)) {
-    request_type_ = POST;
-  } else if (!strcmp("PUT", request_type_str)) {
-    request_type_ = PUT;
-  }
-  path_ = get_field(buffer, 1);
-
-  // Process the headers.
-  if (!process_headers()) {
-    // Malformed header line.
-    send_error_code(417);
-    client_.stop();
-  }
-  // Header processing finished. Identify the handler to call.
-
-  boolean should_close = true;
-  boolean found = false;
-  for (int i = 0; handlers_[i].path; i++) {
-    int len = strlen(handlers_[i].path);
-    boolean exact_match = !strcmp(path_, handlers_[i].path);
-    boolean regex_match = false;
-    if (handlers_[i].path[len - 1] == '*') {
-      regex_match = !strncmp(path_, handlers_[i].path, len - 1);
+    if (!is_complete) {
+        // The requested path is too long.
+        send_error_code(414);
+        client_.stop();
+        return;
     }
-    if ((exact_match || regex_match)
-    && (handlers_[i].type == ANY || handlers_[i].type == request_type_)) {
-      found = true;
-      should_close = (handlers_[i].handler)(*this);
-      break;
+    
+    char* request_type_str = get_field(buffer, 0);
+    request_type_ = UNKNOWN_REQUEST;
+    if (!strcmp("GET", request_type_str)) {
+        request_type_ = GET;
+    } else if (!strcmp("POST", request_type_str)) {
+        request_type_ = POST;
+    } else if (!strcmp("PUT", request_type_str)) {
+        request_type_ = PUT;
     }
-  }
-
-  if (!found) {
-    send_error_code(404);
-    // (*this) << F("URL not found: ");
-    // client_->print(path_);
-    // client_->println();
-  }
-  if (should_close) {
-    client_.stop();
-  }
-
-  free(path_);
-  free(request_type_str);
+    path_ = get_field(buffer, 1);
+    
+    // Process the headers.
+    if (!process_headers()) {
+        // Malformed header line.
+        send_error_code(417);
+        client_.stop();
+    }
+    // Header processing finished. Identify the handler to call.
+    
+    bool should_close = true;
+    bool found = false;
+    for (int i = 0; handlers_[i].path; i++) {
+        int len = strlen(handlers_[i].path);
+        bool exact_match = !strcmp(path_, handlers_[i].path);
+        bool regex_match = false;
+        if (handlers_[i].path[len - 1] == '*') {
+            regex_match = !strncmp(path_, handlers_[i].path, len - 1);
+        }
+        if ((exact_match || regex_match)
+            && (handlers_[i].type == ANY || handlers_[i].type == request_type_)) {
+            found = true;
+            should_close = (handlers_[i].handler)(*this);
+            break;
+        }
+    }
+    
+    if (!found) {
+        send_error_code(404);
+        // (*this) << F("URL not found: ");
+        // client_->print(path_);
+        // client_->println();
+    }
+    if (should_close) {
+        client_.stop();
+    }
+    
+    free(path_);
+    free(request_type_str);
 }
 
-boolean TinyWebServer::is_requested_header(const char** header) {
+bool TinyWebServer::is_requested_header(const char** header) {
   if (!headers_) {
     return false;
   }
@@ -302,11 +302,11 @@ boolean TinyWebServer::is_requested_header(const char** header) {
   return false;
 }
 
-boolean TinyWebServer::assign_header_value(const char* header, char* value) {
+bool TinyWebServer::assign_header_value(const char* header, char* value) {
   if (!headers_) {
     return false;
   }
-  boolean found = false;
+  bool found = false;
   for (int i = 0; headers_[i].header; i++) {
     // Use pointer equality, since `header' must be the pointer
     // inside headers_.
@@ -505,7 +505,7 @@ size_t TinyWebServer::write(const uint8_t *buffer, size_t size) {
   client_.write(buffer, size);
 }
 
-boolean TinyWebServer::read_next_char(Client& client, uint8_t* ch) {
+bool TinyWebServer::read_next_char(Client& client, uint8_t* ch) {
   if (!client.available()) {
     return false;
   } else {
@@ -514,7 +514,7 @@ boolean TinyWebServer::read_next_char(Client& client, uint8_t* ch) {
   }
 }
 
-boolean TinyWebServer::get_line(char* buffer, int size) {
+bool TinyWebServer::get_line(char* buffer, int size) {
   int i = 0;
   char ch;
 
@@ -537,7 +537,7 @@ boolean TinyWebServer::get_line(char* buffer, int size) {
 // The caller is responsible for freeing the returned value.
 char* TinyWebServer::get_field(const char* buffer, int which) {
   char* field = NULL;
-  boolean prev_is_space = false;
+  bool prev_is_space = false;
   int i = 0;
   int field_no = 0;
   int size = strlen(buffer);
@@ -596,14 +596,14 @@ int read_chars(TinyWebServer& web_server, Client& client,
   return pos;
 }
 
-boolean put_handler(TinyWebServer& web_server) {
+bool put_handler(TinyWebServer& web_server) {
   web_server.send_error_code(200);
   web_server.end_headers();
 
   const char* length_str = web_server.get_header_value("Content-Length");
   long length = atol(length_str);
   uint32_t start_time = 0;
-  boolean watchdog_start = false;
+  bool watchdog_start = false;
 
   EthernetClient client = web_server.get_client();
 

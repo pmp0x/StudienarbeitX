@@ -26,46 +26,46 @@
  */
 #ifndef WFSethernetclient_h
 #define WFSethernetclient_h
-#include "Arduino.h"	
+	
 #include "Print.h"
-#include "Client.h"
-#include "WFSIPAddress.h"
 
-class WFSEthernetClient : public Client {
+#include "WiFlySerial/WFSIPAddress.h"
 
+class WFSEthernetClient {
+    
 public:
-  WFSEthernetClient();
-  WFSEthernetClient(uint8_t sock);
-
-  // Devices often appreciate a chance to initialize before commencing operations
-  boolean initDevice();
-  
-  // set up wifi association settings
-  boolean configure(uint8_t AuthMode, uint8_t JoinMode, uint8_t DCHPMode);
-  boolean credentials( char* pSSID, char* pPassphrase);
-  uint8_t devicestatus();
-
-  uint8_t status();
-  virtual int connect(IPAddress ip, uint16_t port);
-  virtual int connect(const char *host, uint16_t port);
-  virtual size_t write(uint8_t);
-  virtual size_t write(const uint8_t *buf, size_t size);
-  virtual int available();
-  virtual int read();
-  virtual int read(uint8_t *buf, size_t size);
-  virtual int peek();
-  virtual void flush();
-  virtual void stop();
-  virtual uint8_t connected();
-  virtual operator bool();
-
-  friend class WFSEthernetServer;
-  
-  using Print::write;
-
+    WFSEthernetClient();
+    WFSEthernetClient(uint8_t sock);
+    
+    // Devices often appreciate a chance to initialize before commencing operations
+    bool initDevice();
+    
+    // set up wifi association settings
+    bool configure(uint8_t AuthMode, uint8_t JoinMode, uint8_t DCHPMode);
+    bool credentials( char* pSSID, char* pPassphrase);
+    uint8_t devicestatus();
+    
+    uint8_t status();
+    virtual int connect(IPAddress ip, uint16_t port);
+    virtual int connect(const char *host, uint16_t port);
+    virtual size_t write(uint8_t);
+    virtual size_t write(const uint8_t *buf, size_t size);
+    virtual int available();
+    virtual int read();
+    virtual int read(uint8_t *buf, size_t size);
+    virtual int peek();
+    virtual void flush();
+    virtual void stop();
+    virtual uint8_t connected();
+    virtual operator bool();
+    
+    friend class WFSEthernetServer;
+    
+    using Print::write;
+    
 private:
-  static uint16_t _srcport;
-  uint8_t _sock;
+    static uint16_t _srcport;
+    uint8_t _sock;
 };
 
 #endif

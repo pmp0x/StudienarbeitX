@@ -264,16 +264,9 @@ public:
     //
     int drain ();
     //
-    //  using Print::write;
+	using Print::write;
     //
-    //  // debug utilities - use Serial : not NewSoftSerial as it will affect incoming stream.
-    //  // should change these to use stream <<
-    //  void    setDebugChannel( Print* pDebug);
-    //  Print*  getDebugChannel( )  { return pDebugChannel; };
-    //  void    clearDebugChannel();
-    //  void    DebugPrint( const char* pMessage);
-    //  void    DebugPrint( const int iNumber);
-    //  void    DebugPrint( const char ch);
+
     
 private:
     SpiUartDevice * uart;

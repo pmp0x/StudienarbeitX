@@ -1,4 +1,4 @@
-// -*- c++ -*-
+ // -*- c++ -*-
 //
 // Copyright 2010 Ovidiu Predescu <ovidiu@gmail.com>
 // Date: May, June 2010
@@ -29,7 +29,7 @@ namespace TinyWebPutHandler {
   // An HTTP handler that knows how to handle file uploads using the
   // PUT method. Set the `put_handler_fn' variable below to your own
   // function to handle the characters of the uploaded function.
-  boolean put_handler(TinyWebServer& web_server);
+  bool put_handler(TinyWebServer& web_server);
   extern HandlerFn put_handler_fn;
 };
 
@@ -41,7 +41,7 @@ public:
   //
   // The function should return true if it finished handling the request
   // and the connection should be closed.
-  typedef boolean (*WebHandlerFn)(TinyWebServer& web_server);
+  typedef bool (*WebHandlerFn)(TinyWebServer& web_server);
 
   enum HttpRequestType {
     UNKNOWN_REQUEST,
@@ -105,7 +105,7 @@ public:
   // Processes the HTTP headers and assigns values to the requested
   // ones in headers_. Returns true when successful, false in case of
   // errors.
-  boolean process_headers();
+  bool process_headers();
 
   // Helper methods
 
@@ -145,11 +145,11 @@ public:
   // Some methods used for testing purposes
 
   // Returns true if the HTTP request processing should be stopped.
-  virtual boolean should_stop_processing() { return !client_.connected();}
+  virtual bool should_stop_processing() { return !client_.connected();}
 
   // Reads a character from the request's input stream. Returns true
   // if the character could be read, false otherwise.
-  virtual boolean read_next_char(Client& client, uint8_t* ch);
+  virtual bool read_next_char(Client& client, uint8_t* ch);
 
  protected:
   // Returns the field number `which' from buffer. Fields are
@@ -170,23 +170,23 @@ private:
   HeaderValue* headers_;
 
   // The TCP/IP server we use.
-  EthernetServer server_;
+  WFSEthernetServer server_;
 
   char* path_;
   HttpRequestType request_type_;
-  EthernetClient client_;
+  WFSEthernetClient client_;
 
   // Reads a line from the HTTP request sent by an HTTP client. The
   // line is put in `buffer' and up to `size' characters are written
   // in it.
-  boolean get_line(char* buffer, int size);
+  bool get_line(char* buffer, int size);
 
   // Returns true if the header is marked as requested in the headers_
   // array. As a side effect, the pointer to the actual header is made
   // to point to the one in the headers_ array.
-  boolean is_requested_header(const char** header);
+  bool is_requested_header(const char** header);
 
-  boolean assign_header_value(const char* header, char* value);
+  bool assign_header_value(const char* header, char* value);
 };
 
 #endif /* __WEB_SERVER_H__ */

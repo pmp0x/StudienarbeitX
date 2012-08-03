@@ -27,47 +27,47 @@
 #ifndef WFSethernet_h
 #define WFSethernet_h
 
-#include <inttypes.h>
-#include <WiFlySerial.h>
 
-#include "WFSIPAddress.h"
-#include "WFSEthernetClient.h"
-#include "WFSEthernetServer.h"
+#include <WiFlyShield/WiFlySerial.h>
+
+#include "WiFlyShield/WFSIPAddress.h"
+#include "WiFlyShield/WFSEthernetClient.h"
+#include "WiFlyShield/WFSEthernetServer.h"
 
 
-#define MAX_SOCK_NUM 4
+#define MAX_SOCK_NUM 1
 
 class WFSEthernetClass {
 private:
-  IPAddress _dnsServerAddress;
+    IPAddress _dnsServerAddress;
 public:
-  static uint8_t _state[MAX_SOCK_NUM];
-  static uint16_t _server_port[MAX_SOCK_NUM];
-
-
-  
-  // Devices often appreciate a chance to initialize before commencing operations
-  boolean initDevice();
-  
-  // set up wifi association settings
-  boolean configure(uint8_t AuthMode, uint8_t JoinMode, uint8_t DCHPMode);
-  boolean credentials( char* pSSID, char* pPassphrase);
-  boolean setNTPServer( char* pNTPServer , float fTimeZoneOffsetHrs);
-
-  int begin();
-  int begin( WFSIPAddress local_ip);
-  int begin( WFSIPAddress local_ip, WFSIPAddress dns_server);
-  int begin( WFSIPAddress local_ip, WFSIPAddress dns_server, WFSIPAddress gateway);
-  int begin( WFSIPAddress local_ip, WFSIPAddress dns_server, WFSIPAddress gateway, WFSIPAddress subnet);
-
-  WFSIPAddress localIP();
-  WFSIPAddress subnetMask();
-  WFSIPAddress gatewayIP();
-  WFSIPAddress dnsServerIP();
-  WFSIPAddress ntpServerIP();
-
-  friend class WFSEthernetClient;
-  friend class WFSEthernetServer;
+    static uint8_t _state[MAX_SOCK_NUM];
+    static uint16_t _server_port[MAX_SOCK_NUM];
+    
+    
+    
+    // Devices often appreciate a chance to initialize before commencing operations
+    bool initDevice();
+    
+    // set up wifi association settings
+    bool configure(uint8_t AuthMode, uint8_t JoinMode, uint8_t DCHPMode);
+    bool credentials( char* pSSID, char* pPassphrase);
+    bool setNTPServer( char* pNTPServer , float fTimeZoneOffsetHrs);
+    
+    int begin();
+    int begin( WFSIPAddress local_ip);
+    int begin( WFSIPAddress local_ip, WFSIPAddress dns_server);
+    int begin( WFSIPAddress local_ip, WFSIPAddress dns_server, WFSIPAddress gateway);
+    int begin( WFSIPAddress local_ip, WFSIPAddress dns_server, WFSIPAddress gateway, WFSIPAddress subnet);
+    
+    WFSIPAddress localIP();
+    WFSIPAddress subnetMask();
+    WFSIPAddress gatewayIP();
+    WFSIPAddress dnsServerIP();
+    WFSIPAddress ntpServerIP();
+    
+    friend class WFSEthernetClient;
+    friend class WFSEthernetServer;
 };
 
 extern WFSEthernetClass WFSEthernet;

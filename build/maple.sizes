@@ -132,5 +132,5 @@
      38	      0	      0	     38	     26	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_time.o
    4458	    268	      0	   4726	   1276	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
     594	      4	      4	    602	    25a	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-    240	      8	     52	    300	    12c	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-  55665	   3766	    314	  59745	   e961	(TOTALS)
+    803	      8	    424	   1235	    4d3	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+  56228	   3766	    686	  60680	   ed08	(TOTALS)

@@ -1166,14 +1166,9 @@ bool WiFlySerial::serveConnection( const unsigned long reconnectWaitTime )
         //memset (bufRequest,'\0',COMMAND_BUFFER_SIZE);
         bWiFlyInCommandMode = false;
         bReturn = true;
-    } else {
-        // No connection within timeout.
-        bReturn = false;
-        // reconnection logic
-    }
+    } 
     
     // TODO: decision on timeout/reconnection status
-    
     
     return bReturn;
 }

@@ -25,8 +25,8 @@
  
  */
 
-#include <Arduino.h>
-#include "WFSIPAddress.h"
+#include <stdlib.h>
+#include "WiFlyShield/WFSIPAddress.h"
 
 WFSIPAddress::WFSIPAddress()
 {

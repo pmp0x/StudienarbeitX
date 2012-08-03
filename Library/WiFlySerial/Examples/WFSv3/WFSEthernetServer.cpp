@@ -25,19 +25,21 @@
  
  */
 
-#include "WiFlySerial.h"
-#include "WFSsocket.h"
-extern "C" {
-#include "string.h"
-}
+#include "WiFlyShield/WiFlySerial.h"
+//#include "WFSsocket.h"
 
-#include "WFSEthernet.h"
-#include "WFSEthernetClient.h"
-#include "WFSEthernetServer.h"
+#include <string.h>
 
-WFSEthernetServer::WFSEthernetServer(uint16_t port)
+
+#include "WiFlyShield/WFSEthernet.h"
+#include "WiFlyShield/WFSEthernetClient.h"
+#include "WiFlyShield/WFSEthernetServer.h"
+
+WFSEthernetServer::WFSEthernetServer(uint16_t port, WiFlySerial * wifly, long profile)
 {
-  _port = port;
+	_port = port;
+    _profile = profile;
+	_wifly = wifly;
 }
 
 
@@ -45,12 +47,15 @@ WFSEthernetServer::WFSEthernetServer(uint16_t port)
 // Sets basics for device configuration
 void WFSEthernetServer::begin()
 {
-   char bufRequest[COMMAND_BUFFER_SIZE];
-   
-   wifi.SendCommand( (char*) F("set u m 0x1") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
-   wifi.SendCommand( (char*) F("set comm idle 30") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
-   wifi.SendCommand( (char*) F("set comm time 1000") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
-   wifi.SendCommand( (char*) F("set comm size 255") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
+    char bufRequest[COMMAND_BUFFER_SIZE];
+    //Important!
+    _wifi.SendCommand( (char*) F("set u m 0x1") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
+    //TODO optional setting to change the TCP/IP packacke size
+    _wifi.SendCommand( (char*) F("set comm idle 30") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
+    _wifi.SendCommand( (char*) F("set comm time 100") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
+    _wifi.SendCommand( (char*) F("set comm size 255") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, COMMAND_BUFFER_SIZE);
+    
+    this->setProfile();
 }
 // setProfile
 // Configures server to respond in manner specified
@@ -59,45 +64,39 @@ void WFSEthernetServer::begin()
 // Parameters:
 // serverProfile      bit-mapped flag of profile options
 
-long WFSEthernetServer::setProfile(long serverProfile) {
-  
-   char bufRequest[SMALL_COMMAND_BUFFER_SIZE];
-  
+long WFSEthernetServer::setProfile() {
+    
+    char bufRequest[SMALL_COMMAND_BUFFER_SIZE];
+    
     // Defaults as according to device.
     // Settings may be residual values from prior saved sessions.
     if ( serverProfile & ES_DEVICE_DEFAULT) {
-      // Set to default somehow (factory reset?)
-      
-    }
-            
-    if ( serverProfile & ES_HTTP_SERVER ) {
-      // No *HELLO* on connection - confuses browsers
-      wifi.SendCommand( (char*) F("set comm remote 0") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, SMALL_COMMAND_BUFFER_SIZE);
-      
-      // Send packet on each tab character issued
-      wifi.SendCommand( (char*) F("set comm match 0x9") ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, SMALL_COMMAND_BUFFER_SIZE);
-      
-      
+        // ToDo Set to default somehow (factory reset?)
     }
     
+    if ( serverProfile & ES_HTTP_SERVER ) {
+        // No *HELLO* on connection - confuses browsers
+        _wifi.SendCommand( "set comm remote 0" ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, SMALL_COMMAND_BUFFER_SIZE);        
+        // Send packet on each tab character issued
+        _wifi.SendCommand("set comm match 0x9" ,WiFlyFixedPrompts[WIFLY_MSG_PROMPT], bufRequest, SMALL_COMMAND_BUFFER_SIZE);
+   
+    }
     // Telnet response setup
     if ( serverProfile & ES_TELNET_SERVER)  {
-      
+        //TODO Telnet
     }
     
     // UDP not implemented yet on CS libraries
     if ( serverProfile & ES_UDP_SERVER ) {
-      
-      
+        // ToDo UDP
+        
     }
-
-    return serverProfile;    
     
+    return serverProfile;    
 }
 
 void WFSEthernetServer::accept()
 {
-  int listening = 0;
 
   wifi.serveConnection();
 
@@ -120,8 +119,9 @@ size_t WFSEthernetServer::write(uint8_t b)
   return write(&b, 1);
 }
 
+// TODO recognize that here write includes the size! 
 size_t WFSEthernetServer::write(const uint8_t *buffer, size_t size) 
 {
   
-  return wifi.write(buffer, size);
+  return _wifi.write(buffer, size);
 }
