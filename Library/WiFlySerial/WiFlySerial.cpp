@@ -51,6 +51,7 @@ Copyright GPL 2.1 Tom Waldock 2011, 2012
 */
 
 #include <string.h>
+#include <time.h>
 #include "WiFlySerial/WiFlySerial.h"
 #include "WiFlySerial/Debug.h"
 
@@ -387,8 +388,7 @@ bool WiFlySerial::begin(SpiUartDevice * TheSpi) {
 
   bool bStart = false;
   char szCmd[SMALL_COMMAND_BUFFER_SIZE];
-  char szResponse[COMMAND_BUFFER_SIZE];
-//  char szIndicator[INDICATOR_BUFFER_SIZE];
+
 
     //// TODO: set default uart transmission speed to same as WiFly default speed.
   //uart.begin(WIFLY_DEFAULT_BAUD_RATE);
@@ -485,9 +485,10 @@ int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const 
     char chResponse = 'A';
     int  bufpos = 0;
     int  bufsize = buflen -1;  //terminating null for bufsize
-    int  iPromptIndex = 0;
+
+
     bool bWaiting = true;
-    bool bReceivedCR = false;
+
     
     WiFlyFixedPrompts[WIFLY_MSG_EXPECTED] = (char*) pExpectedPrompt; //??
     WiFlyFixedPrompts[WIFLY_MSG_PROMPT] = (char*) this->szWiFlyPrompt;   //??
@@ -750,7 +751,7 @@ bool WiFlySerial::SendCommand(const char *pCmd, const char *SuccessIndicator, ch
                                  const bool bCollecting, const  unsigned long iWaitTime, const bool bClear, const bool bPromptAfterResult) {
     
     bool bCommandOK = false;
-    char ch;
+
     int iResponse = 0;
     int iTry = 0;
     
@@ -948,8 +949,8 @@ bool WiFlySerial::SendInquirySimple( char *Command ) {
 // Returns true on command success, false on failure.
 bool WiFlySerial::exitCommandMode() {
     
-    char szCmd[INDICATOR_BUFFER_SIZE]; // exit command is short
-    char szPrompt[INDICATOR_BUFFER_SIZE]; // exit Prompt is short:  EXIT (which looks like 'exit' but in upper case).
+   // exit command is short
+   // exit Prompt is short:  EXIT (which looks like 'exit' but in upper case).
     char szResponse[INDICATOR_BUFFER_SIZE]; // small buffer for result
     
     strcpy(szResponse, WiFlyDevice_string_table[STI_WIFLYDEVICE_LEAVE_CMD_MODE]);
@@ -1085,11 +1086,11 @@ bool WiFlySerial::openConnection(const char* pURL, const unsigned long iWaitTime
 // 
 bool WiFlySerial::closeConnection(bool bSafeClose) {
     // if a connection is open then close it.
-    char chDrain;
+    
     
     if ( bWiFlyConnectionOpen ) {
         // first see if connection is *STILL* open. 
-        bool bClosed = false;
+      
         bool bTrySafeClose = bSafeClose;
         bool bDoClose = true;
         
@@ -1299,6 +1300,16 @@ unsigned long WiFlySerial::getTime() {
 // TODO: add GetTimeStatus
 
 
+// Function for setSyncProvider
+time_t WiFlySerial::getSyncTime() {
+    
+    // wifly returns UTC time.
+    time_t tCurrent = (time_t) getTime();
+    // DebugPrint( "RESYNC TIME FROM WIFLY *****" );
+    exitCommandMode();
+    return tCurrent;
+}
+
 
 // isTCPConnected
 // 
@@ -1319,7 +1330,7 @@ bool WiFlySerial::isTCPConnected() {
     }
     
     
-    return ( fStatus &  0x01 > 0 ? true : false);
+    return  (fStatus &  0x01 > 0) ? true : false;
     
 }
 
@@ -1536,7 +1547,6 @@ bool WiFlySerial::leave() {
     
     bool bSendLeave = false;
     char szCmd[COMMAND_BUFFER_SIZE];
-    char szReply[INDICATOR_BUFFER_SIZE];
     
     bSendLeave = SendCommand(WiFlyDevice_string_table[STI_WIFLYDEVICE_LEAVE],  
                              WiFlyDevice_string_table[STI_WIFLYDEVICE_DEAUTH],
@@ -1746,7 +1756,6 @@ bool WiFlySerial::join(char* pSSID) {
     strcpy(szCmd, WiFlyDevice_string_table[STI_WIFLYDEVICE_INDEX_JOIN]);
     strncat( szCmd, pSSID, COMMAND_BUFFER_SIZE - strlen(szCmd) );
     
-    char bufIndicator[INDICATOR_BUFFER_SIZE];
     char bufResponse [RESPONSE_BUFFER_SIZE];
     
     bJoined = SendCommand(szCmd,
@@ -1758,4 +1767,25 @@ bool WiFlySerial::join(char* pSSID) {
     
     return bJoined;
     
+}
+
+ void WiFlySerial::flush(){
+    uart->flush();
+}
+
+void WiFlySerial::write(uint8_t byte){
+    uart->write(byte);
+}
+
+
+ uint8_t WiFlySerial::read(){
+    return uart->read();
+}
+
+ int WiFlySerial::available(){
+    return uart->available();
+}
+
+ int WiFlySerial::peek(){
+    return uart->peek();
 }

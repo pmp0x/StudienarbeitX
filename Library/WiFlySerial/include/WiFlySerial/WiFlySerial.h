@@ -54,6 +54,7 @@ Copyright GPL 2.0 Tom Waldock 2011
 */
 
 #include <libmaple.h>
+#include <time.h>
 #include <string.h>
 #include <stdint.h>
 #include <WiFlySerial/Debug.h>
@@ -144,7 +145,7 @@ Copyright GPL 2.0 Tom Waldock 2011
 
 
 // WiFly-specific prompt codes
-static char* WiFlyFixedPrompts[N_PROMPTS] = { "","AOK", "CMD", "ERR: ?", "",">","*CLOS*","*OPEN*","ERR:Connected" };
+static char* WiFlyFixedPrompts[N_PROMPTS] = {(char *) "",(char *)"AOK",(char *) "CMD", (char *)"ERR: ?",(char *) "",(char *)">",(char *)"*CLOS*",(char *)"*OPEN*",(char *)"ERR:Connected" };
 static byte  WiFlyFixedFlags[N_PROMPTS] = {PROMPT_EXPECTED_TOKEN_FOUND, PROMPT_AOK, PROMPT_CMD_MODE, PROMPT_CMD_ERR, PROMPT_READY,      PROMPT_READY,PROMPT_CLOSE, PROMPT_OPEN, PROMPT_OPEN_ALREADY};
 char * itoa( int value, char* result, int base );
 
@@ -156,16 +157,16 @@ char * itoa( int value, char* result, int base );
 
 
 
-class WiFlySerial {
+class WiFlySerial : public Print{
 public:
     // Constructors
     WiFlySerial();
-    
+
     // Destructor
-    
+
     // Initialization
     bool begin(SpiUartDevice * TheSpi);  // Initialises this interface Class.
-    
+
     // // Status
     //
     //  // Obtain current device status flags
@@ -197,6 +198,9 @@ public:
     unsigned long getTime();
     char* getRSSI(char* pBuf, int buflen);
     char* getBattery(char* pBuf, int buflen);
+
+    time_t getSyncTime();
+
     //
     //
     //  // Configuration Generic Wifi methods
@@ -247,7 +251,7 @@ public:
     bool SendCommand(const char *Command, const char *SuccessIndicator, char* pBuffer, const int bufsize,
                      const bool bCollecting = true, const unsigned long WaitTime = DEFAULT_WAIT_TIME ,
                      const bool bClear = true, const bool bPromptAfterResult = true );
-    //	bool SendCommandSimple( char *Command,   char *SuccessIndicator);
+    //  bool SendCommandSimple( char *Command,   char *SuccessIndicator);
     //
     //  // utilities for collecting results or scanning for indicators.
     int     ScanForPattern( char* responseBuffer, const int bufsize, const char *pExpectedPrompt,
@@ -256,44 +260,44 @@ public:
     char*   ExtractDetailIdx(const int idxCommand, char* pDetail, int buflen, const int idxSearch, const int idxStop);
     //  int     CaptureUntilPrompt( char* responseBuffer, const int bufsize, const char *pExpectedPrompt, const unsigned long WaitTime = DEFAULT_WAIT_TIME  );
     //
-    //  int peek();
-    //  virtual size_t write(uint8_t byte);
-    //  virtual int read();
-    //  virtual int available();
-    //  virtual void flush();
+    virtual int peek();
+    void write(uint8_t byte);
+    virtual uint8_t read();
+    virtual int available();
+    virtual void flush();
     //
     int drain ();
     //
-	using Print::write;
+    using Print::write;
     //
 
-    
+
 private:
     SpiUartDevice * uart;
     // internal buffer for command-prompt
     char    szWiFlyPrompt[INDICATOR_BUFFER_SIZE ];
-    
+
     // Internal status flags
     long    fStatus;
-    bool 	bWiFlyInCommandMode;
-    bool	bWiFlyConnectionOpen;
+    bool    bWiFlyInCommandMode;
+    bool    bWiFlyConnectionOpen;
     char*   pControl;
-    
+
     // Ports for connections
     int     iRemotePort;
     int     iLocalPort;
     long    lUTC_Offset_seconds;
-    
-    
+
+
     bool GetCmdPrompt();
     //char*   GetBuffer_P(const int StringIndex, char* pBuffer, int bufSize);
     //      char*   ExtractLineFromBuffer(const int idString,  char* pBuffer, const int bufsize, const char* pStartPattern, const char* chTerminator);
     bool issueSetting( int idxCommand, const char* pParam);
-    
+
     // Internal debug channel.
     // Print*  pDebugChannel;
-    
-    
+
+
 };
 
 // static  WiFlySerialv2 wifi ( ARDUINO_RX_PIN, ARDUINO_TX_PIN);

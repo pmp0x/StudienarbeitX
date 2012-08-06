@@ -24,88 +24,55 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  
  */
-#include "WiFlySerial/WFSsocket.h"
-#include <WiFlySerial/WiFlySerial.h>
+//#include "WiFlySerial/WFSsocket.h"
+
 #include "string.h"
-
-
-
-#include "WiFlySerial/WFSEthernet.h"
 #include "WiFlySerial/WFSEthernetClient.h"
-#include "WiFlySerial/WFSEthernetServer.h"
+
 
 
 uint16_t WFSEthernetClient::_srcport = 1024;
 
-WFSEthernetClient::WFSEthernetClient() : _sock(MAX_SOCK_NUM) {
-}
 
-WFSEthernetClient::WFSEthernetClient(uint8_t sock) : _sock(sock) {
+
+WFSEthernetClient::WFSEthernetClient(WFSEthernet * Wifly) {
+    _wifi = Wifly;
 }
 
 int WFSEthernetClient::connect(const char* host, uint16_t port) {
   return connect( host, port);
 }
 
-int WFSEthernetClient::connect(IPAddress ip, uint16_t port) {
-  if (_sock != MAX_SOCK_NUM)
-    return 0;
+int WFSEthernetClient::connect(WFSIPAddress ip, uint16_t port) {
+
 
   return connect(ip, port);
 
 }
 
-size_t WFSEthernetClient::write(uint8_t b) {
-  return write(&b, 1);
+void WFSEthernetClient::write(uint8_t b) {
+  return _wifi->write(b);
 }
 
-size_t WFSEthernetClient::write(const uint8_t *buf, size_t size) {
-  if (_sock == MAX_SOCK_NUM) {
-    setWriteError();
-    return 0;
-  }
-  if (!send(_sock, buf, size)) {
-    setWriteError();
-    return 0;
-  }
-  return size;
-}
+//void WFSEthernetClient::write(const uint8_t *buf, size_t size) {
+//  _wifi->write(
+//}
 
 int WFSEthernetClient::available() {
-  if (_sock != MAX_SOCK_NUM) {
     
     // WiFly supports single connection at present so only one socket.
     // TODO: support multiple sockets, or at least appear to do so.
-   //    return wifi.available(_sock);
-    return wifi.available();
-  }
-  return 0;
+   //    return _wifi->available(_sock);
+    return _wifi->available();
 }
 
 int WFSEthernetClient::read() {
-  uint8_t b;
-  if ( recv(_sock, &b, 1) > 0 )
-  {
-    // recv worked
-    return b;
-  }
-  else
-  {
-    // No data available
-    return -1;
-  }
+	return _wifi->read();  
 }
 
-int WFSEthernetClient::read(uint8_t *buf, size_t size) {
-  return recv(_sock, buf, size);
-}
-
+//
 int WFSEthernetClient::peek() {
-  uint8_t b;
-  if (!available())
     return -1;
-  ::peek(_sock, &b);
-  return b;
 }
 
 
@@ -115,7 +82,7 @@ int WFSEthernetClient::peek() {
 // 
 
 void WFSEthernetClient::flush() {
-  wifi.flush();
+  _wifi->flush();
 
 // drain incoming characters  
 //  while (available())
@@ -123,23 +90,19 @@ void WFSEthernetClient::flush() {
 }
 
 void WFSEthernetClient::stop() {
-  if (_sock == MAX_SOCK_NUM)
-    return;
+   // attempt to close the connection gracefully (send a FIN to other side)
+  _wifi->disconnect();
 
-  // attempt to close the connection gracefully (send a FIN to other side)
-  disconnect(_sock);
-  WFSEthernetClass::_server_port[_sock] = 0;
-  _sock = MAX_SOCK_NUM;
 }
 
 uint8_t WFSEthernetClient::connected() {
-  if (_sock == MAX_SOCK_NUM) return 0;
+  
   
 //  uint8_t s = status();
 //  return !(s == SnSR::LISTEN || s == SnSR::CLOSED || s == SnSR::FIN_WAIT ||
 //    (s == SnSR::CLOSE_WAIT && !available()));
   // 
-  return wifi.isConnectionOpen();
+  return _wifi->isConnectionOpen();
 }
 
 
@@ -152,9 +115,9 @@ uint8_t WFSEthernetClient::connected() {
 // 0      CLOSED
 // 0x17      Connected
 //
-uint8_t WFSEthernetClient::status() {
-  if (_sock == MAX_SOCK_NUM) return SnSR::CLOSED;
-  return (wifi.isConnectionOpen() ? SnSR::ESTABLISHED : SnSR::CLOSED );
+bool WFSEthernetClient::status() {
+    //TODO überhaupt connected?!
+  return (_wifi->isConnectionOpen() ? true : false );
 }
 
 // the next function allows us to use the client returned by
@@ -162,11 +125,11 @@ uint8_t WFSEthernetClient::status() {
 
 WFSEthernetClient::operator bool() {
 //  return _sock != MAX_SOCK_NUM;
-   return wifi.isConnectionOpen();
+   return this->status();
 }
 
 
 uint8_t WFSEthernetClient::devicestatus() {
-  return wifi.getDeviceStatus();
+  return _wifi->getDeviceStatus();
 }
 

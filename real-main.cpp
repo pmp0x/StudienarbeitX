@@ -12,12 +12,13 @@
 #include <WiFlyShield/SpiUart.h>
 #include <WiFlySerial/WiFlySerial.h>
 // #include <WiFlyShield/WiFlyDevice.h>
+#include "WiFlySerial/WFSEthernet.h"
 
 HardwareSPI spi(1);
 SpiUartDevice SpiSerial;
-//WiFlyDevice WiFly;
 WiFlySerial WiFly;
-
+WFSEthernet wifi;
+WFSEthernetServer myServer(80);
 
 #define REQUEST_BUFFER_SIZE 120
 #define HEADER_BUFFER_SIZE 150 
@@ -38,6 +39,11 @@ void setup()
 	delay(100);
     WiFly.begin(&SpiSerial);
     
+
+    wifi.begin(&WiFly);
+    
+    myServer.begin(&wifi);
+   
   
     // get MAC
     SerialUSB.println("MAC:");
@@ -45,12 +51,12 @@ void setup()
     // is connected ?
     
     // WiFly.setDebugChannel( (Print*) &Serial);
-    
-    WiFly.setAuthMode( WIFLY_AUTH_WPA2_PSK);
-    WiFly.setJoinMode(  WIFLY_JOIN_AUTO );
-    WiFly.setDHCPMode( WIFLY_DHCP_ON );
-    
-    
+//    
+//    WiFly.setAuthMode( WIFLY_AUTH_WPA2_PSK);
+//    WiFly.setJoinMode(  WIFLY_JOIN_AUTO );
+//    WiFly.setDHCPMode( WIFLY_DHCP_ON );
+//    
+//    
 //    // if not connected restart link
 //    WiFly.getDeviceStatus();
 //    if (! WiFly.isifUp() ) {
@@ -104,15 +110,25 @@ void setup()
 
 void loop()
 {
-	while(SpiSerial.available() > 0 ){
+    // Eigentlich noch die connection überprüfen
+    
+	WFSEthernetClient myClient = myServer.available();
+    // iRequest = wifi.serveConnection();
+    if (  myClient  ) {
+        SerialUSB.println("Connected ");
+               
+        
+        myClient.stop();
+        
+	}
+	
+    while(SpiSerial.available() > 0 ){
         SerialUSB.write(SpiSerial.read());
     }
     while(SerialUSB.available()){
         SpiSerial.write(SerialUSB.read());
     }
-
-
-
+   
 
 
 }

@@ -36,6 +36,10 @@ Archive member included because of file (symbol)
                               /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-errno.o) (_impure_ptr)
 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
                               build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/start_c.o (__libc_init_array)
+/usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
+                              build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o (memcmp)
+/usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
+                              build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o (memcpy)
 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
                               build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o (memset)
 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-rand.o)
@@ -901,25 +905,34 @@ Discarded input sections
                 0x00000000       0x98 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
  .rodata._ZTV7TwoWire
                 0x00000000       0x10 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
+ .group         0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .data          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .bss           0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._ZN5PrintC2Ev
+                0x00000000        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial15isInCommandModeEv
-                0x00000000        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .text._ZN11WiFlySerial16isConnectionOpenEv
                 0x00000000        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial17setNTP_UTC_OffsetEf
                 0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .text._ZN11WiFlySerial15serveConnectionEm
-                0x00000000       0x2c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._Z7reversePcS_
+                0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._Z4itoaiPci
+                0x00000000       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerialC2Ev
-                0x00000000       0x5c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x00000000       0x6c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._Z16IP_ArrayToBufferPKhPci
                 0x00000000       0x3c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._ZN11WiFlySerial12issueSettingEiPKc
+                0x00000000       0x54 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial13setRemotePortEi
                 0x00000000       0x22 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial12setLocalPortEi
                 0x00000000       0x22 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._ZN11WiFlySerial11setJoinModeEi
+                0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._ZN11WiFlySerial11setAuthModeEi
+                0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial10setChannelEPKc
                 0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial6setDNSEPKc
@@ -930,6 +943,8 @@ Discarded input sections
                 0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial5setIPEPKc
                 0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._ZN11WiFlySerial11setDHCPModeEi
+                0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial11setDeviceIDEPKc
                 0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial23setNTP_Update_FrequencyEPKc
@@ -953,13 +968,15 @@ Discarded input sections
  .text._ZN11WiFlySerial15exitCommandModeEv
                 0x00000000       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial17SendInquirySimpleEPc
-                0x00000000       0x22 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x00000000       0x24 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial11SendInquiryEPcS0_i
-                0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x00000000       0x22 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial6isifUpEv
                 0x00000000       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial7getTimeEv
                 0x00000000       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .text._ZN11WiFlySerial11getSyncTimeEv
+                0x00000000       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial11getDeviceIDEPci
                 0x00000000       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._ZN11WiFlySerial10getBatteryEPci
@@ -982,6 +999,75 @@ Discarded input sections
                 0x00000000       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .text._Z16BufferToIP_ArrayPcPh
                 0x00000000       0x50 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .group         0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .data          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .bss           0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN5PrintC2Ev
+                0x00000000        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernetC2Ev
+                0x00000000       0x1c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet11dnsServerIPEv
+                0x00000000       0x3c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet9gatewayIPEv
+                0x00000000       0x3c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet10subnetMaskEv
+                0x00000000       0x3c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet7localIPEv
+                0x00000000       0x3c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet7connectEPht
+                0x00000000        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet15getDeviceStatusEv
+                0x00000000        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet12setNTPServerEPcf
+                0x00000000       0x7c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet11credentialsEPcS0_
+                0x00000000       0x22 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .text._ZN11WFSEthernet9configureEhhh
+                0x00000000       0x2e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .group         0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .text          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .data          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .bss           0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .text._ZN5PrintC2Ev
+                0x00000000        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .text._ZN17WFSEthernetServerC2Etl
+                0x00000000       0x1c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .group         0x00000000        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .text          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .data          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .bss           0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .text._ZN5PrintC2Ev
+                0x00000000        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .text._ZN17WFSEthernetClientC2EP11WFSEthernet
+                0x00000000       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .text._ZN17WFSEthernetClient12devicestatusEv
+                0x00000000        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .data._ZN17WFSEthernetClient8_srcportE
+                0x00000000        0x2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .text          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .data          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .bss           0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC2Ehhhh
+                0x00000000       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC1Ehhhh
+                0x00000000       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddresseqEPKh
+                0x00000000       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressaSEm
+                0x00000000       0x16 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressaSEPKh
+                0x00000000        0xe build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC1EPKh
+                0x00000000        0xe build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC2EPKh
+                0x00000000        0xe build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC1Em
+                0x00000000       0x16 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC2Em
+                0x00000000       0x16 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .text._ZN12WFSIPAddressC2Ev
+                0x00000000       0x10 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
  .text          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
  .data          0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
  .bss           0x00000000        0x0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
@@ -1061,6 +1147,14 @@ Discarded input sections
  .text          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
  .data          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
  .bss           0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+ .text          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
+ .data          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
+ .bss           0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
+ .text.memcmp   0x00000000       0x22 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
+ .text          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
+ .data          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
+ .bss           0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
+ .text.memcpy   0x00000000       0x1a /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
  .text          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
  .data          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
  .bss           0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
@@ -1089,6 +1183,7 @@ Discarded input sections
  .text          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
  .data          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
  .bss           0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
+ .text.strncat  0x00000000       0x26 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
  .text          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
  .data          0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
  .bss           0x00000000        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
@@ -1189,7 +1284,7 @@ END GROUP
                 0x20005000                PROVIDE (__msp_init, 0x20005000)
                 0x08007484                PROVIDE (__exc_reset, _start)
 
-.text           0x08005000     0x4748
+.text           0x08005000     0x4884
                 0x08005000                _text = .
  *(.stm32.interrupt_vector)
  .stm32.interrupt_vector
@@ -1863,167 +1958,257 @@ END GROUP
                 0x08007da8                _Z7pinModeh13WiringPinMode
  .text._GLOBAL__I_PIN_MAP
                 0x08007e30      0x158 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards/maple/board.o
- .text._Z7reversePcS_
-                0x08007f88       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08007f88                _Z7reversePcS_
- .text._Z4itoaiPci
-                0x08007fa8       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08007fa8                _Z4itoaiPci
+ .text._ZN11WiFlySerial16isConnectionOpenEv
+                0x08007f88        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007f88                _ZN11WiFlySerial16isConnectionOpenEv
+ .text._ZN11WiFlySerial5writeEh
+                0x08007f8c        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007f8c                _ZN11WiFlySerial5writeEh
+ .text._ZN11WiFlySerial4peekEv
+                0x08007f98        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007f98                _ZN11WiFlySerial4peekEv
+ .text._ZN11WiFlySerial9availableEv
+                0x08007f9c        0xa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007f9c                _ZN11WiFlySerial9availableEv
+ .text._ZN11WiFlySerial4readEv
+                0x08007fa6        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007fa6                _ZN11WiFlySerial4readEv
+ .text._ZN11WiFlySerial5flushEv
+                0x08007fac        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007fac                _ZN11WiFlySerial5flushEv
+ *fill*         0x08007fb2        0x2 00
  .text._ZN11WiFlySerial5drainEv
-                0x08007ff0       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08007ff0                _ZN11WiFlySerial5drainEv
+                0x08007fb4       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007fb4                _ZN11WiFlySerial5drainEv
  .text._ZN11WiFlySerial14ScanForPatternEPciPKcbmb
-                0x08008038      0x104 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08008038                _ZN11WiFlySerial14ScanForPatternEPciPKcbmb
+                0x08007ffc      0x108 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08007ffc                _ZN11WiFlySerial14ScanForPatternEPciPKcbmb
+ .text._ZN11WiFlySerial15serveConnectionEm
+                0x08008104       0x2c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08008104                _ZN11WiFlySerial15serveConnectionEm
  .text._ZN11WiFlySerialC1Ev
-                0x0800813c       0x5c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800813c                _ZN11WiFlySerialC1Ev
+                0x08008130       0x6c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08008130                _ZN11WiFlySerialC1Ev
  .text._ZN11WiFlySerial16StartCommandModeEPci
-                0x08008198      0x100 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08008198                _ZN11WiFlySerial16StartCommandModeEPci
+                0x0800819c      0x100 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800819c                _ZN11WiFlySerial16StartCommandModeEPci
  .text._ZN11WiFlySerial11SendCommandEPKcS1_Pcibmbb
-                0x08008298      0x130 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08008298                _ZN11WiFlySerial11SendCommandEPKcS1_Pcibmbb
- .text._ZN11WiFlySerial12issueSettingEiPKc
-                0x080083c8       0x54 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x080083c8                _ZN11WiFlySerial12issueSettingEiPKc
- .text._ZN11WiFlySerial11setJoinModeEi
-                0x0800841c       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800841c                _ZN11WiFlySerial11setJoinModeEi
- .text._ZN11WiFlySerial11setAuthModeEi
-                0x0800843c       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800843c                _ZN11WiFlySerial11setAuthModeEi
- .text._ZN11WiFlySerial11setDHCPModeEi
-                0x0800845c       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800845c                _ZN11WiFlySerial11setDHCPModeEi
+                0x0800829c      0x130 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800829c                _ZN11WiFlySerial11SendCommandEPKcS1_Pcibmbb
  .text._ZN11WiFlySerial13ExtractDetailEPKcPciS1_S1_
-                0x0800847c       0x84 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800847c                _ZN11WiFlySerial13ExtractDetailEPKcPciS1_S1_
+                0x080083cc       0x84 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x080083cc                _ZN11WiFlySerial13ExtractDetailEPKcPciS1_S1_
  .text._ZN11WiFlySerial16ExtractDetailIdxEiPciii
-                0x08008500       0x5c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08008500                _ZN11WiFlySerial16ExtractDetailIdxEiPciii
+                0x08008450       0x5c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08008450                _ZN11WiFlySerial16ExtractDetailIdxEiPciii
  .text._ZN11WiFlySerial6getDNSEPci
-                0x0800855c       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800855c                _ZN11WiFlySerial6getDNSEPci
+                0x080084ac       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x080084ac                _ZN11WiFlySerial6getDNSEPci
  .text._ZN11WiFlySerial10getGatewayEPci
-                0x08008574       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08008574                _ZN11WiFlySerial10getGatewayEPci
+                0x080084c4       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x080084c4                _ZN11WiFlySerial10getGatewayEPci
  .text._ZN11WiFlySerial10getNetMaskEPci
-                0x0800858c       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800858c                _ZN11WiFlySerial10getNetMaskEPci
+                0x080084dc       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x080084dc                _ZN11WiFlySerial10getNetMaskEPci
  .text._ZN11WiFlySerial5getIPEPci
-                0x080085a4       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x080085a4                _ZN11WiFlySerial5getIPEPci
+                0x080084f4       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x080084f4                _ZN11WiFlySerial5getIPEPci
  .text._ZN11WiFlySerial6getMACEPci
-                0x080085bc       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x080085bc                _ZN11WiFlySerial6getMACEPci
+                0x0800850c       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800850c                _ZN11WiFlySerial6getMACEPci
  .text._ZN11WiFlySerial15getDeviceStatusEv
-                0x080085d4       0x40 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x080085d4                _ZN11WiFlySerial15getDeviceStatusEv
+                0x08008524       0x40 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08008524                _ZN11WiFlySerial15getDeviceStatusEv
  .text._ZN11WiFlySerial14isTCPConnectedEv
-                0x08008614       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x08008614                _ZN11WiFlySerial14isTCPConnectedEv
+                0x08008564       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08008564                _ZN11WiFlySerial14isTCPConnectedEv
  .text._ZN11WiFlySerial15closeConnectionEb
-                0x0800862c       0xcc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800862c                _ZN11WiFlySerial15closeConnectionEb
+                0x0800857c       0xcc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800857c                _ZN11WiFlySerial15closeConnectionEb
  .text._ZN11WiFlySerial12GetCmdPromptEv
-                0x080086f8       0xac build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x080086f8                _ZN11WiFlySerial12GetCmdPromptEv
+                0x08008648       0xb0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x08008648                _ZN11WiFlySerial12GetCmdPromptEv
  .text._ZN11WiFlySerial5beginEP13SpiUartDevice
-                0x080087a4       0x80 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x080087a4                _ZN11WiFlySerial5beginEP13SpiUartDevice
+                0x080086f8       0x84 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x080086f8                _ZN11WiFlySerial5beginEP13SpiUartDevice
+ .text._ZN11WFSEthernet5beginEP11WiFlySerial
+                0x0800877c        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x0800877c                _ZN11WFSEthernet5beginEP11WiFlySerial
+ .text._ZN11WFSEthernet5flushEv
+                0x08008780        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x08008780                _ZN11WFSEthernet5flushEv
+ .text._ZN11WFSEthernet4readEv
+                0x0800878c        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x0800878c                _ZN11WFSEthernet4readEv
+ .text._ZN11WFSEthernet5writeEh
+                0x08008798        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x08008798                _ZN11WFSEthernet5writeEh
+ .text._ZN11WFSEthernet9availableEv
+                0x080087a4        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x080087a4                _ZN11WFSEthernet9availableEv
+ .text._ZN11WFSEthernetC1Ev
+                0x080087b0       0x1c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x080087b0                _ZN11WFSEthernetC1Ev
+ .text._ZN11WFSEthernet11SendCommandEPc
+                0x080087cc       0x28 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x080087cc                _ZN11WFSEthernet11SendCommandEPc
+ .text._ZN11WFSEthernet10disconnectEv
+                0x080087f4        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x080087f4                _ZN11WFSEthernet10disconnectEv
+ .text._ZN11WFSEthernet16isConnectionOpenEv
+                0x080087fc        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x080087fc                _ZN11WFSEthernet16isConnectionOpenEv
+ .text._ZN11WFSEthernet15serveConnectionEv
+                0x08008802        0xa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x08008802                _ZN11WFSEthernet15serveConnectionEv
+ .text._ZN17WFSEthernetServerC1Etl
+                0x0800880c       0x1c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x0800880c                _ZN17WFSEthernetServerC1Etl
+ .text._ZN17WFSEthernetServer5writeEh
+                0x08008828        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x08008828                _ZN17WFSEthernetServer5writeEh
+ .text._ZN17WFSEthernetServer6acceptEv
+                0x08008834        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x08008834                _ZN17WFSEthernetServer6acceptEv
+ .text._ZN17WFSEthernetServer9availableEv
+                0x0800883a       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x0800883a                _ZN17WFSEthernetServer9availableEv
+ *fill*         0x08008852        0x2 00
+ .text._ZN17WFSEthernetServer10setProfileEv
+                0x08008854       0x28 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x08008854                _ZN17WFSEthernetServer10setProfileEv
+ .text._ZN17WFSEthernetServer5beginEP11WFSEthernet
+                0x0800887c       0x40 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x0800887c                _ZN17WFSEthernetServer5beginEP11WFSEthernet
+ .text._ZN17WFSEthernetClientC1EP11WFSEthernet
+                0x080088bc       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x080088bc                _ZN17WFSEthernetClientC1EP11WFSEthernet
+ .text._ZN17WFSEthernetClient7connectEPKct
+                0x080088d4        0xa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x080088d4                _ZN17WFSEthernetClient7connectEPKct
+ .text._ZN17WFSEthernetClient7connectE12WFSIPAddresst
+                0x080088de        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x080088de                _ZN17WFSEthernetClient7connectE12WFSIPAddresst
+ .text._ZN17WFSEthernetClient5writeEh
+                0x080088ea        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x080088ea                _ZN17WFSEthernetClient5writeEh
+ .text._ZN17WFSEthernetClient9availableEv
+                0x080088f6        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x080088f6                _ZN17WFSEthernetClient9availableEv
+ .text._ZN17WFSEthernetClient4readEv
+                0x08008902        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x08008902                _ZN17WFSEthernetClient4readEv
+ .text._ZN17WFSEthernetClient4peekEv
+                0x0800890e        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x0800890e                _ZN17WFSEthernetClient4peekEv
+ .text._ZN17WFSEthernetClient5flushEv
+                0x08008914        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x08008914                _ZN17WFSEthernetClient5flushEv
+ .text._ZN17WFSEthernetClient6statusEv
+                0x08008920        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x08008920                _ZN17WFSEthernetClient6statusEv
+ .text._ZN17WFSEthernetClientcvbEv
+                0x08008926        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x08008926                _ZN17WFSEthernetClientcvbEv
+ .text._ZN17WFSEthernetClient9connectedEv
+                0x0800892a        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x0800892a                _ZN17WFSEthernetClient9connectedEv
+ .text._ZN17WFSEthernetClient4stopEv
+                0x08008930        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x08008930                _ZN17WFSEthernetClient4stopEv
+ .text._ZN12WFSIPAddressC1Ev
+                0x08008936       0x10 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+                0x08008936                _ZN12WFSIPAddressC1Ev
+ *fill*         0x08008946        0x2 00
  .text._ZN13SpiUartDevice6selectEv
-                0x08008824       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008824                _ZN13SpiUartDevice6selectEv
+                0x08008948       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008948                _ZN13SpiUartDevice6selectEv
  .text._ZN13SpiUartDevice8deselectEv
-                0x0800883c       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x0800883c                _ZN13SpiUartDevice8deselectEv
+                0x08008960       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008960                _ZN13SpiUartDevice8deselectEv
  .text._ZN13SpiUartDevice12readRegisterEh
-                0x08008854       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008854                _ZN13SpiUartDevice12readRegisterEh
+                0x08008978       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008978                _ZN13SpiUartDevice12readRegisterEh
  .text._ZN13SpiUartDevice5writeEPKc
-                0x08008884       0x34 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008884                _ZN13SpiUartDevice5writeEPKc
+                0x080089a8       0x34 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x080089a8                _ZN13SpiUartDevice5writeEPKc
  .text._ZN13SpiUartDevice9availableEv
-                0x080088b8        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x080088b8                _ZN13SpiUartDevice9availableEv
+                0x080089dc        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x080089dc                _ZN13SpiUartDevice9availableEv
  .text._ZN13SpiUartDevice4readEv
-                0x080088be       0x1a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x080088be                _ZN13SpiUartDevice4readEv
+                0x080089e2       0x1a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x080089e2                _ZN13SpiUartDevice4readEv
  .text._ZN13SpiUartDevice5flushEv
-                0x080088d8       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x080088d8                _ZN13SpiUartDevice5flushEv
+                0x080089fc       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x080089fc                _ZN13SpiUartDevice5flushEv
  .text._ZN13SpiUartDevice13writeRegisterEhh
-                0x080088f0       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x080088f0                _ZN13SpiUartDevice13writeRegisterEhh
+                0x08008a14       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008a14                _ZN13SpiUartDevice13writeRegisterEhh
  .text._ZN13SpiUartDevice5writeEh
-                0x08008920       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008920                _ZN13SpiUartDevice5writeEh
+                0x08008a44       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008a44                _ZN13SpiUartDevice5writeEh
  .text._ZN13SpiUartDevice13uartConnectedEv
-                0x08008940       0x24 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008940                _ZN13SpiUartDevice13uartConnectedEv
+                0x08008a64       0x24 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008a64                _ZN13SpiUartDevice13uartConnectedEv
  .text._ZN13SpiUartDevice11setBaudRateEm
-                0x08008964       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008964                _ZN13SpiUartDevice11setBaudRateEm
+                0x08008a88       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008a88                _ZN13SpiUartDevice11setBaudRateEm
  .text._ZN13SpiUartDevice13configureUartEm
-                0x08008994       0x44 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x08008994                _ZN13SpiUartDevice13configureUartEm
+                0x08008ab8       0x44 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008ab8                _ZN13SpiUartDevice13configureUartEm
  .text._ZN13SpiUartDevice8initUartEm
-                0x080089d8       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x080089d8                _ZN13SpiUartDevice8initUartEm
- *fill*         0x080089ea        0x2 00
+                0x08008afc       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008afc                _ZN13SpiUartDevice8initUartEm
+ *fill*         0x08008b0e        0x2 00
  .text._ZN13SpiUartDevice5beginEP11HardwareSPIm
-                0x080089ec       0x40 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x080089ec                _ZN13SpiUartDevice5beginEP11HardwareSPIm
+                0x08008b10       0x40 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x08008b10                _ZN13SpiUartDevice5beginEP11HardwareSPIm
  .text._Z7premainv
-                0x08008a2c        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x08008a2c                _Z7premainv
+                0x08008b50        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x08008b50                _Z7premainv
  .text._Z4loopv
-                0x08008a30       0x40 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x08008a30                _Z4loopv
+                0x08008b54       0x68 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x08008b54                _Z4loopv
  .text._Z5setupv
-                0x08008a70      0x1bc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x08008a70                _Z5setupv
- .text.main     0x08008c2c        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x08008c2c                main
+                0x08008bbc      0x1bc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x08008bbc                _Z5setupv
+ .text.main     0x08008d78        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x08008d78                main
  .text._GLOBAL__I_spi
-                0x08008c38       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .text          0x08008c68       0x2c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
-                0x08008c68                __aeabi_uldivmod
- .text          0x08008c94       0x58 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
-                0x08008c94                __gnu_uldivmod_helper
-                0x08008cc0                __gnu_ldivmod_helper
- .text          0x08008cec        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
-                0x08008cec                __aeabi_ldiv0
-                0x08008cec                __aeabi_idiv0
- .text          0x08008cf0      0x364 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
-                0x08008cf0                __divdi3
- .text          0x08009054      0x300 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
-                0x08009054                __udivdi3
- *fill*         0x08009354        0x4 00
- .text          0x08009358      0x278 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
-                0x08009358                __udivsi3
-                0x08009358                __aeabi_uidiv
-                0x080095b4                __aeabi_uidivmod
+                0x08008d84       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .text          0x08008dcc       0x2c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+                0x08008dcc                __aeabi_uldivmod
+ .text          0x08008df8       0x58 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+                0x08008df8                __gnu_uldivmod_helper
+                0x08008e24                __gnu_ldivmod_helper
+ .text          0x08008e50        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+                0x08008e50                __aeabi_ldiv0
+                0x08008e50                __aeabi_idiv0
+ .text          0x08008e54      0x364 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+                0x08008e54                __divdi3
+ .text          0x080091b8      0x300 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+                0x080091b8                __udivdi3
+ .text          0x080094b8      0x278 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+                0x080094b8                __udivsi3
+                0x080094b8                __aeabi_uidiv
+                0x08009714                __aeabi_uidivmod
  .text.__libc_init_array
-                0x080095d0       0x4c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
-                0x080095d0                __libc_init_array
- .text.memset   0x0800961c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
-                0x0800961c                memset
- .text.strchr   0x0800962e       0x18 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strchr.o)
-                0x0800962e                strchr
- .text.strcpy   0x08009646       0x10 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcpy.o)
-                0x08009646                strcpy
- .text.strlen   0x08009656       0x10 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strlen.o)
-                0x08009656                strlen
- .text.strncat  0x08009666       0x26 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
-                0x08009666                strncat
- .text.strncpy  0x0800968c       0x30 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
-                0x0800968c                strncpy
- .text.strrchr  0x080096bc       0x2c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strrchr.o)
-                0x080096bc                strrchr
- .text.strstr   0x080096e8       0x28 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strstr.o)
-                0x080096e8                strstr
+                0x08009730       0x4c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+                0x08009730                __libc_init_array
+ .text.memset   0x0800977c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
+                0x0800977c                memset
+ .text.strchr   0x0800978e       0x18 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strchr.o)
+                0x0800978e                strchr
+ .text.strcpy   0x080097a6       0x10 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcpy.o)
+                0x080097a6                strcpy
+ .text.strlen   0x080097b6       0x10 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strlen.o)
+                0x080097b6                strlen
+ .text.strncpy  0x080097c6       0x30 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
+                0x080097c6                strncpy
+ .text.strrchr  0x080097f6       0x2c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strrchr.o)
+                0x080097f6                strrchr
+ .text.strstr   0x08009822       0x28 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strstr.o)
+                0x08009822                strstr
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
@@ -2036,65 +2221,67 @@ END GROUP
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
-                0x08009710                . = ALIGN (0x4)
+                0x0800984c                . = ALIGN (0x4)
+ *fill*         0x0800984a        0x2 00
  *(.init)
- .init          0x08009710        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
-                0x08009710                _init
- .init          0x08009714        0x8 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
-                0x0800971c                . = ALIGN (0x4)
-                0x0800971c                __preinit_array_start = .
+ .init          0x0800984c        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
+                0x0800984c                _init
+ .init          0x08009850        0x8 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+                0x08009858                . = ALIGN (0x4)
+                0x08009858                __preinit_array_start = .
  *(.preinit_array)
-                0x0800971c                __preinit_array_end = .
-                0x0800971c                . = ALIGN (0x4)
-                0x0800971c                __init_array_start = .
+                0x08009858                __preinit_array_end = .
+                0x08009858                . = ALIGN (0x4)
+                0x08009858                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x0800971c        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
- .init_array    0x08009720        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
- .init_array    0x08009724        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
- .init_array    0x08009728        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/usb_serial.o
- .init_array    0x0800972c        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards/maple/board.o
- .init_array    0x08009730        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x08009738                __init_array_end = .
-                0x08009738                . = ALIGN (0x4)
+ .init_array    0x08009858        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
+ .init_array    0x0800985c        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
+ .init_array    0x08009860        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
+ .init_array    0x08009864        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/usb_serial.o
+ .init_array    0x08009868        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards/maple/board.o
+ .init_array    0x0800986c        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x08009874                __init_array_end = .
+                0x08009874                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x08009738                . = ALIGN (0x4)
+                0x08009874                . = ALIGN (0x4)
  *(.fini)
- .fini          0x08009738        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
-                0x08009738                _fini
- .fini          0x0800973c        0x8 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
-                0x08009744                . = ALIGN (0x4)
-                0x08009744                __fini_array_start = .
+ .fini          0x08009874        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
+                0x08009874                _fini
+ .fini          0x08009878        0x8 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+                0x08009880                . = ALIGN (0x4)
+                0x08009880                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x08009744        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
+ .fini_array    0x08009880        0x4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
  *(SORT(.fini_array.*))
-                0x08009748                __fini_array_end = .
+                0x08009884                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
 
-.v4_bx          0x08009748        0x0
+.v4_bx          0x08009884        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.text.align     0x08009748        0x0
-                0x08009748                . = ALIGN (0x8)
-                0x08009748                _etext = .
-                0x08009748                __exidx_start = .
+.text.align     0x08009884        0x4
+                0x08009888                . = ALIGN (0x8)
+ *fill*         0x08009884        0x4 00
+                0x08009888                _etext = .
+                0x08009888                __exidx_start = .
 
-.ARM.exidx      0x08009748        0x8
+.ARM.exidx      0x08009888        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x08009748        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/start.o
- .ARM.exidx     0x08009750        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .ARM.exidx     0x08009888        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/start.o
+ .ARM.exidx     0x08009890        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x08009750        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .ARM.exidx     0x08009890        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
                                   0x8 (size before relaxing)
-                0x08009750                __exidx_end = .
+                0x08009890                __exidx_end = .
 
-.data           0x20000c00      0x7c8 load address 0x08009750
+.data           0x20000c00      0x7c8 load address 0x08009890
                 0x20000c00                . = ALIGN (0x8)
                 0x20000c00                _data = .
  *(.got.plt)
@@ -2208,100 +2395,119 @@ END GROUP
                 0x200013c8                . = ALIGN (0x8)
                 0x200013c8                _edata = .
 
-.jcr            0x200013c8        0x0 load address 0x08009f18
+.jcr            0x200013c8        0x0 load address 0x0800a058
  .jcr           0x200013c8        0x0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
 
-.rodata         0x08009f18      0xa6c
+.rodata         0x0800a058      0xb84
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.1
-                0x08009f18       0xb6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/timer.o
+                0x0800a058       0xb6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/timer.o
                                  0xb8 (size before relaxing)
  .rodata.str1.1
-                0x08009fce       0x3f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/util.o
+                0x0800a10e       0x3f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/util.o
                                  0x42 (size before relaxing)
  .rodata.str1.1
-                0x0800a00d       0x9a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/i2c.o
+                0x0800a14d       0x9a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/i2c.o
                                  0x9c (size before relaxing)
  .rodata.str1.1
-                0x0800a0a7       0x7e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb.o
- *fill*         0x0800a125        0x3 00
+                0x0800a1e7       0x7e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb.o
+ *fill*         0x0800a265        0x3 00
  .rodata.usbVcomDescriptor_iProduct
-                0x0800a128       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-                0x0800a128                usbVcomDescriptor_iProduct
+                0x0800a268       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+                0x0800a268                usbVcomDescriptor_iProduct
  .rodata.usbVcomDescriptor_iManufacturer
-                0x0800a13c       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-                0x0800a13c                usbVcomDescriptor_iManufacturer
+                0x0800a27c       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+                0x0800a27c                usbVcomDescriptor_iManufacturer
  .rodata.usbVcomDescriptor_Device
-                0x0800a150       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-                0x0800a150                usbVcomDescriptor_Device
+                0x0800a290       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+                0x0800a290                usbVcomDescriptor_Device
  .rodata.usbVcomDescriptor_Config
-                0x0800a164       0x44 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-                0x0800a164                usbVcomDescriptor_Config
+                0x0800a2a4       0x44 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+                0x0800a2a4                usbVcomDescriptor_Config
  .rodata.usbVcomDescriptor_LangID
-                0x0800a1a8        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-                0x0800a1a8                usbVcomDescriptor_LangID
- .rodata.GPIOA  0x0800a1ac        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
-                0x0800a1ac                GPIOA
- .rodata.GPIOB  0x0800a1b0        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
-                0x0800a1b0                GPIOB
- .rodata.GPIOC  0x0800a1b4        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
-                0x0800a1b4                GPIOC
- .rodata.GPIOD  0x0800a1b8        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
-                0x0800a1b8                GPIOD
+                0x0800a2e8        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+                0x0800a2e8                usbVcomDescriptor_LangID
+ .rodata.GPIOA  0x0800a2ec        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
+                0x0800a2ec                GPIOA
+ .rodata.GPIOB  0x0800a2f0        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
+                0x0800a2f0                GPIOB
+ .rodata.GPIOC  0x0800a2f4        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
+                0x0800a2f4                GPIOC
+ .rodata.GPIOD  0x0800a2f8        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
+                0x0800a2f8                GPIOD
  .rodata.masks.1602
-                0x0800a1bc       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
+                0x0800a2fc       0x14 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
  .rodata.str1.1
-                0x0800a1d0       0xbc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
+                0x0800a310       0xbc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
  .rodata.rcc_dev_table
-                0x0800a28c       0x5c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
-                0x0800a28c                rcc_dev_table
+                0x0800a3cc       0x5c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
+                0x0800a3cc                rcc_dev_table
  .rodata.str1.1
-                0x0800a2e8       0x74 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/usart.o
- *fill*         0x0800a35c        0x4 00
+                0x0800a428       0x74 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/usart.o
+ *fill*         0x0800a49c        0x4 00
  .rodata._ZTV14HardwareSerial
-                0x0800a360       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
-                0x0800a360                _ZTV14HardwareSerial
+                0x0800a4a0       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
+                0x0800a4a0                _ZTV14HardwareSerial
  .rodata.str1.1
-                0x0800a378       0x7a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
- *fill*         0x0800a3f2        0x6 00
+                0x0800a4b8       0x7a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
+ *fill*         0x0800a532        0x6 00
  .rodata._ZTV5Print
-                0x0800a3f8       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/Print.o
-                0x0800a3f8                _ZTV5Print
+                0x0800a538       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/Print.o
+                0x0800a538                _ZTV5Print
  .rodata._ZTV9USBSerial
-                0x0800a410       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/usb_serial.o
-                0x0800a410                _ZTV9USBSerial
+                0x0800a550       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/usb_serial.o
+                0x0800a550                _ZTV9USBSerial
  .rodata.str1.1
-                0x0800a428       0x66 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
+                0x0800a568       0x66 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
                                  0x68 (size before relaxing)
- *fill*         0x0800a48e        0x2 00
+ *fill*         0x0800a5ce        0x2 00
  .rodata.CSWTCH.32
-                0x0800a490        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
+                0x0800a5d0        0x8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
  .rodata.str1.1
-                0x0800a498       0x71 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/wirish_digital.o
+                0x0800a5d8       0x71 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/wirish_digital.o
                                  0x73 (size before relaxing)
- .rodata        0x0800a509        0x3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .rodata        0x0800a649        0x3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .rodata._ZL15WiFlyFixedFlags
-                0x0800a50c        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800a64c        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .rodata.str1.1
-                0x0800a518       0xf0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800a658       0xf0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
                                  0xf5 (size before relaxing)
- .rodata._ZTV13SpiUartDevice
-                0x0800a608       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
-                0x0800a608                _ZTV13SpiUartDevice
+ .rodata._ZTV11WiFlySerial
+                0x0800a748       0x28 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800a748                _ZTV11WiFlySerial
  .rodata.str1.1
-                0x0800a620       0xd9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                                 0xdb (size before relaxing)
+                0x0800a770       0x1c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                                 0x1d (size before relaxing)
+ *fill*         0x0800a78c        0x4 00
+ .rodata._ZTV11WFSEthernet
+                0x0800a790       0x20 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                0x0800a790                _ZTV11WFSEthernet
+ .rodata.str1.1
+                0x0800a7b0       0x66 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ *fill*         0x0800a816        0x2 00
+ .rodata._ZTV17WFSEthernetServer
+                0x0800a818       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                0x0800a818                _ZTV17WFSEthernetServer
+ .rodata._ZTV17WFSEthernetClient
+                0x0800a830       0x38 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                0x0800a830                _ZTV17WFSEthernetClient
+ .rodata._ZTV13SpiUartDevice
+                0x0800a868       0x18 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x0800a868                _ZTV13SpiUartDevice
+ .rodata.str1.1
+                0x0800a880       0xd2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                                 0xe6 (size before relaxing)
  *(.USER_FLASH)
- *fill*         0x0800a6f9        0x3 00
- .USER_FLASH    0x0800a6fc       0x10 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
- .USER_FLASH    0x0800a70c      0x274 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                0x0800a980                . = ALIGN (0x4)
-                0x0800a980                _lm_rom_img_cfgp = .
-                0x0800a980        0x4 LONG 0x8009750 LOADADDR (.data)
-                [0x20001670]                _lm_heap_start = DEFINED (_lm_heap_start)?_lm_heap_start:_end
+ *fill*         0x0800a952        0x2 00
+ .USER_FLASH    0x0800a954       0x10 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
+ .USER_FLASH    0x0800a964      0x274 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x0800abd8                . = ALIGN (0x4)
+                0x0800abd8                _lm_rom_img_cfgp = .
+                0x0800abd8        0x4 LONG 0x8009890 LOADADDR (.data)
+                [0x20001690]                _lm_heap_start = DEFINED (_lm_heap_start)?_lm_heap_start:_end
                 [0x20005000]                _lm_heap_end = DEFINED (_lm_heap_end)?_lm_heap_end:__msp_init
 
-.bss            0x200013c8      0x2a8
+.bss            0x200013c8      0x2c8
                 0x200013c8                . = ALIGN (0x8)
                 0x200013c8                _bss = .
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -2367,43 +2573,47 @@ END GROUP
                 0x20001454                SerialUSB
  .bss.SPIfoo    0x20001458        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
                 0x20001458                SPIfoo
- .bss.WiFly     0x2000145c       0x2c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .bss.WiFly     0x2000145c       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
                 0x2000145c                WiFly
- .bss.bufBody   0x20001488       0x64 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x20001488                bufBody
- .bss.SpiSerial
-                0x200014ec        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x200014ec                SpiSerial
- .bss.spi       0x200014f0        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x200014f0                spi
  .bss.bufRequest
-                0x200014f4       0x78 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                0x200014f4                bufRequest
+                0x2000148c       0x78 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x2000148c                bufRequest
+ .bss.bufBody   0x20001504       0x64 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x20001504                bufBody
+ .bss.SpiSerial
+                0x20001568        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x20001568                SpiSerial
+ .bss.wifi      0x2000156c        0xc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x2000156c                wifi
+ .bss.spi       0x20001578        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x20001578                spi
+ .bss.myServer  0x2000157c       0x10 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x2000157c                myServer
  *(COMMON)
- COMMON         0x2000156c        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/systick.o
-                0x2000156c                systick_uptime_millis
- COMMON         0x20001570        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb.o
-                0x20001570                SaveRState
-                0x20001572                SaveTState
-                0x20001574                ResumeS
- *fill*         0x20001576        0x2 00
- COMMON         0x20001578       0xc0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-                0x20001578                vcomBufferRx
- COMMON         0x20001638        0x2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_core.o
-                0x20001638                StatusInfo
- *fill*         0x2000163a        0x2 00
- COMMON         0x2000163c       0x32 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_init.o
-                0x2000163c                SaveState
-                0x20001640                pProperty
-                0x20001644                EPindex
-                0x20001648                Device_Info
-                0x20001664                pUser_Standard_Requests
-                0x20001668                pInformation
-                0x2000166c                wInterrupt_Mask
-                0x20001670                . = ALIGN (0x8)
- *fill*         0x2000166e        0x2 00
-                0x20001670                _ebss = .
-                0x20001670                _end = _ebss
+ COMMON         0x2000158c        0x4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/systick.o
+                0x2000158c                systick_uptime_millis
+ COMMON         0x20001590        0x6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb.o
+                0x20001590                SaveRState
+                0x20001592                SaveTState
+                0x20001594                ResumeS
+ *fill*         0x20001596        0x2 00
+ COMMON         0x20001598       0xc0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+                0x20001598                vcomBufferRx
+ COMMON         0x20001658        0x2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_core.o
+                0x20001658                StatusInfo
+ *fill*         0x2000165a        0x2 00
+ COMMON         0x2000165c       0x32 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_init.o
+                0x2000165c                SaveState
+                0x20001660                pProperty
+                0x20001664                EPindex
+                0x20001668                Device_Info
+                0x20001684                pUser_Standard_Requests
+                0x20001688                pInformation
+                0x2000168c                wInterrupt_Mask
+                0x20001690                . = ALIGN (0x8)
+ *fill*         0x2000168e        0x2 00
+                0x20001690                _ebss = .
+                0x20001690                _end = _ebss
 
 .stab
  *(.stab)
@@ -2423,7 +2633,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.comment        0x00000000      0x69c
+.comment        0x00000000      0x708
  .comment       0x00000000       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtbegin.o
  .comment       0x00000012       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
  .comment       0x00000024       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dac.o
@@ -2487,39 +2697,45 @@ END GROUP
  .comment       0x00000438       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .comment       0x0000044a       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
  .comment       0x0000045c       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .comment       0x0000046e       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .comment       0x00000480       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .comment       0x00000492       0x12 build/main.o
- .comment       0x000004a4       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .comment       0x000004b6       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .comment       0x000004c8       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .comment       0x000004da       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .comment       0x000004ec       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .comment       0x000004fe       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-errno.o)
- .comment       0x00000510       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-impure.o)
- .comment       0x00000522       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
- .comment       0x00000534       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
- .comment       0x00000546       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-rand.o)
- .comment       0x00000558       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcat.o)
- .comment       0x0000056a       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strchr.o)
- .comment       0x0000057c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcmp.o)
- .comment       0x0000058e       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcpy.o)
- .comment       0x000005a0       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strlen.o)
- .comment       0x000005b2       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
- .comment       0x000005c4       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
- .comment       0x000005d6       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strrchr.o)
- .comment       0x000005e8       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strstr.o)
- .comment       0x000005fa       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strupr.o)
- .comment       0x0000060c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
- .comment       0x0000061e       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-malloc.o)
- .comment       0x00000630       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mallocr.o)
- .comment       0x00000642       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mlock.o)
- .comment       0x00000654       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-sbrkr.o)
- .comment       0x00000666       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-freer.o)
- .comment       0x00000678       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-reent.o)
- .comment       0x0000068a       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
+ .comment       0x0000046e       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .comment       0x00000480       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .comment       0x00000492       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .comment       0x000004a4       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .comment       0x000004b6       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .comment       0x000004c8       0x12 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .comment       0x000004da       0x12 build/main.o
+ .comment       0x000004ec       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .comment       0x000004fe       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .comment       0x00000510       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .comment       0x00000522       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .comment       0x00000534       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .comment       0x00000546       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-errno.o)
+ .comment       0x00000558       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-impure.o)
+ .comment       0x0000056a       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+ .comment       0x0000057c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
+ .comment       0x0000058e       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
+ .comment       0x000005a0       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
+ .comment       0x000005b2       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-rand.o)
+ .comment       0x000005c4       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcat.o)
+ .comment       0x000005d6       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strchr.o)
+ .comment       0x000005e8       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcmp.o)
+ .comment       0x000005fa       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcpy.o)
+ .comment       0x0000060c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strlen.o)
+ .comment       0x0000061e       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
+ .comment       0x00000630       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
+ .comment       0x00000642       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strrchr.o)
+ .comment       0x00000654       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strstr.o)
+ .comment       0x00000666       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strupr.o)
+ .comment       0x00000678       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+ .comment       0x0000068a       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-malloc.o)
+ .comment       0x0000069c       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mallocr.o)
+ .comment       0x000006ae       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mlock.o)
+ .comment       0x000006c0       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-sbrkr.o)
+ .comment       0x000006d2       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-freer.o)
+ .comment       0x000006e4       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-reent.o)
+ .comment       0x000006f6       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
 
-.debug_aranges  0x00000000     0x1b30
+.debug_aranges  0x00000000     0x1d80
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
@@ -2644,46 +2860,54 @@ END GROUP
  .debug_aranges
                 0x00001598       0xa0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
  .debug_aranges
-                0x00001638      0x208 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x00001638      0x240 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .debug_aranges
-                0x00001840       0xa0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x00001878       0xc0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
  .debug_aranges
-                0x000018e0       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x00001938       0x58 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
  .debug_aranges
-                0x00001928       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+                0x00001990       0x90 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
  .debug_aranges
-                0x00001948       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+                0x00001a20       0x70 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
  .debug_aranges
-                0x00001968       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+                0x00001a90       0xa0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
  .debug_aranges
-                0x00001988       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+                0x00001b30       0x48 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
  .debug_aranges
-                0x000019a8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
+                0x00001b78       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
  .debug_aranges
-                0x000019c8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
+                0x00001b98       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
  .debug_aranges
-                0x000019e8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+                0x00001bb8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
  .debug_aranges
-                0x00001a08       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+                0x00001bd8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
  .debug_aranges
-                0x00001a28       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+                0x00001bf8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
  .debug_aranges
-                0x00001a48       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+                0x00001c18       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
  .debug_aranges
-                0x00001a68       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+                0x00001c38       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
  .debug_aranges
-                0x00001a88       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+                0x00001c58       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
  .debug_aranges
-                0x00001aa8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+                0x00001c78       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
  .debug_aranges
-                0x00001ac8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+                0x00001c98       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
  .debug_aranges
-                0x00001ae8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+                0x00001cb8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
  .debug_aranges
-                0x00001b08       0x28 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+                0x00001cd8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_aranges
+                0x00001cf8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_aranges
+                0x00001d18       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x00001d38       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x00001d58       0x28 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
 .debug_pubnames
-                0x00000000     0x36b4
+                0x00000000     0x3e32
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x57 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
@@ -2806,23 +3030,31 @@ END GROUP
  .debug_pubnames
                 0x00002aa9      0x199 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
  .debug_pubnames
-                0x00002c42      0x6fc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x00002c42      0x79f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .debug_pubnames
-                0x0000333e      0x21b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x000033e1      0x24c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
  .debug_pubnames
-                0x00003559       0x94 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x0000362d      0x110 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
  .debug_pubnames
-                0x000035ed       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+                0x0000373d      0x20a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
  .debug_pubnames
-                0x0000360d       0x23 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+                0x00003947      0x15f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
  .debug_pubnames
-                0x00003630       0x45 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+                0x00003aa6      0x21b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
  .debug_pubnames
-                0x00003675       0x1f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+                0x00003cc1       0xaa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
  .debug_pubnames
-                0x00003694       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+                0x00003d6b       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_pubnames
+                0x00003d8b       0x23 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_pubnames
+                0x00003dae       0x45 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_pubnames
+                0x00003df3       0x1f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_pubnames
+                0x00003e12       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
 
-.debug_info     0x00000000    0x26f99
+.debug_info     0x00000000    0x287a4
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0x8f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_info    0x0000008f      0x55f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
@@ -2886,28 +3118,32 @@ END GROUP
  .debug_info    0x0001ed50      0xc8e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
  .debug_info    0x0001f9de      0x9de build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .debug_info    0x000203bc      0xd69 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
- .debug_info    0x00021125     0x258f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .debug_info    0x000236b4      0xe66 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .debug_info    0x0002451a     0x1314 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .debug_info    0x0002582e       0x25 build/main.o
- .debug_info    0x00025853       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x00025912       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x000259d1       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_info    0x00025a90       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_info    0x00025b4f       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
- .debug_info    0x00025c0e       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
- .debug_info    0x00025ccd       0xba /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
- .debug_info    0x00025d87       0xca /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_info    0x00025e51       0xf4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_info    0x00025f45       0xe2 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_info    0x00026027       0xc0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
- .debug_info    0x000260e7       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .debug_info    0x000261a6      0x665 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_info    0x0002680b      0x63f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_info    0x00026e4a       0xc0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_info    0x00026f0a       0x8f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_info    0x00021125     0x27a2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .debug_info    0x000238c7      0xb9f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .debug_info    0x00024466      0x4b1 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .debug_info    0x00024917      0x8f0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_info    0x00025207      0x505 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_info    0x0002570c      0xe66 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_info    0x00026572      0xac7 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_info    0x00027039       0x25 build/main.o
+ .debug_info    0x0002705e       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x0002711d       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x000271dc       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x0002729b       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x0002735a       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_info    0x00027419       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .debug_info    0x000274d8       0xba /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x00027592       0xca /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_info    0x0002765c       0xf4 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_info    0x00027750       0xe2 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_info    0x00027832       0xc0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x000278f2       0xbf /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_info    0x000279b1      0x665 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_info    0x00028016      0x63f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_info    0x00028655       0xc0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_info    0x00028715       0x8f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
-.debug_abbrev   0x00000000     0x7e47
+.debug_abbrev   0x00000000     0x882c
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_abbrev  0x00000012      0x1a1 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
@@ -2971,28 +3207,32 @@ END GROUP
  .debug_abbrev  0x000069a5      0x265 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
  .debug_abbrev  0x00006c0a      0x214 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .debug_abbrev  0x00006e1e      0x2a2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
- .debug_abbrev  0x000070c0      0x2fa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .debug_abbrev  0x000073ba      0x290 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .debug_abbrev  0x0000764a      0x2fe build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .debug_abbrev  0x00007948       0x14 build/main.o
- .debug_abbrev  0x0000795c       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x00007970       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x00007984       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_abbrev  0x00007998       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_abbrev  0x000079ac       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
- .debug_abbrev  0x000079c0       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
- .debug_abbrev  0x000079d4       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
- .debug_abbrev  0x000079e8       0x66 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_abbrev  0x00007a4e       0x7c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_abbrev  0x00007aca       0x6c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_abbrev  0x00007b36       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
- .debug_abbrev  0x00007b4a       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .debug_abbrev  0x00007b5e      0x169 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_abbrev  0x00007cc7      0x15a /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_abbrev  0x00007e21       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_abbrev  0x00007e35       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_abbrev  0x000070c0      0x3d5 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .debug_abbrev  0x00007495      0x2ea build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .debug_abbrev  0x0000777f      0x254 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .debug_abbrev  0x000079d3      0x293 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_abbrev  0x00007c66      0x15e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_abbrev  0x00007dc4      0x290 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_abbrev  0x00008054      0x2d9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_abbrev  0x0000832d       0x14 build/main.o
+ .debug_abbrev  0x00008341       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x00008355       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x00008369       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x0000837d       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x00008391       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_abbrev  0x000083a5       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .debug_abbrev  0x000083b9       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x000083cd       0x66 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_abbrev  0x00008433       0x7c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_abbrev  0x000084af       0x6c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_abbrev  0x0000851b       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x0000852f       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_abbrev  0x00008543      0x169 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_abbrev  0x000086ac      0x15a /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00008806       0x14 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x0000881a       0x12 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
-.debug_line     0x00000000    0x1070a
+.debug_line     0x00000000    0x1274e
  *(.debug_line)
  .debug_line    0x00000000       0x6f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_line    0x0000006f      0x23f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
@@ -3056,28 +3296,32 @@ END GROUP
  .debug_line    0x0000c64b      0x71f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
  .debug_line    0x0000cd6a      0x6bc build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .debug_line    0x0000d426      0x79d build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
- .debug_line    0x0000dbc3      0xdb6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .debug_line    0x0000e979      0x815 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .debug_line    0x0000f18e      0x7a3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .debug_line    0x0000f931       0x78 build/main.o
- .debug_line    0x0000f9a9      0x20e /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x0000fbb7      0x22e /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x0000fde5      0x114 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_line    0x0000fef9       0x8c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_line    0x0000ff85      0x14f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
- .debug_line    0x000100d4       0x8c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
- .debug_line    0x00010160       0x77 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x000101d7       0x7b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_line    0x00010252       0x82 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_line    0x000102d4       0x79 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_line    0x0001034d       0x75 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
- .debug_line    0x000103c2       0x88 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
- .debug_line    0x0001044a       0xe1 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_line    0x0001052b       0xd5 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_line    0x00010600       0x98 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
- .debug_line    0x00010698       0x72 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_line    0x0000dbc3      0xe79 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .debug_line    0x0000ea3c      0x954 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .debug_line    0x0000f390      0x853 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .debug_line    0x0000fbe3      0x8ba build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_line    0x0001049d      0x48e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_line    0x0001092b      0x815 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_line    0x00011140      0x835 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_line    0x00011975       0x78 build/main.o
+ .debug_line    0x000119ed      0x20e /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x00011bfb      0x22e /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x00011e29      0x114 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x00011f3d       0x8c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x00011fc9      0x14f /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_line    0x00012118       0x8c /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .debug_line    0x000121a4       0x77 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x0001221b       0x7b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_line    0x00012296       0x82 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_line    0x00012318       0x79 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_line    0x00012391       0x75 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00012406       0x88 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+ .debug_line    0x0001248e       0xe1 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_line    0x0001256f       0xd5 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_line    0x00012644       0x98 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_line    0x000126dc       0x72 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
-.debug_frame    0x00000000     0x4174
+.debug_frame    0x00000000     0x47e8
  *(.debug_frame)
  .debug_frame   0x00000000       0x68 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
  .debug_frame   0x00000068       0x6c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dac.o
@@ -3139,17 +3383,21 @@ END GROUP
  .debug_frame   0x000031d4      0x124 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
  .debug_frame   0x000032f8       0xd4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .debug_frame   0x000033cc      0x1f4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
- .debug_frame   0x000035c0      0x7a4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .debug_frame   0x00003d64      0x1f8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .debug_frame   0x00003f5c       0xa8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .debug_frame   0x00004004       0x38 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_frame   0x0000403c       0x30 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_frame   0x0000406c       0x60 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_frame   0x000040cc       0x44 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_frame   0x00004110       0x44 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_frame   0x00004154       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+ .debug_frame   0x000035c0      0x83c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .debug_frame   0x00003dfc      0x22c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .debug_frame   0x00004028       0xe4 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .debug_frame   0x0000410c      0x178 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_frame   0x00004284      0x150 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_frame   0x000043d4      0x1f8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_frame   0x000045cc       0xac build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_frame   0x00004678       0x38 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_frame   0x000046b0       0x30 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_frame   0x000046e0       0x60 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_frame   0x00004740       0x44 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_frame   0x00004784       0x44 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_frame   0x000047c8       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
 
-.debug_str      0x00000000     0xa221
+.debug_str      0x00000000     0xac19
  *(.debug_str)
  .debug_str     0x00000000      0x532 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
                                 0x56e (size before relaxing)
@@ -3181,118 +3429,126 @@ END GROUP
                                 0x880 (size before relaxing)
  .debug_str     0x00001ffc       0x7a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usart_private.o
                                 0x789 (size before relaxing)
- .debug_str     0x00002076       0xe8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/util.o
+ .debug_str     0x00002076       0xe3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/util.o
                                 0x8fa (size before relaxing)
- .debug_str     0x0000215e      0x4ff build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/i2c.o
+ .debug_str     0x00002159      0x4ff build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/i2c.o
                                 0xd0a (size before relaxing)
- .debug_str     0x0000265d      0x5da build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb.o
+ .debug_str     0x00002658      0x5d3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb.o
                                 0x940 (size before relaxing)
- .debug_str     0x00002c37       0xea build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_reg_map.o
+ .debug_str     0x00002c2b       0xea build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_reg_map.o
                                 0x1ac (size before relaxing)
- .debug_str     0x00002d21      0x856 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
+ .debug_str     0x00002d15      0x856 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
                                0x15d9 (size before relaxing)
- .debug_str     0x00003577      0x426 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_core.o
+ .debug_str     0x0000356b      0x426 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_core.o
                                 0x983 (size before relaxing)
- .debug_str     0x0000399d       0x9a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_init.o
+ .debug_str     0x00003991       0x9a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_init.o
                                 0x46e (size before relaxing)
- .debug_str     0x00003a37       0xc6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_mem.o
+ .debug_str     0x00003a2b       0xc6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_mem.o
                                 0x124 (size before relaxing)
- .debug_str     0x00003afd      0x439 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_regs.o
+ .debug_str     0x00003af1      0x439 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/usb/usb_lib/usb_regs.o
                                 0x4ac (size before relaxing)
- .debug_str     0x00003f36      0x1c1 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/adc.o
+ .debug_str     0x00003f2a      0x1c1 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/adc.o
                                 0x71c (size before relaxing)
- .debug_str     0x000040f7       0xe0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/bkp.o
+ .debug_str     0x000040eb       0xe0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/bkp.o
                                 0x377 (size before relaxing)
- .debug_str     0x000041d7      0x98c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/dma.o
+ .debug_str     0x000041cb      0x98c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/dma.o
                                0x1295 (size before relaxing)
- .debug_str     0x00004b63       0xb0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/exti.o
+ .debug_str     0x00004b57       0xb0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/exti.o
                                 0x1f1 (size before relaxing)
- .debug_str     0x00004c13       0x67 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/fsmc.o
+ .debug_str     0x00004c07       0x67 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/fsmc.o
                                  0x73 (size before relaxing)
- .debug_str     0x00004c7a       0xba build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
+ .debug_str     0x00004c6e       0xba build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/gpio.o
                                 0x67a (size before relaxing)
- .debug_str     0x00004d34       0xf9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/i2c.o
+ .debug_str     0x00004d28       0xf9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/i2c.o
                                 0xbba (size before relaxing)
- .debug_str     0x00004e2d      0x25b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
+ .debug_str     0x00004e21      0x25b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/rcc.o
                                 0x6a3 (size before relaxing)
- .debug_str     0x00005088       0xca build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/spi.o
+ .debug_str     0x0000507c       0xca build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/spi.o
                                 0x8af (size before relaxing)
- .debug_str     0x00005152      0x144 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/timer.o
+ .debug_str     0x00005146      0x144 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/timer.o
                                 0x583 (size before relaxing)
- .debug_str     0x00005296      0x15a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/usart.o
+ .debug_str     0x0000528a      0x15a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/stm32f1/usart.o
                                 0x985 (size before relaxing)
- .debug_str     0x000053f0       0xab build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/start_c.o
+ .debug_str     0x000053e4       0xab build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/start_c.o
                                  0xd7 (size before relaxing)
- .debug_str     0x0000549b      0x1b5 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/syscalls.o
+ .debug_str     0x0000548f      0x1b5 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/syscalls.o
                                 0x289 (size before relaxing)
- .debug_str     0x00005650       0xe3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/util_hooks.o
+ .debug_str     0x00005644       0xe3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/util_hooks.o
                                 0x9dd (size before relaxing)
- .debug_str     0x00005733      0x29d build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards.o
+ .debug_str     0x00005727      0x298 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards.o
                                 0x9db (size before relaxing)
- .debug_str     0x000059d0       0x7b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/cxxabi-compat.o
+ .debug_str     0x000059bf       0x7b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/cxxabi-compat.o
                                  0x89 (size before relaxing)
- .debug_str     0x00005a4b      0x14d build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/ext_interrupts.o
+ .debug_str     0x00005a3a      0x14d build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/ext_interrupts.o
                                 0x66e (size before relaxing)
- .debug_str     0x00005b98      0x244 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
+ .debug_str     0x00005b87      0x244 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
                                 0xc3d (size before relaxing)
- .debug_str     0x00005ddc      0x96a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
+ .debug_str     0x00005dcb      0x96a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
                                 0xe75 (size before relaxing)
- .debug_str     0x00006746      0x2c9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/Print.o
+ .debug_str     0x00006735      0x2c9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/Print.o
                                 0x3db (size before relaxing)
- .debug_str     0x00006a0f       0x80 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/pwm.o
+ .debug_str     0x000069fe       0x80 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/pwm.o
                                 0x54d (size before relaxing)
- .debug_str     0x00006a8f      0x1f6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/usb_serial.o
+ .debug_str     0x00006a7e      0x1f6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/usb_serial.o
                                 0x670 (size before relaxing)
- .debug_str     0x00006c85      0x431 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
+ .debug_str     0x00006c74      0x431 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
                                0x1038 (size before relaxing)
- .debug_str     0x000070b6       0x83 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_analog.o
+ .debug_str     0x000070a5       0x83 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_analog.o
                                 0x525 (size before relaxing)
- .debug_str     0x00007139      0x12c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_digital.o
+ .debug_str     0x00007128      0x12c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_digital.o
                                 0x623 (size before relaxing)
- .debug_str     0x00007265       0xb9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_math.o
+ .debug_str     0x00007254       0xb9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_math.o
                                 0x169 (size before relaxing)
- .debug_str     0x0000731e       0x91 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_shift.o
+ .debug_str     0x0000730d       0x91 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_shift.o
                                 0x173 (size before relaxing)
- .debug_str     0x000073af       0x99 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_time.o
+ .debug_str     0x0000739e       0x99 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_time.o
                                 0x14e (size before relaxing)
- .debug_str     0x00007448      0x359 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/boards_setup.o
+ .debug_str     0x00007437      0x359 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/boards_setup.o
                                 0x6fa (size before relaxing)
- .debug_str     0x000077a1       0xe9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/wirish_digital.o
+ .debug_str     0x00007790       0xe9 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/wirish_digital.o
                                 0x683 (size before relaxing)
- .debug_str     0x0000788a      0x13c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/wirish_debug.o
+ .debug_str     0x00007879      0x13c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/stm32f1/wirish_debug.o
                                 0x1fe (size before relaxing)
- .debug_str     0x000079c6       0x9a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards/maple/board.o
+ .debug_str     0x000079b5       0x9a build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/boards/maple/board.o
                                 0x5c0 (size before relaxing)
- .debug_str     0x00007a60      0x1f2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Servo/Servo.o
+ .debug_str     0x00007a4f      0x1f2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Servo/Servo.o
                                 0x844 (size before relaxing)
- .debug_str     0x00007c52      0x4fa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/LiquidCrystal/LiquidCrystal.o
+ .debug_str     0x00007c41      0x4fa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/LiquidCrystal/LiquidCrystal.o
                                 0x68f (size before relaxing)
- .debug_str     0x0000814c      0x29d build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
+ .debug_str     0x0000813b      0x29d build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
                                 0xb5b (size before relaxing)
- .debug_str     0x000083e9       0xbd build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
+ .debug_str     0x000083d8       0xbd build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
                                 0x966 (size before relaxing)
- .debug_str     0x000084a6      0x1fa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
+ .debug_str     0x00008495      0x1fa build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
                                 0xb31 (size before relaxing)
- .debug_str     0x000086a0     0x1541 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-                               0x1699 (size before relaxing)
- .debug_str     0x00009be1      0x380 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_str     0x0000868f     0x15d1 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                               0x178b (size before relaxing)
+ .debug_str     0x00009c60      0x4b7 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+                                0x6e7 (size before relaxing)
+ .debug_str     0x0000a117      0x175 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+                                0x2f1 (size before relaxing)
+ .debug_str     0x0000a28c      0x2cb build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+                                0x5b2 (size before relaxing)
+ .debug_str     0x0000a557       0x95 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+                                0x26c (size before relaxing)
+ .debug_str     0x0000a5ec      0x361 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
                                 0xe80 (size before relaxing)
- .debug_str     0x00009f61       0xaf build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
-                               0x166a (size before relaxing)
- .debug_str     0x0000a010       0x58 build/main.o
+ .debug_str     0x0000a94d       0xbb build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                                0xbe9 (size before relaxing)
+ .debug_str     0x0000aa08       0x58 build/main.o
                                  0x66 (size before relaxing)
- .debug_str     0x0000a068       0xb6 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_str     0x0000aa60       0xb6 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
                                 0x156 (size before relaxing)
- .debug_str     0x0000a11e       0x1d /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_str     0x0000ab16       0x1d /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
                                 0x162 (size before relaxing)
- .debug_str     0x0000a13b       0x6a /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_str     0x0000ab33       0x6a /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
                                 0x100 (size before relaxing)
- .debug_str     0x0000a1a5       0x72 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_str     0x0000ab9d       0x72 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
                                 0x1ce (size before relaxing)
- .debug_str     0x0000a217        0xa /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_str     0x0000ac0f        0xa /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
                                 0x1cf (size before relaxing)
 
-.debug_loc      0x00000000     0xb706
+.debug_loc      0x00000000     0xc5b5
  *(.debug_loc)
  .debug_loc     0x00000000       0x82 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
  .debug_loc     0x00000082       0xea build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dac.o
@@ -3351,16 +3607,20 @@ END GROUP
  .debug_loc     0x00007e8d      0x294 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
  .debug_loc     0x00008121      0x1cf build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .debug_loc     0x000082f0      0x546 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
- .debug_loc     0x00008836     0x17a6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .debug_loc     0x00009fdc      0x4e6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .debug_loc     0x0000a4c2       0x9b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .debug_loc     0x0000a55d       0x67 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
- .debug_loc     0x0000a5c4       0x57 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
- .debug_loc     0x0000a61b      0x11e /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
- .debug_loc     0x0000a739      0x7bb /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_loc     0x0000aef4      0x812 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_loc     0x00008836     0x18a6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .debug_loc     0x0000a0dc      0x4e3 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .debug_loc     0x0000a5bf      0x227 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .debug_loc     0x0000a7e6      0x2dd build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_loc     0x0000aac3      0x3c8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_loc     0x0000ae8b      0x4e6 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_loc     0x0000b371       0x9b build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_loc     0x0000b40c       0x67 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+ .debug_loc     0x0000b473       0x57 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+ .debug_loc     0x0000b4ca      0x11e /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+ .debug_loc     0x0000b5e8      0x7bb /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_loc     0x0000bda3      0x812 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
 
-.debug_macinfo  0x00000000   0x1de1b0
+.debug_macinfo  0x00000000   0x217934
  *(.debug_macinfo)
  .debug_macinfo
                 0x00000000     0x4f8e build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
@@ -3485,13 +3745,21 @@ END GROUP
  .debug_macinfo
                 0x00198d1b    0x109f2 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
  .debug_macinfo
-                0x001a970d    0x11afe build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+                0x001a970d    0x12213 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .debug_macinfo
-                0x001bb20b    0x10e37 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x001bb920    0x11c34 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
  .debug_macinfo
-                0x001cc042    0x113e0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x001cd554    0x11bb8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
  .debug_macinfo
-                0x001dd422      0xd8e build/main.o
+                0x001df10c    0x11bb8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_macinfo
+                0x001f0cc4     0x348c build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_macinfo
+                0x001f4150    0x10e37 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_macinfo
+                0x00204f87    0x11c1f build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_macinfo
+                0x00216ba6      0xd8e build/main.o
 
 .debug_weaknames
  *(.debug_weaknames)
@@ -3648,89 +3916,101 @@ END GROUP
  .ARM.attributes
                 0x00000c5b       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
  .ARM.attributes
-                0x00000c8c       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+                0x00000c8c       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
  .ARM.attributes
-                0x00000cbd       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+                0x00000cbd       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
  .ARM.attributes
-                0x00000cee       0x31 build/main.o
+                0x00000cee       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
  .ARM.attributes
-                0x00000d1f       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
+                0x00000d1f       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
  .ARM.attributes
-                0x00000d3a       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
+                0x00000d50       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
  .ARM.attributes
-                0x00000d55       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
+                0x00000d81       0x31 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
  .ARM.attributes
-                0x00000d70       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
+                0x00000db2       0x31 build/main.o
  .ARM.attributes
-                0x00000d8b       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
+                0x00000de3       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000da6       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
+                0x00000dfe       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x00000dc1       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
+                0x00000e19       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x00000ddc       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
+                0x00000e34       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixdfsi.o)
  .ARM.attributes
-                0x00000e05       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
+                0x00000e4f       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x00000e2e       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
+                0x00000e6a       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixsfsi.o)
  .ARM.attributes
-                0x00000e57       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
+                0x00000e85       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x00000e72       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
+                0x00000ea0       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixdfdi.o)
  .ARM.attributes
-                0x00000e8d       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+                0x00000ec9       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_fixunsdfdi.o)
  .ARM.attributes
-                0x00000eb6       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+                0x00000ef2       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(bpabi.o)
  .ARM.attributes
-                0x00000edf       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
+                0x00000f1b       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00000efa       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-errno.o)
+                0x00000f36       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
-                0x00000f23       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-impure.o)
+                0x00000f51       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
  .ARM.attributes
-                0x00000f4c       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+                0x00000f7a       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
  .ARM.attributes
-                0x00000f75       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
+                0x00000fa3       0x1b /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x00000f9e       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-rand.o)
+                0x00000fbe       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000fc7       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcat.o)
+                0x00000fe7       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000ff0       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strchr.o)
+                0x00001010       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
  .ARM.attributes
-                0x00001019       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcmp.o)
+                0x00001039       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcmp.o)
  .ARM.attributes
-                0x00001042       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcpy.o)
+                0x00001062       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x0000106b       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strlen.o)
+                0x0000108b       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-memset.o)
  .ARM.attributes
-                0x00001094       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
+                0x000010b4       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-rand.o)
  .ARM.attributes
-                0x000010bd       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
+                0x000010dd       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcat.o)
  .ARM.attributes
-                0x000010e6       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strrchr.o)
+                0x00001106       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strchr.o)
  .ARM.attributes
-                0x0000110f       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strstr.o)
+                0x0000112f       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcmp.o)
  .ARM.attributes
-                0x00001138       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strupr.o)
+                0x00001158       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strcpy.o)
  .ARM.attributes
-                0x00001161       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+                0x00001181       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strlen.o)
  .ARM.attributes
-                0x0000118a       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-malloc.o)
+                0x000011aa       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncat.o)
  .ARM.attributes
-                0x000011b3       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mallocr.o)
+                0x000011d3       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strncpy.o)
  .ARM.attributes
-                0x000011dc       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mlock.o)
+                0x000011fc       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strrchr.o)
  .ARM.attributes
-                0x00001205       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-sbrkr.o)
+                0x00001225       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strstr.o)
  .ARM.attributes
-                0x0000122e       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-freer.o)
+                0x0000124e       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strupr.o)
  .ARM.attributes
-                0x00001257       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-reent.o)
+                0x00001277       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
  .ARM.attributes
-                0x00001280       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
+                0x000012a0       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-malloc.o)
  .ARM.attributes
-                0x000012a9       0x19 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+                0x000012c9       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mallocr.o)
+ .ARM.attributes
+                0x000012f2       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-mlock.o)
+ .ARM.attributes
+                0x0000131b       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-sbrkr.o)
+ .ARM.attributes
+                0x00001344       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-freer.o)
+ .ARM.attributes
+                0x0000136d       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-reent.o)
+ .ARM.attributes
+                0x00001396       0x29 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
+ .ARM.attributes
+                0x000013bf       0x19 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 
 /DISCARD/
  *(.note.GNU-stack)
@@ -3800,6 +4080,10 @@ LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library
 LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
 LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
 LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
 LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
 LOAD build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
 LOAD build/main.o
@@ -3813,7 +4097,7 @@ LOAD /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtend.o
 LOAD /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
 OUTPUT(build/maple.elf elf32-littlearm)
 
-.debug_ranges   0x00000000     0x2870
+.debug_ranges   0x00000000     0x2ad0
  .debug_ranges  0x00000000       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crti.o
  .debug_ranges  0x00000020       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
  .debug_ranges  0x00000050       0x30 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dac.o
@@ -3875,9 +4159,13 @@ OUTPUT(build/maple.elf elf32-littlearm)
  .debug_ranges  0x00001db8       0x90 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/WireBase.o
  .debug_ranges  0x00001e48       0x50 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/HardWire.o
  .debug_ranges  0x00001e98       0xe0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libraries/Wire/Wire.o
- .debug_ranges  0x00001f78      0x590 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
- .debug_ranges  0x00002508      0x100 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
- .debug_ranges  0x00002608       0xb0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
- .debug_ranges  0x000026b8       0xd0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
- .debug_ranges  0x00002788       0xc8 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
- .debug_ranges  0x00002850       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o
+ .debug_ranges  0x00001f78      0x5a8 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+ .debug_ranges  0x00002520      0x108 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+ .debug_ranges  0x00002628       0x50 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+ .debug_ranges  0x00002678       0x88 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+ .debug_ranges  0x00002700       0x68 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
+ .debug_ranges  0x00002768      0x100 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/SpiUart.o
+ .debug_ranges  0x00002868       0xb0 build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o
+ .debug_ranges  0x00002918       0xd0 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_divdi3.o)
+ .debug_ranges  0x000029e8       0xc8 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/libgcc.a(_udivdi3.o)
+ .debug_ranges  0x00002ab0       0x20 /usr/local/bin/../lib/gcc/arm-none-eabi/4.4.1/thumb2/crtn.o

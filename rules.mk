@@ -60,6 +60,7 @@ ASFLAGS_$(d) :=
 # We can't call our main file main.cpp, or libmaple's build system
 # will get confused and try to build it without our CXXFLAGS. So call
 # it something else. Annoying! Hopefully LeafLabs will fix it soon.
+#cppSRCS_$(d) := Working_Terminal.cpp
 cppSRCS_$(d) := real-main.cpp
 #cppSRCS_$(d) += getter/getter.cpp
 

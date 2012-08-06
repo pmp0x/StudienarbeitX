@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C10367615D0670A00CBB490 /* Working_Terminal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C10367515D0670900CBB490 /* Working_Terminal.cpp */; };
 		2C5060D015C853FE007DAC8A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5060CF15C853FE007DAC8A /* main.cpp */; };
 		2C5060DA15C85475007DAC8A /* adc.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6A15C84856007DAC8A /* adc.h */; };
 		2C5060DB15C85475007DAC8A /* bitband.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C505F6B15C84856007DAC8A /* bitband.h */; };
@@ -199,14 +200,28 @@
 		2C5B87F915CC10B100524E9E /* EthernetClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87F415CC10AE00524E9E /* EthernetClient.cpp */; };
 		2C5B87FA15CC10B100524E9E /* EthernetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87F615CC10B000524E9E /* EthernetServer.cpp */; };
 		2C5B87FD15CC116900524E9E /* IPAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87FB15CC116900524E9E /* IPAddress.cpp */; };
+		2C5B880415CFE5D700524E9E /* WFSEthernet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880015CFE5CE00524E9E /* WFSEthernet.cpp */; };
+		2C5B880515CFE5D700524E9E /* WFSEthernetClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880115CFE5D000524E9E /* WFSEthernetClient.cpp */; };
+		2C5B880615CFE5D700524E9E /* WFSEthernetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880215CFE5D300524E9E /* WFSEthernetServer.cpp */; };
+		2C5B880715CFE5D700524E9E /* WFSIPAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880315CFE5D400524E9E /* WFSIPAddress.cpp */; };
+		2C5B880C15CFF06E00524E9E /* WFSEthernet.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880815CFE64000524E9E /* WFSEthernet.h */; };
+		2C5B880D15CFF06E00524E9E /* WFSEthernetClient.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880915CFE64200524E9E /* WFSEthernetClient.h */; };
+		2C5B880E15CFF06E00524E9E /* WFSEthernetServer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880A15CFE64300524E9E /* WFSEthernetServer.h */; };
+		2C5B880F15CFF06E00524E9E /* WFSIPAddress.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880B15CFE64500524E9E /* WFSIPAddress.h */; };
+		2C5B881015CFF06E00524E9E /* WFSsocket.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056EE15C83094007DAC8A /* WFSsocket.h */; };
+		2C5B881115CFF06E00524E9E /* Client.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87FE15CC14DA00524E9E /* Client.h */; };
+		2C5B881215CFF06E00524E9E /* IPAddress.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87FC15CC116900524E9E /* IPAddress.h */; };
+		2C5B881315CFF06E00524E9E /* Ethernet.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87F315CC10AD00524E9E /* Ethernet.h */; };
+		2C5B881415CFF06E00524E9E /* EthernetClient.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87F515CC10AE00524E9E /* EthernetClient.h */; };
+		2C5B881515CFF06E00524E9E /* EthernetServer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B87F715CC10B000524E9E /* EthernetServer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C10367515D0670900CBB490 /* Working_Terminal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Working_Terminal.cpp; sourceTree = "<group>"; };
 		2C5055C115C82F2A007DAC8A /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
 		2C5055C315C83093007DAC8A /* real-main 2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "real-main 2.cpp"; sourceTree = "<group>"; };
 		2C5055C415C83093007DAC8A /* real-main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "real-main.cpp"; sourceTree = "<group>"; };
 		2C5055C515C83093007DAC8A /* Testing - WiFly bzw Spi write_read.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Testing - WiFly bzw Spi write_read.cpp"; sourceTree = "<group>"; };
-		2C5055C615C83093007DAC8A /* Working Terminal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Working Terminal.cpp"; sourceTree = "<group>"; };
 		2C5055C815C83093007DAC8A /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
 		2C5055C915C83093007DAC8A /* maple.map */ = {isa = PBXFileReference; lastKnownFileType = text; path = maple.map; sourceTree = "<group>"; };
 		2C5055D115C83093007DAC8A /* adc.d */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.dtrace; path = adc.d; sourceTree = "<group>"; };
@@ -423,14 +438,6 @@
 		2C5056E215C83094007DAC8A /* MemoryFree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryFree.cpp; sourceTree = "<group>"; };
 		2C5056E315C83094007DAC8A /* MemoryFree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryFree.h; sourceTree = "<group>"; };
 		2C5056E415C83094007DAC8A /* w5100_defns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = w5100_defns.h; sourceTree = "<group>"; };
-		2C5056E515C83094007DAC8A /* WFSEthernet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WFSEthernet.cpp; path = Examples/WFSv3/WFSEthernet.cpp; sourceTree = "<group>"; };
-		2C5056E615C83094007DAC8A /* WFSEthernet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WFSEthernet.h; path = ../../Examples/WFSv3/WFSEthernet.h; sourceTree = "<group>"; };
-		2C5056E715C83094007DAC8A /* WFSEthernetClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WFSEthernetClient.cpp; path = Examples/WFSv3/WFSEthernetClient.cpp; sourceTree = "<group>"; };
-		2C5056E815C83094007DAC8A /* WFSEthernetClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WFSEthernetClient.h; path = ../../Examples/WFSv3/WFSEthernetClient.h; sourceTree = "<group>"; };
-		2C5056E915C83094007DAC8A /* WFSEthernetServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WFSEthernetServer.cpp; path = Examples/WFSv3/WFSEthernetServer.cpp; sourceTree = "<group>"; };
-		2C5056EA15C83094007DAC8A /* WFSEthernetServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WFSEthernetServer.h; path = ../../Examples/WFSv3/WFSEthernetServer.h; sourceTree = "<group>"; };
-		2C5056EB15C83094007DAC8A /* WFSIPAddress.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WFSIPAddress.cpp; path = Examples/WFSv3/WFSIPAddress.cpp; sourceTree = "<group>"; };
-		2C5056EC15C83094007DAC8A /* WFSIPAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WFSIPAddress.h; path = ../../Examples/WFSv3/WFSIPAddress.h; sourceTree = "<group>"; };
 		2C5056ED15C83094007DAC8A /* WFSsocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WFSsocket.cpp; path = Examples/WFSv3/WFSsocket.cpp; sourceTree = "<group>"; };
 		2C5056EE15C83094007DAC8A /* WFSsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WFSsocket.h; path = ../../Examples/WFSv3/WFSsocket.h; sourceTree = "<group>"; };
 		2C5056EF15C83094007DAC8A /* WFSv3.ino */ = {isa = PBXFileReference; lastKnownFileType = text; path = WFSv3.ino; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
@@ -1856,6 +1863,14 @@
 		2C5B87FB15CC116900524E9E /* IPAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IPAddress.cpp; path = include/WiFlySerial/IPAddress.cpp; sourceTree = "<group>"; };
 		2C5B87FC15CC116900524E9E /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		2C5B87FE15CC14DA00524E9E /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		2C5B880015CFE5CE00524E9E /* WFSEthernet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WFSEthernet.cpp; sourceTree = "<group>"; };
+		2C5B880115CFE5D000524E9E /* WFSEthernetClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WFSEthernetClient.cpp; sourceTree = "<group>"; };
+		2C5B880215CFE5D300524E9E /* WFSEthernetServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WFSEthernetServer.cpp; sourceTree = "<group>"; };
+		2C5B880315CFE5D400524E9E /* WFSIPAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WFSIPAddress.cpp; sourceTree = "<group>"; };
+		2C5B880815CFE64000524E9E /* WFSEthernet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSEthernet.h; sourceTree = "<group>"; };
+		2C5B880915CFE64200524E9E /* WFSEthernetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSEthernetClient.h; sourceTree = "<group>"; };
+		2C5B880A15CFE64300524E9E /* WFSEthernetServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSEthernetServer.h; sourceTree = "<group>"; };
+		2C5B880B15CFE64500524E9E /* WFSIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSIPAddress.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -1871,6 +1886,7 @@
 				2C50573815C83094007DAC8A /* README.txt */,
 				2C50573915C83094007DAC8A /* real-main.cpp */,
 				2C50573A15C83094007DAC8A /* rules.mk */,
+				2C10367515D0670900CBB490 /* Working_Terminal.cpp */,
 				2C5055C115C82F2A007DAC8A /* Test.cpp */,
 				2C5060CE15C853FE007DAC8A /* Indexing */,
 				2C50574015C830F4007DAC8A /* Products */,
@@ -1883,7 +1899,6 @@
 				2C5055C315C83093007DAC8A /* real-main 2.cpp */,
 				2C5055C415C83093007DAC8A /* real-main.cpp */,
 				2C5055C515C83093007DAC8A /* Testing - WiFly bzw Spi write_read.cpp */,
-				2C5055C615C83093007DAC8A /* Working Terminal.cpp */,
 			);
 			path = Beispiele;
 			sourceTree = "<group>";
@@ -2613,11 +2628,11 @@
 		2C5056D215C83094007DAC8A /* WiFlySerial */ = {
 			isa = PBXGroup;
 			children = (
-				2C5056E515C83094007DAC8A /* WFSEthernet.cpp */,
-				2C5056E715C83094007DAC8A /* WFSEthernetClient.cpp */,
-				2C5056EB15C83094007DAC8A /* WFSIPAddress.cpp */,
+				2C5B880015CFE5CE00524E9E /* WFSEthernet.cpp */,
+				2C5B880115CFE5D000524E9E /* WFSEthernetClient.cpp */,
+				2C5B880215CFE5D300524E9E /* WFSEthernetServer.cpp */,
+				2C5B880315CFE5D400524E9E /* WFSIPAddress.cpp */,
 				2C5056ED15C83094007DAC8A /* WFSsocket.cpp */,
-				2C5056E915C83094007DAC8A /* WFSEthernetServer.cpp */,
 				2C5B87FB15CC116900524E9E /* IPAddress.cpp */,
 				2C5B87F215CC10AC00524E9E /* Ethernet.cpp */,
 				2C5B87F415CC10AE00524E9E /* EthernetClient.cpp */,
@@ -2703,11 +2718,11 @@
 		2C5056F615C83094007DAC8A /* WiFlySerial */ = {
 			isa = PBXGroup;
 			children = (
-				2C5056EC15C83094007DAC8A /* WFSIPAddress.h */,
+				2C5B880815CFE64000524E9E /* WFSEthernet.h */,
+				2C5B880915CFE64200524E9E /* WFSEthernetClient.h */,
+				2C5B880A15CFE64300524E9E /* WFSEthernetServer.h */,
+				2C5B880B15CFE64500524E9E /* WFSIPAddress.h */,
 				2C5056EE15C83094007DAC8A /* WFSsocket.h */,
-				2C5056E615C83094007DAC8A /* WFSEthernet.h */,
-				2C5056E815C83094007DAC8A /* WFSEthernetClient.h */,
-				2C5056EA15C83094007DAC8A /* WFSEthernetServer.h */,
 				2C5B87FE15CC14DA00524E9E /* Client.h */,
 				2C5B87FC15CC116900524E9E /* IPAddress.h */,
 				2C5B87F315CC10AD00524E9E /* Ethernet.h */,
@@ -5655,6 +5670,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5B880C15CFF06E00524E9E /* WFSEthernet.h in Sources */,
+				2C5B880D15CFF06E00524E9E /* WFSEthernetClient.h in Sources */,
+				2C5B880E15CFF06E00524E9E /* WFSEthernetServer.h in Sources */,
+				2C5B880F15CFF06E00524E9E /* WFSIPAddress.h in Sources */,
+				2C5B881015CFF06E00524E9E /* WFSsocket.h in Sources */,
+				2C5B881115CFF06E00524E9E /* Client.h in Sources */,
+				2C5B881215CFF06E00524E9E /* IPAddress.h in Sources */,
+				2C5B881315CFF06E00524E9E /* Ethernet.h in Sources */,
+				2C5B881415CFF06E00524E9E /* EthernetClient.h in Sources */,
+				2C5B881515CFF06E00524E9E /* EthernetServer.h in Sources */,
 				2C50612E15C8573D007DAC8A /* adc.c in Sources */,
 				2C50612F15C8573D007DAC8A /* dac.c in Sources */,
 				2C50613015C8573D007DAC8A /* dma.c in Sources */,
@@ -5847,6 +5872,11 @@
 				2C5B87F915CC10B100524E9E /* EthernetClient.cpp in Sources */,
 				2C5B87FA15CC10B100524E9E /* EthernetServer.cpp in Sources */,
 				2C5B87FD15CC116900524E9E /* IPAddress.cpp in Sources */,
+				2C5B880415CFE5D700524E9E /* WFSEthernet.cpp in Sources */,
+				2C5B880515CFE5D700524E9E /* WFSEthernetClient.cpp in Sources */,
+				2C5B880615CFE5D700524E9E /* WFSEthernetServer.cpp in Sources */,
+				2C5B880715CFE5D700524E9E /* WFSIPAddress.cpp in Sources */,
+				2C10367615D0670A00CBB490 /* Working_Terminal.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

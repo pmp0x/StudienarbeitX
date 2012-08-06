@@ -28,7 +28,8 @@
 #define WFSethernetserver_h
 
 #include <Print.h>
-#include "WiFlyShield/WiFlySerial.h>
+#include "WiFlySerial/WFSEthernet.h"
+#include "WiFlySerial/WFSEthernetClient.h"
 #define ES_DEVICE_DEFAULT    0x00
 #define ES_HTTP_SERVER       0x01
 #define ES_TELNET_SERVER     0x02
@@ -36,22 +37,24 @@
 
 
 class WFSEthernetClient;
+class WFSEthernet;
 
-class WFSEthernetServer {
+
+class WFSEthernetServer : public Print{
 private:
-    WiFlySerial * _wifly;
     uint16_t _port;
+	long _ServerProfile;
+    WFSEthernet * _wifi;
     void accept();
-	long _ServerProfile
     
 public:
-    
-    WFSEthernetServer(uint16_t port = 80, WiFlySerial * wifly, long profile = ES_HTTP_SERVER);
+    WFSEthernetServer(uint16_t port = 80, long profile = ES_HTTP_SERVER);
     WFSEthernetClient available();
-    virtual void begin();
+    
+    virtual void begin(WFSEthernet * WiFly);
     long setProfile();
-    virtual size_t write(uint8_t);
-    virtual size_t write(const uint8_t *buf, size_t size);
+    virtual void write(uint8_t);
+    //virtual void write(const uint8_t *buf, size_t size);
     using Print::write;
 };
 

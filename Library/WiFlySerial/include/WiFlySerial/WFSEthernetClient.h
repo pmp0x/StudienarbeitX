@@ -1,7 +1,7 @@
 /*
- * WFSEthernet.h
- * Arduino Ethernet class for wifi devices
- * Based on Arduino 1.0 Ethernet class
+ * WFSEthernetClient.h
+ * Arduino Ethernet Client class for wifi devices
+ * Based on Arduino 1.0 EthernetClient class
  * 
  * Credits:
  * First to the Arduino Ethernet team for their model upon which this is based.
@@ -24,27 +24,22 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  
  */
-#ifndef WFSethernet_h
-#define WFSethernet_h
+#ifndef WFSethernetclient_h
+#define WFSethernetclient_h
+	
+#include "Print.h"
 
+#include "WiFlySerial/WFSEthernet.h"
+#include "WiFlySerial/WFSIPAddress.h"
+#include "WiFlySerial/WFSEthernetServer.h"
 
-#include <WiFlyShield/WiFlySerial.h>
+class WFSEthernet;
 
-#include "WiFlyShield/WFSIPAddress.h"
-#include "WiFlyShield/WFSEthernetClient.h"
-#include "WiFlyShield/WFSEthernetServer.h"
-
-
-#define MAX_SOCK_NUM 1
-
-class WFSEthernetClass {
-private:
-    IPAddress _dnsServerAddress;
+class WFSEthernetClient : public Print{
+    
 public:
-    static uint8_t _state[MAX_SOCK_NUM];
-    static uint16_t _server_port[MAX_SOCK_NUM];
-    
-    
+    WFSEthernetClient(WFSEthernet * WiFly);
+    //    WFSEthernetClient(uint8_t sock);
     
     // Devices often appreciate a chance to initialize before commencing operations
     bool initDevice();
@@ -52,27 +47,29 @@ public:
     // set up wifi association settings
     bool configure(uint8_t AuthMode, uint8_t JoinMode, uint8_t DCHPMode);
     bool credentials( char* pSSID, char* pPassphrase);
-    bool setNTPServer( char* pNTPServer , float fTimeZoneOffsetHrs);
+    uint8_t devicestatus();
     
-    int begin();
-    int begin( WFSIPAddress local_ip);
-    int begin( WFSIPAddress local_ip, WFSIPAddress dns_server);
-    int begin( WFSIPAddress local_ip, WFSIPAddress dns_server, WFSIPAddress gateway);
-    int begin( WFSIPAddress local_ip, WFSIPAddress dns_server, WFSIPAddress gateway, WFSIPAddress subnet);
+    bool status();
+    virtual int connect(WFSIPAddress ip, uint16_t port = 80);
+    virtual int connect(const char *host, uint16_t port);
+    virtual void write(uint8_t);
+    //virtual void write(const uint8_t *buf, size_t size);
+    virtual int available();
+    virtual int read();
+    //virtual int read(uint8_t *buf, size_t size);
+    virtual int peek();
+    virtual void flush();
+    virtual void stop();
+    virtual uint8_t connected();
+    virtual operator bool();
     
-    WFSIPAddress localIP();
-    WFSIPAddress subnetMask();
-    WFSIPAddress gatewayIP();
-    WFSIPAddress dnsServerIP();
-    WFSIPAddress ntpServerIP();
-    
-    friend class WFSEthernetClient;
     friend class WFSEthernetServer;
+    
+    using Print::write;
+    
+private:
+    WFSEthernet * _wifi;
+    static uint16_t _srcport;
 };
-
-extern WFSEthernetClass WFSEthernet;
-extern WiFlySerial wifi;
-
-
 
 #endif

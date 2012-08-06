@@ -45,7 +45,12 @@ build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o:
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlyShield/include/WiFlyShield/Configuration.h \
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareSPI.h \
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WiFlySerial.h \
- /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/Debug.h
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/Debug.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSEthernet.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSIPAddress.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/Print.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSEthernetClient.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSEthernetServer.h
 
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/include/libmaple/libmaple.h:
 
@@ -138,3 +143,13 @@ build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/real-main.o:
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WiFlySerial.h:
 
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/Debug.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSEthernet.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSIPAddress.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/Print.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSEthernetClient.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/include/WiFlySerial/WFSEthernetServer.h:

@@ -261,6 +261,7 @@ void SpiUartDevice::write(byte value) {
     // Wait for space in TX buffer
   };
   writeRegister(THR, value);
+
 }
 
 
@@ -297,6 +298,7 @@ void SpiUartDevice::write(const char *str) {
     //        //        SPIfoo->write(&str, size);
     //        deselect();
     //    }
+
 }
 
 
