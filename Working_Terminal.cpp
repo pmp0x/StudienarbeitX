@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <WiFlyShield/SpiUart.h>
+#include <WiFlySerial/SpiUart.h>
 
 HardwareSPI spi(1);
 SpiUartDevice SpiSerial;
@@ -53,12 +53,12 @@ void setup()
     SpiSerial.begin(&spi, 9600);
      delay(100);
 
-    for(int i=0; i<16; i++){
-            SerialUSB.print("Reg ");
-               SerialUSB.println(i, HEX);
-               SerialUSB.println(SpiSerial.readRegister(i<<3), BIN);
-             }
-            spi.write(0xff);
+//    for(int i=0; i<16; i++){
+//            SerialUSB.print("Reg ");
+//               SerialUSB.println(i, HEX);
+//               SerialUSB.println(SpiSerial.readRegister(i<<3), BIN);
+//             }
+//            spi.write(0xff);
 SerialUSB.println("got here");
 
 }

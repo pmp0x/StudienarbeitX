@@ -58,7 +58,7 @@ Copyright GPL 2.0 Tom Waldock 2011
 #include <string.h>
 #include <stdint.h>
 #include <WiFlySerial/Debug.h>
-#include <WiFlyShield/SpiUart.h>
+#include <WiFlySerial/SpiUart.h>
 
 
 #define COMMAND_BUFFER_SIZE 64
@@ -89,17 +89,17 @@ Copyright GPL 2.0 Tom Waldock 2011
 #define COMMAND_RETRY_ATTEMPTS 3
 
 // WiFly Responses
-#define PROMPT_NONE                 0x0
-#define PROMPT_EXPECTED_TOKEN_FOUND 0x1
-#define PROMPT_READY                0x2
-#define PROMPT_CMD_MODE             0x4
-#define PROMPT_AOK                  0x8
-#define PROMPT_OTHER                0x10
-#define PROMPT_CMD_ERR              0x20
-#define PROMPT_TIMEOUT              0x40
-#define PROMPT_OPEN                 0x80
-#define PROMPT_CLOSE                0x100
-#define PROMPT_OPEN_ALREADY         0x200
+#define PROMPT_NONE                 0x0 	// 0
+#define PROMPT_EXPECTED_TOKEN_FOUND 0x1		// 1
+#define PROMPT_READY                0x2		// 1 << 1
+#define PROMPT_CMD_MODE             0x4		// 1 << 2
+#define PROMPT_AOK                  0x8		// 1 << 3
+#define PROMPT_OTHER                0x10	// 1 << 4
+#define PROMPT_CMD_ERR              0x20	// 1 << 5
+#define PROMPT_TIMEOUT              0x40	// 1 << 6
+#define PROMPT_OPEN                 0x80	// 1 << 7
+#define PROMPT_CLOSE                0x100	// 1 << 8
+#define PROMPT_OPEN_ALREADY         0x200	// 1 << 9
 
 #define N_PROMPTS               9
 #define WIFLY_MSG_EXPECTED      0
@@ -223,6 +223,7 @@ public:
     bool setAuthMode( int iAuthMode);
     bool setJoinMode( int iJoinMode);
     bool setDHCPMode(const int iModeDHCP);
+    bool saveSetting();
     //
     //  // wifi network Association
     //
@@ -236,11 +237,14 @@ public:
     //  // Generic utility
     bool StartCommandMode(char* pBuffer = NULL, const int bufSize = COMMAND_BUFFER_SIZE );
     bool exitCommandMode();
-    //  void    reboot();
+	bool  reboot();
     //
     //  // Client Connection
     bool openConnection(const char* pURL, const unsigned long WaitTime = JOIN_WAIT_TIME  );
-    bool closeConnection(bool bSafeClose = true);
+    void openConnection();
+    
+    bool closeConnection();
+    bool closeConnection(bool bSafeClose);
     //
     //  // Server Connection - waits for a client to connect
     bool serveConnection(  const unsigned long reconnectWaitTIme = SERVING_WAIT_TIME );
@@ -273,22 +277,22 @@ public:
 
 
 private:
-    SpiUartDevice * uart;
+    SpiUartDevice * _uart;
     // internal buffer for command-prompt
-    char    szWiFlyPrompt[INDICATOR_BUFFER_SIZE ];
+    char    _szWiFlyPrompt[INDICATOR_BUFFER_SIZE ];
 
     // Internal status flags
-    long    fStatus;
-    bool    bWiFlyInCommandMode;
-    bool    bWiFlyConnectionOpen;
-    char*   pControl;
+    long    _fStatus;
+    bool    _bWiFlyInCommandMode;
+    bool    _bWiFlyConnectionOpen;
+    char*   _pControl;
 
     // Ports for connections
-    int     iRemotePort;
-    int     iLocalPort;
+    int     _iRemotePort;
+    int     _iLocalPort;
     long    lUTC_Offset_seconds;
 
-
+	//function for the beginning to determine the standard prompt of the WiFly console
     bool GetCmdPrompt();
     //char*   GetBuffer_P(const int StringIndex, char* pBuffer, int bufSize);
     //      char*   ExtractLineFromBuffer(const int idString,  char* pBuffer, const int bufsize, const char* pStartPattern, const char* chTerminator);
@@ -296,7 +300,7 @@ private:
 
     // Internal debug channel.
     // Print*  pDebugChannel;
-
+	void printInternal();
 
 };
 

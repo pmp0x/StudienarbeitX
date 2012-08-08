@@ -38,8 +38,8 @@ WFSEthernet::WFSEthernet(){
 }
 
 void WFSEthernet::begin(WiFlySerial * wifi){
-    _wifi = wifi;
-    
+    _wifly = wifi;
+    _activeClient = false;
 }
 
 
@@ -53,7 +53,7 @@ void WFSEthernet::begin(WiFlySerial * wifi){
 // Returns true on success, false on failure.
 //bool WFSEthernet::initDevice() {
 //  
-//  return _wifi->begin();
+//  return _wifly->begin();
 //}
 
 //configure
@@ -67,7 +67,7 @@ void WFSEthernet::begin(WiFlySerial * wifi){
 // Returns true on success, false on failure.
 bool WFSEthernet::configure(uint8_t  AuthMode, uint8_t JoinMode, uint8_t  DHCPMode) {
   
-   return _wifi->setAuthMode(AuthMode) | _wifi->setJoinMode(JoinMode) | _wifi->setDHCPMode(DHCPMode) ;
+   return _wifly->setAuthMode(AuthMode) | _wifly->setJoinMode(JoinMode) | _wifly->setDHCPMode(DHCPMode) ;
   
 }
 
@@ -81,7 +81,7 @@ bool WFSEthernet::configure(uint8_t  AuthMode, uint8_t JoinMode, uint8_t  DHCPMo
 // Returns true on success, false on failure.
 bool WFSEthernet::credentials( char* pSSID, char* pPassphrase) {
   
-  bool bReturn =  ( _wifi->setPassphrase(pPassphrase) & _wifi->setSSID(pSSID) );
+  bool bReturn =  ( _wifly->setPassphrase(pPassphrase) & _wifly->setSSID(pSSID) );
   return bReturn;
 }
 
@@ -132,22 +132,22 @@ bool WFSEthernet::credentials( char* pSSID, char* pPassphrase) {
 //  char bufRequest[COMMAND_BUFFER_SIZE];
 //  
 //  // Set echo off
-//  _wifi->SendCommand("set u m 0x1",">",bufRequest, COMMAND_BUFFER_SIZE);
+//  _wifly->SendCommand("set u m 0x1",">",bufRequest, COMMAND_BUFFER_SIZE);
 //  
 //  // Auto-disconnect after 30 seconds of idle connection.
-//  _wifi->SendCommand( "set comm idle 30",">"  ,bufRequest, COMMAND_BUFFER_SIZE)  ;
+//  _wifly->SendCommand( "set comm idle 30",">"  ,bufRequest, COMMAND_BUFFER_SIZE)  ;
 //    
 //  // Auto-sends TCP packet if no additional bytes provided from Arduino (ms).
-//  _wifi->SendCommand( "set comm time 1000",">",bufRequest, COMMAND_BUFFER_SIZE);
+//  _wifly->SendCommand( "set comm time 1000",">",bufRequest, COMMAND_BUFFER_SIZE);
 //    
 //  // Auto-sends TCP packet once this number of bytes provided from Arduino.
-//  _wifi->SendCommand("set comm size 256",">",bufRequest, COMMAND_BUFFER_SIZE);
+//  _wifly->SendCommand("set comm size 256",">",bufRequest, COMMAND_BUFFER_SIZE);
 //  
 //  // if already joined then leave first
-//  _wifi->getDeviceStatus();
-//  if (_wifi->isAssociated() ) {
+//  _wifly->getDeviceStatus();
+//  if (_wifly->isAssociated() ) {
 //    DEBUG_LOG(3, "leaving");
-//    _wifi->leave();
+//    _wifly->leave();
 //  }
 //  
 //  // Try to join network based on provided (?) settings.
@@ -156,7 +156,7 @@ bool WFSEthernet::credentials( char* pSSID, char* pPassphrase) {
 //  bool bJoined = false;
 //  while ( (!bJoined )  &&  (iRetry < COMMAND_RETRY_ATTEMPTS)  ) {
 //    DEBUG_LOG(3, "Trying to join...") 
-//      bJoined = _wifi->join(); 
+//      bJoined = _wifly->join(); 
 //      DEBUG_LOG(3, bJoined);  
 //      
 //     iRetry++;
@@ -171,16 +171,16 @@ bool WFSEthernet::credentials( char* pSSID, char* pPassphrase) {
 ////    if (local_ip != WFSIPAddress(0,0,0,0) ){
 ////      DEBUG_LOG(2, "Set local IP");
 ////      
-////      _wifi->setIP(IP_ArrayToBuffer( local_ip._address, bufAddr, IP_ADDR_WIDTH));
+////      _wifly->setIP(IP_ArrayToBuffer( local_ip._address, bufAddr, IP_ADDR_WIDTH));
 ////    }
 ////    if (subnet != WFSIPAddress(0,0,0,0) ){
-////      _wifi->setNetMask(IP_ArrayToBuffer(subnet._address, bufAddr, IP_ADDR_WIDTH));
+////      _wifly->setNetMask(IP_ArrayToBuffer(subnet._address, bufAddr, IP_ADDR_WIDTH));
 ////    }
 ////    if (gateway != WFSIPAddress(0,0,0,1) ){
-////      _wifi->setGateway(IP_ArrayToBuffer(gateway._address, bufAddr, IP_ADDR_WIDTH));
+////      _wifly->setGateway(IP_ArrayToBuffer(gateway._address, bufAddr, IP_ADDR_WIDTH));
 ////    }
 ////    if (dns_server != WFSIPAddress(0,0,0,1) ){
-////      _wifi->setDNS(IP_ArrayToBuffer(dns_server._address, bufAddr, IP_ADDR_WIDTH));
+////      _wifly->setDNS(IP_ArrayToBuffer(dns_server._address, bufAddr, IP_ADDR_WIDTH));
 ////    }
 ////
 ////    return true;
@@ -196,23 +196,23 @@ bool WFSEthernet::setNTPServer( char* pNTPServer, float fTimeZoneOffsetHrs ) {
     char bufRequest[ SMALL_COMMAND_BUFFER_SIZE ];
     
     // Set NTP server, update frequency, 
-    _wifi->setNTP(pNTPServer); 
-    _wifi->SendCommand((char*) "set time enable 60 ", WiFlyFixedPrompts[WIFLY_MSG_PROMPT] ,bufRequest, SMALL_COMMAND_BUFFER_SIZE);
+    _wifly->setNTP(pNTPServer); 
+    _wifly->SendCommand((char*) "set time enable 60 ", WiFlyFixedPrompts[WIFLY_MSG_PROMPT] ,bufRequest, SMALL_COMMAND_BUFFER_SIZE);
     
     // set WiFly's time sync frequency with NTP server.
-    _wifi->setNTP_Update_Frequency(WIFLY_NTP_SYNC_INTERVAL);
+    _wifly->setNTP_Update_Frequency(WIFLY_NTP_SYNC_INTERVAL);
     // Forces update of time.
-    _wifi->SendCommand((char*) "time", WiFlyFixedPrompts[WIFLY_MSG_PROMPT] ,bufRequest, SMALL_COMMAND_BUFFER_SIZE);
+    _wifly->SendCommand((char*) "time", WiFlyFixedPrompts[WIFLY_MSG_PROMPT] ,bufRequest, SMALL_COMMAND_BUFFER_SIZE);
     
-    _wifi->setNTP_UTC_Offset ( fTimeZoneOffsetHrs );
+    _wifly->setNTP_UTC_Offset ( fTimeZoneOffsetHrs );
     
-    //setTime( _wifi->getTime() );
+    //setTime( _wifly->getTime() );
    // Set timezone adjustment: PST is -8h.  Adjust to your local timezone.
     
     delay(1000);
     
     
-    //setSyncProvider( _wifi->getSyncTime );
+    //setSyncProvider( _wifly->getSyncTime );
     
     // Set Arduino's time sync frequency with WiFly
     //setSyncInterval( WIFLY_TIME_SYNC_INTERVAL );
@@ -224,39 +224,44 @@ bool WFSEthernet::setNTPServer( char* pNTPServer, float fTimeZoneOffsetHrs ) {
 
 
 long WFSEthernet::getDeviceStatus(){
-    return _wifi->getDeviceStatus();
+    return _wifly->getDeviceStatus();
 }
 
 bool WFSEthernet::serveConnection(){
-    return _wifi->serveConnection(WIFI_WAITING_TIME);
+    return _wifly->serveConnection(WIFI_WAITING_TIME);
 }
 
 
 bool WFSEthernet::isConnectionOpen(){
-    return _wifi->isConnectionOpen();
+    return _wifly->isConnectionOpen();
 }
 
 bool WFSEthernet::connect(uint8_t * addr, uint16_t port){
 	char bufIP[SMALL_COMMAND_BUFFER_SIZE];
     //IP_ArrayToBuffer(   addr, (char*) &bufIP, IP_ADDR_WIDTH);
     
-    return _wifi->openConnection((char *) addr, port);
+    return _wifly->openConnection((char *) addr, port);
 }
 
+void WFSEthernet::connect(){
+    _wifly->openConnection();
+}
+
+
 bool WFSEthernet::disconnect(){
-    return _wifi->closeConnection();
+    return _wifly->closeConnection();
 }
 
 
 //Standard Stuff
 
 void WFSEthernet::flush(){
-    _wifi->flush();
+    _wifly->flush();
 }
 
 //TODO Implement a read function with a buf
 uint8_t WFSEthernet::read(){
-    return _wifi->read();
+    return _wifly->read();
 }
 //
 //uint16_t recv(SOCKET s, uint8_t *buf, uint16_t len) {
@@ -289,17 +294,17 @@ uint8_t WFSEthernet::read(){
 //}
 
 void WFSEthernet::write(uint8_t byte){
-     _wifi->write(byte);
+     _wifly->write(byte);
 }
 
 int WFSEthernet::available(){
-    return _wifi->available();
+    return _wifly->available();
 }
 
 bool WFSEthernet::SendCommand(char * cmd){
     char szRec[SMALL_COMMAND_BUFFER_SIZE];
     
-    return _wifi->SendCommand(cmd, WiFlyFixedPrompts[WIFLY_MSG_PROMPT], szRec, SMALL_COMMAND_BUFFER_SIZE);
+    return _wifly->SendCommand(cmd, WiFlyFixedPrompts[WIFLY_MSG_PROMPT], szRec, SMALL_COMMAND_BUFFER_SIZE);
 }
 
 
@@ -318,9 +323,9 @@ WFSIPAddress WFSEthernet::localIP()
   WFSIPAddress ret;
   char bufAddr[COMMAND_BUFFER_SIZE];
   
-  _wifi->getIP(   bufAddr, COMMAND_BUFFER_SIZE );
+  _wifly->getIP(   bufAddr, COMMAND_BUFFER_SIZE );
   
-    //_wifi->BufferToIP_Array(bufAddr,  ret._address);
+    //_wifly->BufferToIP_Array(bufAddr,  ret._address);
   
   return ret;
 }
@@ -330,7 +335,7 @@ WFSIPAddress WFSEthernet::subnetMask()
   WFSIPAddress ret;
   char bufAddr[SMALL_COMMAND_BUFFER_SIZE];
   
-  _wifi->getNetMask(   bufAddr, SMALL_COMMAND_BUFFER_SIZE );
+  _wifly->getNetMask(   bufAddr, SMALL_COMMAND_BUFFER_SIZE );
   
     //BufferToIP_Array(bufAddr,  ret._address);
   
@@ -342,7 +347,7 @@ WFSIPAddress WFSEthernet::gatewayIP()
   WFSIPAddress ret;
   char bufAddr[SMALL_COMMAND_BUFFER_SIZE];
   
-  _wifi->getGateway(   bufAddr, SMALL_COMMAND_BUFFER_SIZE );
+  _wifly->getGateway(   bufAddr, SMALL_COMMAND_BUFFER_SIZE );
   
     //BufferToIP_Array(bufAddr,  ret._address);
   
@@ -354,7 +359,7 @@ WFSIPAddress WFSEthernet::dnsServerIP()
   WFSIPAddress ret;
   char bufAddr[SMALL_COMMAND_BUFFER_SIZE];
   
-  _wifi->getDNS(   bufAddr, SMALL_COMMAND_BUFFER_SIZE );
+  _wifly->getDNS(   bufAddr, SMALL_COMMAND_BUFFER_SIZE );
   
     //BufferToIP_Array(bufAddr,  ret._address);
   

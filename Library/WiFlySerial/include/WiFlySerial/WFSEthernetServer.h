@@ -40,22 +40,23 @@ class WFSEthernetClient;
 class WFSEthernet;
 
 
-class WFSEthernetServer : public Print{
+class WFSEthernetServer {
 private:
     uint16_t _port;
 	long _ServerProfile;
-    WFSEthernet * _wifi;
-    void accept();
+    WFSEthernet * _WFSE;
+    bool _activeClient;
+    bool accept();
     
 public:
     WFSEthernetServer(uint16_t port = 80, long profile = ES_HTTP_SERVER);
-    WFSEthernetClient available();
-    
-    virtual void begin(WFSEthernet * WiFly);
+    virtual void begin(WFSEthernet * WFSE);
     long setProfile();
+    
+    WFSEthernetClient available();
     virtual void write(uint8_t);
     //virtual void write(const uint8_t *buf, size_t size);
-    using Print::write;
+    //using Print::write;
 };
 
 #endif

@@ -38,7 +38,8 @@ class WFSEthernet;
 class WFSEthernetClient : public Print{
     
 public:
-    WFSEthernetClient(WFSEthernet * WiFly);
+    WFSEthernetClient();
+    WFSEthernetClient(WFSEthernet * WFSE);
     //    WFSEthernetClient(uint8_t sock);
     
     // Devices often appreciate a chance to initialize before commencing operations
@@ -50,8 +51,11 @@ public:
     uint8_t devicestatus();
     
     bool status();
+
+    virtual void connect();
     virtual int connect(WFSIPAddress ip, uint16_t port = 80);
     virtual int connect(const char *host, uint16_t port);
+
     virtual void write(uint8_t);
     //virtual void write(const uint8_t *buf, size_t size);
     virtual int available();
@@ -65,10 +69,10 @@ public:
     
     friend class WFSEthernetServer;
     
-    using Print::write;
+	using Print::write;
     
 private:
-    WFSEthernet * _wifi;
+    WFSEthernet * _wfs;
     static uint16_t _srcport;
 };
 

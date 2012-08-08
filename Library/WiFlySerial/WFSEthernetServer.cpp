@@ -43,15 +43,19 @@ WFSEthernetServer::WFSEthernetServer(uint16_t port, long profile)
 // Sets basics for device configuration
 void WFSEthernetServer::begin(WFSEthernet * WiFly)
 {
-	_wifi = WiFly;
-    //Important!
-    _wifi->SendCommand( "set u m 0x1") ;
-    //TODO optional setting to change the TCP/IP packacke size
-    _wifi->SendCommand( "set comm idle 30") ;
-    _wifi->SendCommand( "set comm time 100") ;
-    _wifi->SendCommand( "set comm size 255") ;
+	_WFSE = WiFly;
+    _activeClient = false;
+    // Change this to the actual given port!
+    _WFSE->_wifly->setLocalPort(80);
+
+//    //Important
+//    _WFSE->SendCommand( "set u m 0x1") ;
+//    //TODO optional setting to change the TCP/IP packacke size
+//    _WFSE->SendCommand( "set comm idle 30") ;
+//    _WFSE->SendCommand( "set comm time 100") ;
+//    _WFSE->SendCommand( "set comm size 255") ;
     
-    this->setProfile();
+    //    this->setProfile();
 }
 // setProfile
 // Configures server to respond in manner specified
@@ -71,9 +75,9 @@ long WFSEthernetServer::setProfile() {
     
     if ( _ServerProfile & ES_HTTP_SERVER ) {
         // No *HELLO* on connection - confuses browsers
-        _wifi->SendCommand( "set comm remote 0");      
+        _WFSE->SendCommand( "set comm remote 0");      
         // Send packet on each tab character issued
-        _wifi->SendCommand("set comm match 0x9");   
+        _WFSE->SendCommand("set comm match 0x9");   
     }
     // Telnet response setup
     if ( _ServerProfile & ES_TELNET_SERVER)  {
@@ -89,33 +93,44 @@ long WFSEthernetServer::setProfile() {
     return _ServerProfile;    
 }
 
-void WFSEthernetServer::accept()
-{
-
-  _wifi->serveConnection();
-
+bool WFSEthernetServer::accept() {
+	bool foo = false;
+    if ( _WFSE->isConnectionOpen() ) {
+		foo = false;
+    }
+	foo = _WFSE->serveConnection();
+	DEBUG_LOG(3, "Accept?");
+    DEBUG_LOG(3, foo);
+    return foo;
 }
 
 
 // returns a WFSEthernetClient using an available socket.
 // WiFly has one socket so ... use it.
-WFSEthernetClient WFSEthernetServer::available()
-{
-  accept();
-  WFSEthernetClient client((this->_wifi));
-  return client;
-  
-//  return WFSEthernetClient(MAX_SOCK_NUM);
+/*
+ */
+
+// TODO: Ensure no active non-server client connection.
+// TODO Speicheradresse übergeben
+
+WFSEthernetClient WFSEthernetServer::available() {
+	WFSEthernetClient client(this->_WFSE);
+    //do smth with accept aka serveConnection()
+    if (accept()) {
+        DEBUG_LOG(2, "Available for client");
+		client.connect();
+
+    }
+    return client;
 }
 
-void WFSEthernetServer::write(uint8_t b) 
-{
-  _wifi->write(b);
+void WFSEthernetServer::write(uint8_t b) {
+  _WFSE->write(b);
 }
 
 // TODO recognize that here write includes the size! 
 //void WFSEthernetServer::write(const uint8_t *buffer, size_t size) 
 //{
 //  
-//  return _wifi->write(buffer, size);
+//  return _WFSE->write(buffer, size);
 //}

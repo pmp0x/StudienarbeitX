@@ -13,11 +13,11 @@
 #define __DEBUG_H__
 #define __LIBMAPLE_H__
 
-#ifndef DEBUG_LEVEL
-#define DEBUG_LEVEL 3
+#ifndef DEBUG_LVL
+#define DEBUG_LVL 2	
 #endif
 
-#if DEBUG_LEVEL == 0
+#if DEBUG_LVL == 0
 
 #define DEBUG_LOG(level, message){}
 
@@ -26,7 +26,7 @@
 // TODO: Store strings in PROGMEM?
 // TODO: Modify so lower level messages/conditionals aren't compiled at all?
 
-#define DEBUG_LOG(level, message) {if (3 >= level){SerialUSB.print("DEBUG: "); SerialUSB.println(message); }; }
+#define DEBUG_LOG(level, message) {if (DEBUG_LVL >= level){SerialUSB.print("DEBUG: "); SerialUSB.println(message); }; }
 
 #endif
 

@@ -11,8 +11,12 @@
 #define __WEB_SERVER_H__
 
 #include <Print.h>
+#include "stdint.h"
+#include "WiFlySerial/WFSEthernet.h"
+#include "WiFlySerial/WFSEthernetServer.h"
+#include "WiFlySerial/WFSEthernetClient.h"
 
-class SdFile;
+// class SdFile;
 class TinyWebServer;
 
 namespace TinyWebPutHandler {
@@ -71,7 +75,7 @@ public:
   TinyWebServer(PathHandler handlers[], const char** headers);
 
   // Call this method to start the HTTP server
-  void begin();
+  void begin(WFSEthernet * Wfs);
 
   // Handles a possible HTTP request. It will return immediately if no
   // client has connected. Otherwise the request is handled
@@ -85,14 +89,14 @@ public:
   void send_error_code(int code) {
     send_error_code(client_, code);
   }
-  static void send_error_code(Client& client, int code);
+  static void send_error_code(WFSEthernetClient& client, int code);
 
   void send_content_type(MimeType mime_type);
   void send_content_type(const char* content_type);
 
   // Call this method to indicate the end of the headers.
   inline void end_headers() { client_.println(); }
-  static inline void end_headers(Client& client) { client.println(); }
+  static inline void end_headers(WFSEthernetClient& client) { client.println(); }
 
   // void send_error_code(MimeType mime_type, int code);
   // void send_error_code(const char* content_type, int code);
@@ -100,7 +104,7 @@ public:
   const char* get_path();
   const HttpRequestType get_type();
   const char* get_header_value(const char* header);
-  EthernetClient& get_client() { return client_; }
+  WFSEthernetClient& get_client() { return client_; }
 
   // Processes the HTTP headers and assigns values to the requested
   // ones in headers_. Returns true when successful, false in case of
@@ -134,12 +138,12 @@ public:
   //
   // This is mainly an optimization to reuse the internal static
   // buffer used by this class, which saves us some RAM.
-  void send_file(SdFile& file);
+  //void send_file(SdFile& file);
 
   // These methods write directly in the response stream of the
   // connected client
-  virtual size_t write(uint8_t c);
-  virtual size_t write(const char *str);
+  virtual void write(uint8_t c);
+  virtual void write(const char *str);
   virtual size_t write(const uint8_t *buffer, size_t size);
 
   // Some methods used for testing purposes
@@ -149,7 +153,7 @@ public:
 
   // Reads a character from the request's input stream. Returns true
   // if the character could be read, false otherwise.
-  virtual bool read_next_char(Client& client, uint8_t* ch);
+  virtual bool read_next_char(WFSEthernetClient& client, uint8_t* ch);
 
  protected:
   // Returns the field number `which' from buffer. Fields are
@@ -171,10 +175,11 @@ private:
 
   // The TCP/IP server we use.
   WFSEthernetServer server_;
-
+  WFSEthernetClient client_;
+    
   char* path_;
   HttpRequestType request_type_;
-  WFSEthernetClient client_;
+
 
   // Reads a line from the HTTP request sent by an HTTP client. The
   // line is put in `buffer' and up to `size' characters are written
@@ -185,8 +190,8 @@ private:
   // array. As a side effect, the pointer to the actual header is made
   // to point to the one in the headers_ array.
   bool is_requested_header(const char** header);
-
   bool assign_header_value(const char* header, char* value);
+    
 };
 
 #endif /* __WEB_SERVER_H__ */

@@ -14,7 +14,7 @@
 #define __LIBMAPLE_H__
 
 #ifndef DEBUG_LEVEL
-#define DEBUG_LEVEL 3
+#define DEBUG_LEVEL 4
 #endif
 
 #if DEBUG_LEVEL == 0

@@ -33,10 +33,12 @@
 
 uint16_t WFSEthernetClient::_srcport = 1024;
 
+WFSEthernetClient::WFSEthernetClient(){
+    
+}
 
-
-WFSEthernetClient::WFSEthernetClient(WFSEthernet * Wifly) {
-    _wifi = Wifly;
+WFSEthernetClient::WFSEthernetClient(WFSEthernet * WFSE) {
+    _wfs = WFSE;
 }
 
 int WFSEthernetClient::connect(const char* host, uint16_t port) {
@@ -50,24 +52,29 @@ int WFSEthernetClient::connect(WFSIPAddress ip, uint16_t port) {
 
 }
 
+// Connect for the server
+void WFSEthernetClient::connect(){
+    _wfs->connect();
+}
+
 void WFSEthernetClient::write(uint8_t b) {
-  return _wifi->write(b);
+  return _wfs->write(b);
 }
 
 //void WFSEthernetClient::write(const uint8_t *buf, size_t size) {
-//  _wifi->write(
+//  _wfs->write(
 //}
 
 int WFSEthernetClient::available() {
     
     // WiFly supports single connection at present so only one socket.
     // TODO: support multiple sockets, or at least appear to do so.
-   //    return _wifi->available(_sock);
-    return _wifi->available();
+   //    return _wfs->available(_sock);
+    return _wfs->available();
 }
 
 int WFSEthernetClient::read() {
-	return _wifi->read();  
+	return _wfs->read();  
 }
 
 //
@@ -82,7 +89,7 @@ int WFSEthernetClient::peek() {
 // 
 
 void WFSEthernetClient::flush() {
-  _wifi->flush();
+  _wfs->flush();
 
 // drain incoming characters  
 //  while (available())
@@ -91,20 +98,14 @@ void WFSEthernetClient::flush() {
 
 void WFSEthernetClient::stop() {
    // attempt to close the connection gracefully (send a FIN to other side)
-  _wifi->disconnect();
+    
+  _wfs->disconnect();
 
 }
 
-uint8_t WFSEthernetClient::connected() {
-  
-  
-//  uint8_t s = status();
-//  return !(s == SnSR::LISTEN || s == SnSR::CLOSED || s == SnSR::FIN_WAIT ||
-//    (s == SnSR::CLOSE_WAIT && !available()));
-  // 
-  return _wifi->isConnectionOpen();
+uint8_t WFSEthernetClient::connected(){
+	_wfs->isConnectionOpen();
 }
-
 
 // status
 // Provides Client status
@@ -117,7 +118,7 @@ uint8_t WFSEthernetClient::connected() {
 //
 bool WFSEthernetClient::status() {
     //TODO überhaupt connected?!
-  return (_wifi->isConnectionOpen() ? true : false );
+  return _wfs->isConnectionOpen() ;
 }
 
 // the next function allows us to use the client returned by
@@ -130,6 +131,6 @@ WFSEthernetClient::operator bool() {
 
 
 uint8_t WFSEthernetClient::devicestatus() {
-  return _wifi->getDeviceStatus();
+  return _wfs->getDeviceStatus();
 }
 

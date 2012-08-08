@@ -33,13 +33,13 @@ extern "C" {
 
 #include <libmaple.h>
 #include <wirish.h>
-
+#include "WiFlySerial/Debug.h"
 #include "TinyWebServer.h"
 
 // Temporary buffer.
 static char buffer[160];
 
-FLASH_STRING(mime_types,
+char * mime_types __FLASH__ = {
   "HTM*text/html|"
   "TXT*text/plain|"
   "CSS*text/css|"
@@ -52,46 +52,47 @@ FLASH_STRING(mime_types,
   "ICO*image/vnd.microsoft.icon|"
 
   "MP3*audio/mpeg|"
-);
+};
 
 void *malloc_check(size_t size) {
   void* r = malloc(size);
-#if DEBUG
+
   if (!r) {
-    Serial << F("TWS:No space for malloc: " ); Serial.println(size, DEC);
+    DEBUG_LOG(2, "TWS:No space for malloc: " ); 
+    DEBUG_LOG(2, size);
   }
-#endif
+
   return r;
 }
 
 // Offset for text/html in `mime_types' above.
 static const TinyWebServer::MimeType text_html_content_type = 4;
 
-TinyWebServer::TinyWebServer(PathHandler handlers[],
-                 const char** headers)
-  : handlers_(handlers),
-    server_(EthernetServer(80)),
+TinyWebServer::TinyWebServer(PathHandler handlers[], const char** headers)  : 
+    handlers_(handlers),
+    server_(WFSEthernetServer(80)),
     path_(NULL),
     request_type_(UNKNOWN_REQUEST),
-    client_(EthernetClient(255)) {
-  if (headers) {
-    int size = 0;
-    for (int i = 0; headers[i]; i++) {
-      size++;
+    client_(WFSEthernetClient())
+    {
+    if (headers) {
+        int size = 0;
+        for (int i = 0; headers[i]; i++) {
+            size++;
+        }
+        headers_ = (HeaderValue*)malloc_check(sizeof(HeaderValue) * (size + 1));
+        if (headers_) {
+            for (int i = 0; i < size; i++) {
+                headers_[i].header = headers[i];
+                headers_[i].value = NULL;
+            }
+            headers_[size].header = NULL;
+        }
     }
-    headers_ = (HeaderValue*)malloc_check(sizeof(HeaderValue) * (size + 1));
-    if (headers_) {
-      for (int i = 0; i < size; i++) {
-        headers_[i].header = headers[i];
-        headers_[i].value = NULL;
-      }
-      headers_[size].header = NULL;
-    }
-  }
 }
 
-void TinyWebServer::begin() {
-  server_.begin();
+void TinyWebServer::begin(WFSEthernet * Wfs) {
+  server_.begin(Wfs);
 }
 
 // Process headers.
@@ -128,9 +129,7 @@ bool TinyWebServer::process_headers() {
     if (!read_next_char(client_, (uint8_t*)&ch)) {
       continue;
     }
-#if DEBUG
-    Serial.print(ch);
-#endif
+      DEBUG_LOG(3, ch);
     switch (state) {
     case START_LINE:
       if (ch == '\r') {
@@ -228,10 +227,10 @@ void TinyWebServer::process() {
     if (!buffer[0]) {
         return;
     }
-#if DEBUG
-    Serial << F("TWS:New request: ");
-    Serial.println(buffer);
-#endif
+
+    DEBUG_LOG(2, "TWS:New request: ");
+    DEBUG_LOG(2, buffer);
+
     if (!is_complete) {
         // The requested path is too long.
         send_error_code(414);
@@ -323,23 +322,23 @@ bool TinyWebServer::assign_header_value(const char* header, char* value) {
   return found;
 }
 
-FLASH_STRING(content_type_msg, "Content-Type: ");
 
-void TinyWebServer::send_error_code(Client& client, int code) {
-#if DEBUG
-  Serial << F("TWS:Returning ");
-  Serial.println(code, DEC);
-#endif
-  client << F("HTTP/1.1 ");
+
+void TinyWebServer::send_error_code(WFSEthernetClient& client, int code) {
+
+    DEBUG_LOG(3, "TWS:Returning ");
+ 	DEBUG_LOG(3, code);
+
+  client.print("HTTP/1.1 ");
   client.print(code, DEC);
-  client << F(" OK\r\n");
+  client.print(" OK\r\n");
   if (code != 200) {
     end_headers(client);
   }
 }
 
 void TinyWebServer::send_content_type(MimeType mime_type) {
-  client_ << content_type_msg;
+  client_.print("Content-Type: ");
 
   char ch;
   int i = mime_type;
@@ -351,7 +350,7 @@ void TinyWebServer::send_content_type(MimeType mime_type) {
 }
 
 void TinyWebServer::send_content_type(const char* content_type) {
-  client_ << content_type_msg;
+  client_.print("Content-Type: ");
   client_.println(content_type);
 }
 
@@ -447,57 +446,57 @@ char* TinyWebServer::get_file_from_path(const char* path) {
 TinyWebServer::MimeType TinyWebServer::get_mime_type_from_filename(
     const char* filename) {
   MimeType r = text_html_content_type;
-  if (!filename) {
+    if (!filename) {
+        return r;
+    }
+    
+    char* ext = strrchr(filename, '.');
+    if (ext) {
+        // We found an extension. Skip past the '.'
+        ext++;
+        
+        char ch;
+        int i = 0;
+        while (i < strlen(mime_types)) {
+            // Compare the extension.
+            char* p = ext;
+            ch = mime_types[i];
+            while (*p && ch != '*' && toupper(*p) == ch) {
+                p++; i++;
+                ch = mime_types[i];
+            }
+            if (!*p && ch == '*') {
+                // We reached the end of the extension while checking
+                // equality with a MIME type: we have a match. Increment i
+                // to reach past the '*' char, and assign it to `mime_type'.
+                r = ++i;
+                break;
+            } else {
+                // Skip past the the '|' character indicating the end of a
+                // MIME type.
+                while (mime_types[i++] != '|')
+                    ;
+            }
+        }
+    }
     return r;
-  }
-
-  char* ext = strrchr(filename, '.');
-  if (ext) {
-    // We found an extension. Skip past the '.'
-    ext++;
-
-    char ch;
-    int i = 0;
-    while (i < mime_types.length()) {
-      // Compare the extension.
-      char* p = ext;
-      ch = mime_types[i];
-      while (*p && ch != '*' && toupper(*p) == ch) {
-    p++; i++;
-    ch = mime_types[i];
-      }
-      if (!*p && ch == '*') {
-    // We reached the end of the extension while checking
-    // equality with a MIME type: we have a match. Increment i
-    // to reach past the '*' char, and assign it to `mime_type'.
-    r = ++i;
-    break;
-      } else {
-    // Skip past the the '|' character indicating the end of a
-    // MIME type.
-    while (mime_types[i++] != '|')
-      ;
-      }
-    }
-  }
-  return r;
 }
 
-void TinyWebServer::send_file(SdFile& file) {
-  size_t size;
-  while ((size = file.read(buffer, sizeof(buffer))) > 0) {
-    if (!client_.connected()) {
-      break;
-    }
-    write((uint8_t*)buffer, size);
-  }
-}
+//void TinyWebServer::send_file(SdFile& file) {
+//  size_t size;
+//  while ((size = file.read(buffer, sizeof(buffer))) > 0) {
+//    if (!client_.connected()) {
+//      break;
+//    }
+//    write((uint8_t*)buffer, size);
+//  }
+//}
 
-size_t TinyWebServer::write(uint8_t c) {
+void TinyWebServer::write(uint8_t c) {
   client_.write(c);
 }
 
-size_t TinyWebServer::write(const char *str) {
+void TinyWebServer::write(const char *str) {
   client_.write(str);
 }
 
@@ -505,7 +504,7 @@ size_t TinyWebServer::write(const uint8_t *buffer, size_t size) {
   client_.write(buffer, size);
 }
 
-bool TinyWebServer::read_next_char(Client& client, uint8_t* ch) {
+bool TinyWebServer::read_next_char(WFSEthernetClient& client, uint8_t* ch) {
   if (!client.available()) {
     return false;
   } else {
@@ -586,7 +585,7 @@ HandlerFn put_handler_fn = NULL;
 
 // Fills in `buffer' by reading up to `num_bytes'.
 // Returns the number of characters read.
-int read_chars(TinyWebServer& web_server, Client& client,
+int read_chars(TinyWebServer& web_server, WFSEthernetClient& client,
                uint8_t* buffer, int size) {
   uint8_t ch;
   int pos;
@@ -605,7 +604,7 @@ bool put_handler(TinyWebServer& web_server) {
   uint32_t start_time = 0;
   bool watchdog_start = false;
 
-  EthernetClient client = web_server.get_client();
+  WFSEthernetClient client = web_server.get_client();
 
   if (put_handler_fn) {
     (*put_handler_fn)(web_server, START, NULL, length);
@@ -619,9 +618,9 @@ bool put_handler(TinyWebServer& web_server) {
         if (millis() - start_time > 30000) {
           // Exit if there has been zero data from connected client
           // for more than 30 seconds.
-#if DEBUG
-          Serial << F("TWS:There has been no data for >30 Sec.\n");
-#endif
+
+          DEBUG_LOG(1, "TWS:There has been no data for >30 Sec.\n");
+
           break;
         }
       } else {

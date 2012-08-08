@@ -38,7 +38,7 @@
 #define MAX_SOCK_NUM 1
 #define WIFI_WAITING_TIME 500
 
-class WFSEthernet : public Print {
+class WFSEthernet  {
 
 public:
     static uint8_t _state[MAX_SOCK_NUM];
@@ -69,6 +69,7 @@ public:
     bool serveConnection();
         bool isConnectionOpen();
     bool connect(uint8_t * addr, uint16_t port);
+    void connect();
     bool disconnect();
     
     virtual void flush();
@@ -94,10 +95,13 @@ public:
     friend class WFSEthernetClient;
     friend class WFSEthernetServer;
     
+
+    
     
 private:
     WFSIPAddress _dnsServerAddress;
-    WiFlySerial * _wifi;
+    WiFlySerial * _wifly;
+    bool _activeClient;
 };
 
 //exposes the class and WiFly to be used by Client and server;
