@@ -82,7 +82,7 @@ const char  s_WIFLYDEVICE_SET_WIFI_JOIN[] __FLASH__ =" set wlan j ";
 const char  s_WIFLYDEVICE_SET_PASSPHRASE[] __FLASH__ =" set w p ";
 const char  s_WIFLYDEVICE_NETWORK_SCAN[] __FLASH__ ="scan ";
 const char  s_WIFLYDEVICE_AOK[] __FLASH__ ="";
-const char  s_WIFLYDEVICE_SET_UART_BAUD[] __FLASH__ ="set u b 9600 ";
+const char  s_WIFLYDEVICE_SET_UART_BAUD[] __FLASH__ ="set uart instant ";
 const char  s_WIFLYDEVICE_DEAUTH[] __FLASH__ ="Deauth";
 const char  s_WIFLYDEVICE_SET_NTP[] __FLASH__ =" set time a ";
 const char  s_WIFLYDEVICE_SET_NTP_ENABLE[] __FLASH__ ="set time e ";
@@ -1710,6 +1710,15 @@ bool WiFlySerial::setRemotePort( int iNewRemotePort) {
     itoa( iNewRemotePort, bufPort, 10);
     this->_iRemotePort = iNewRemotePort;
     return issueSetting( STI_WIFLYDEVICE_SET_REMOTE_PORT, bufPort );
+}
+
+// SetBaudrate
+// Sets baudrate
+// Parameters:
+// baudrate    Port to contact on remote server.
+
+bool WiFlySerial::setBaudrate(const char * iNewBaudrate) {
+    return issueSetting( STI_WIFLYDEVICE_SET_UART_BAUD, iNewBaudrate );
 }
 
 

@@ -23,19 +23,28 @@ WiFlySerial wifly;
 void setup()
 {
     SerialUSB.begin();
-    spi.begin(SPI_562_500KHZ, MSBFIRST, 0);
+    spi.begin(SPI_18MHZ, MSBFIRST, 0);
+    while (!SerialUSB.available());
+    SerialUSB.println("Foo");    
 
-    SpiSerial.begin(&spi, 9600);
     
+    SpiSerial.begin(&spi, 9600);
     SpiSerial.writeRegister(SPR, 'h');
     // Need some time to transfer…
     //    delay(60);
     SerialUSB.println (SpiSerial.readRegister(SPR) );
 
-    while (!SerialUSB.available());
-    SerialUSB.println("Foo");    
+  
+	    delay(100);
+    
+    wifly.begin(&SpiSerial);
     delay(100);
-    //wifly.begin(&SpiSerial);
+    wifly.setBaudrate("921600");
+    SpiSerial.begin(&spi, 921600);
+    delay(100);
+    //wifly.saveSetting();
+    
+    
     
     //    for(int i=0; i<16; i++){
     //            SerialUSB.print("Reg ");
@@ -49,6 +58,15 @@ void setup()
 
 void loop()
 {
+    while(SpiSerial.available() > 0 ){
+        SerialUSB.print("(");
+		SerialUSB.print(SpiSerial.available() );
+        SerialUSB.print(")");   
+        SerialUSB.write(SpiSerial.read());
+    }
+    while(SerialUSB.available()){
+        SpiSerial.write(SerialUSB.read());
+    }
 //    while (SpiSerial.available()) {
 //        SerialUSB.print( (char)SpiSerial.read() );
 //    }
@@ -67,17 +85,17 @@ void loop()
     // delay(10);
     //
     
-    while( (int)SpiSerial.available() != 0 ){
-        SerialUSB.print("(");
-        SerialUSB.print(SpiSerial.available() );
-        SerialUSB.print(")");       
-        SerialUSB.print((char)SpiSerial.read());
-
-    }
-        delay(10);
-    while( SerialUSB.available() ){
-        SpiSerial.write(SerialUSB.read());
-    }
+//    while( SpiSerial.available() > 0 ){
+////        SerialUSB.print("(");
+////        SerialUSB.print(SpiSerial.available() );
+////        SerialUSB.print(")");       
+//        SerialUSB.print((char)SpiSerial.read());
+//
+//    }
+//        delay(10);
+//    while( SerialUSB.available() ){
+//        SpiSerial.write(SerialUSB.read());
+//    }
 
     
     

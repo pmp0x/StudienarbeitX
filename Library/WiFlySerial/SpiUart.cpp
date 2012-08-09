@@ -170,8 +170,8 @@ void SpiUartDevice::writeRegister(uint8 registerAddress, uint8 data) {
     * Write <data> byte to the SC16IS750 register <registerAddress>
     */
   select();
-  SPIfoo->write(registerAddress);
-  SPIfoo->write(data);
+  SPIfoo->transfer(registerAddress);
+  SPIfoo->transfer(data);
   deselect();
 }
 
@@ -183,11 +183,11 @@ char SpiUartDevice::readRegister(byte registerAddress) {
 
   // Used in SPI read operations to flush slave's shift register
   	const byte SPI_DUMMY_BYTE = 0xFF;
-    char data = '\0';
+    char data ;
     select();
 //    SerialUSB.println();
 //  SerialUSB.print("r");
-    SPIfoo->write(SPI_READ_MODE_FLAG | registerAddress);
+    SPIfoo->transfer(SPI_READ_MODE_FLAG | registerAddress);
     //  SerialUSB.print("v");
     data = SPIfoo->transfer(SPI_DUMMY_BYTE);
     //    SerialUSB.print("x");
@@ -223,7 +223,7 @@ uint8 SpiUartDevice::available() {
     // else {
     //     return size;
     // }
-    return (uint8) readRegister(RXLVL);
+    return readRegister(RXLVL);
 }
 
 
@@ -239,7 +239,7 @@ uint8 SpiUartDevice::read() {
   if (!available()) {
     return -1;
   }
-    
+
   return readRegister(RHR);
 }
 

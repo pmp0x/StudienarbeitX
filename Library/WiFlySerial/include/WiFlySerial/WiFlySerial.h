@@ -223,6 +223,7 @@ public:
     bool setAuthMode( int iAuthMode);
     bool setJoinMode( int iJoinMode);
     bool setDHCPMode(const int iModeDHCP);
+    bool setBaudrate(const char * iNewBaudrate);
     bool saveSetting();
     //
     //  // wifi network Association
