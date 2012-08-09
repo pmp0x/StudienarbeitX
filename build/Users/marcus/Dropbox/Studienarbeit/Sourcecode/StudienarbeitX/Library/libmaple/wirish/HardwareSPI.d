@@ -37,7 +37,8 @@ build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libm
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareSerial.h \
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/Print.h \
  /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareTimer.h \
- /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/usb_serial.h
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/usb_serial.h \
+ /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/include/libmaple/libmaple.h
 
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareSPI.h:
 
@@ -114,3 +115,5 @@ build//Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libm
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/HardwareTimer.h:
 
 /Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/include/wirish/usb_serial.h:
+
+/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/include/libmaple/libmaple.h:

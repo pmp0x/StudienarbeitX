@@ -1,70 +1,6 @@
    text	   data	    bss	    dec	    hex	filename
       0	      0	      0	      0	      0	build/main.o
-    116	      0	      0	    116	     74	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/adc.o
-    184	      0	      0	    184	     b8	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/dac.o
-     34	      0	      0	     34	     22	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/dma.o
-     96	      0	      0	     96	     60	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/exc.o
-    606	    128	      0	    734	    2de	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/exti.o
-     20	      0	      0	     20	     14	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/flash.o
-     20	      0	      0	     20	     14	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/gpio.o
-   1239	      0	      0	   1239	    4d7	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/i2c.o
-     44	      0	      0	     44	     2c	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/iwdg.o
-    132	      0	      0	    132	     84	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/nvic.o
-     18	      0	      0	     18	     12	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/pwr.o
-    170	      0	      0	    170	     aa	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/rcc.o
-    212	      0	      0	    212	     d4	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/spi.o
-    158	     24	      0	    182	     b6	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/adc.o
-    237	      8	      0	    245	     f5	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/bkp.o
-   1331	     68	      0	   1399	    577	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/dma.o
-     24	      0	      0	     24	     18	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/exti.o
-      0	      0	      0	      0	      0	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/fsmc.o
-    200	     32	      0	    232	     e8	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/gpio.o
-    254	     72	      0	    326	    146	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/i2c.o
-      2	      0	      0	      2	      2	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/performance/isrs.o
-      0	      0	      0	      0	      0	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/performance/vector_table.o
-    563	     20	      0	    583	    247	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/rcc.o
-    128	     24	      0	    152	     98	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/spi.o
-    668	      0	      0	    668	    29c	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/timer.o
-    387	    252	     36	    675	    2a3	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/stm32f1/usart.o
-     76	      0	      4	     80	     50	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/systick.o
-    827	    164	      0	    991	    3df	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/timer.o
-    304	      0	      0	    304	    130	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usart.o
-     36	      0	      0	     36	     24	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usart_private.o
-    863	     20	      0	    883	    373	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/stm32f1/usb.o
-   1478	    196	     23	   1697	    6a1	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/stm32f1/usb_cdcacm.o
-    192	      0	      0	    192	     c0	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/stm32f1/usb_reg_map.o
-   2170	      0	      1	   2171	    87b	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/usb_lib/usb_core.o
-     56	      0	      0	     56	     38	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/usb_lib/usb_init.o
-     82	      0	      0	     82	     52	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/usb_lib/usb_mem.o
-   1934	      0	      0	   1934	    78e	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/usb/usb_lib/usb_regs.o
-    370	      0	      0	    370	    172	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libmaple/util.o
-   1752	      0	      0	   1752	    6d8	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libraries/LiquidCrystal/LiquidCrystal.o
-    642	      0	      0	    642	    282	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libraries/Servo/Servo.o
-    296	      0	      0	    296	    128	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libraries/Wire/HardWire.o
-    732	      0	      0	    732	    2dc	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libraries/Wire/Wire.o
-    334	      0	      0	    334	    14e	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/libraries/Wire/WireBase.o
-    384	    708	      0	   1092	    444	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/boards/maple/board.o
-    420	      0	      0	    420	    1a4	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/boards.o
-      2	      0	      0	      2	      2	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/cxxabi-compat.o
-    188	      0	      0	    188	     bc	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/ext_interrupts.o
-    531	      4	     36	    571	    23b	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/HardwareSerial.o
-   1111	      0	      0	   1111	    457	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/HardwareSPI.o
-    605	      4	     21	    630	    276	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/HardwareTimer.o
-   1001	      0	      0	   1001	    3e9	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/Print.o
-    145	      0	      0	    145	     91	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/pwm.o
-     24	      0	      0	     24	     18	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/start.o
-    100	      0	      0	    100	     64	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/start_c.o
-     54	     15	      0	     69	     45	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/stm32f1/boards_setup.o
-    162	      0	      0	    162	     a2	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/stm32f1/util_hooks.o
-     34	      0	      0	     34	     22	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/stm32f1/wirish_debug.o
-    228	      0	      0	    228	     e4	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/stm32f1/wirish_digital.o
-    270	      0	      4	    274	    112	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/syscalls.o
-    344	      4	      4	    352	    160	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/usb_serial.o
-     28	      0	      0	     28	     1c	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/wirish_analog.o
-    240	      0	      0	    240	     f0	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/wirish_digital.o
-     50	      0	      0	     50	     32	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/wirish_math.o
-     68	      0	      0	     68	     44	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/wirish_shift.o
-     38	      0	      0	     38	     26	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/libmaple/wirish/wirish_time.o
+    321	      8	     56	    385	    181	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Improving_WiFly_Speed.o
     116	      0	      0	    116	     74	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
     184	      0	      0	    184	     b8	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dac.o
      34	      0	      0	     34	     22	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dma.o
@@ -131,12 +67,10 @@
      68	      0	      0	     68	     44	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_shift.o
      38	      0	      0	     38	     26	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_time.o
    3133	      4	    164	   3301	    ce5	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/TinyWebServer/TinyWebServer.o
-    594	      4	      4	    602	    25a	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/SpiUart.o
+    588	      4	      4	    596	    254	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/SpiUart.o
     689	      0	      0	    689	    2b1	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
     280	      2	      0	    282	    11a	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
     324	      0	      0	    324	    144	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
     204	      0	      0	    204	     cc	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
    5855	    268	      0	   6123	   17eb	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-    609	     40	    512	   1161	    489	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/TWS-HelloWorld.o
-    350	      8	      8	    366	    16e	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Working_Terminal.o
-  62411	   3812	    946	  67169	  10661	(TOTALS)
+  36753	   2029	    353	  39135	   98df	(TOTALS)

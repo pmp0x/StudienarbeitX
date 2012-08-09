@@ -62,7 +62,8 @@ ASFLAGS_$(d) :=
 # it something else. Annoying! Hopefully LeafLabs will fix it soon.
 #cppSRCS_$(d) := Working_Terminal.cpp
 #cppSRCS_$(d) := real-main.cpp
-cppSRCS_$(d) := TWS-HelloWorld.cpp
+#cppSRCS_$(d) := TWS-HelloWorld.cpp
+cppSRCS_$(d) := Improving_WiFly_Speed.cpp
 #cppSRCS_$(d) += getter/getter.cpp
 
 # sSRCS_$(d) are the assembly sources. We don't have any.

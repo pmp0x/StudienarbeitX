@@ -281,8 +281,8 @@ typedef enum spi_cfg_flag {
     SPI_BIDIMODE   = SPI_CR1_BIDIMODE,   /**< Bidirectional mode enable */
     SPI_BIDIOE     = SPI_CR1_BIDIOE,     /**< Output enable in bidirectional
                                             mode */
-    //SPI_CRCEN      = SPI_CR1_CRCEN,      /**< Cyclic redundancy check (CRC)
-    //                                        enable */
+    SPI_CRCEN      = SPI_CR1_CRCEN,      /**< Cyclic redundancy check (CRC)
+                                            enable */
     SPI_DFF_8_BIT  = SPI_CR1_DFF_8_BIT,  /**< 8-bit data frame format (this is
                                             the default) */
     SPI_DFF_16_BIT = SPI_CR1_DFF_16_BIT, /**< 16-bit data frame format */
@@ -424,7 +424,7 @@ static inline uint8 spi_rx_reg(spi_dev *dev) {
  * @param dev SPI device
  * @return true, iff dev's TX register is empty.
  */
-static inline uint8 spi_is_tx_empty(spi_dev *dev) {
+static inline uint8 spi_is_tx_empty	(spi_dev *dev) {
     return dev->regs->SR & SPI_SR_TXE;
 }
 

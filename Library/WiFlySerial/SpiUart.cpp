@@ -160,10 +160,7 @@ boolean SpiUartDevice::uartConnected() {
 
   // Perform read/write test to check if UART is working
   const char TEST_CHARACTER = 'H';
-
   writeRegister(SPR, TEST_CHARACTER);
-  // Need some time to transfer…
-  delay(60);
   return (readRegister(SPR) == TEST_CHARACTER);
 }
 
@@ -172,10 +169,9 @@ void SpiUartDevice::writeRegister(uint8 registerAddress, uint8 data) {
    /*
     * Write <data> byte to the SC16IS750 register <registerAddress>
     */
-
   select();
-  SPIfoo->transfer(registerAddress);
-  SPIfoo->transfer(data);
+  SPIfoo->write(registerAddress);
+  SPIfoo->write(data);
   deselect();
 }
 
@@ -186,11 +182,21 @@ char SpiUartDevice::readRegister(byte registerAddress) {
    */
 
   // Used in SPI read operations to flush slave's shift register
-  //const byte SPI_DUMMY_BYTE = 0xFF;
-    char data;
+  	const byte SPI_DUMMY_BYTE = 0xFF;
+    char data = '\0';
     select();
-    SPIfoo->transfer(SPI_READ_MODE_FLAG | registerAddress);
-    data = SPIfoo->transfer(0xff);
+//    SerialUSB.println();
+//  SerialUSB.print("r");
+    SPIfoo->write(SPI_READ_MODE_FLAG | registerAddress);
+    //  SerialUSB.print("v");
+    data = SPIfoo->transfer(SPI_DUMMY_BYTE);
+    //    SerialUSB.print("x");
+    //    SerialUSB.print(registerAddress, HEX);
+//    SerialUSB.print(" - ");
+//    SerialUSB.print(data2, DEC);
+//    SerialUSB.print(" - ");
+//   SerialUSB.println(data, DEC);
+
     deselect();
     return data;
 }
@@ -217,7 +223,7 @@ uint8 SpiUartDevice::available() {
     // else {
     //     return size;
     // }
-    return readRegister(RXLVL);
+    return (uint8) readRegister(RXLVL);
 }
 
 
@@ -233,7 +239,7 @@ uint8 SpiUartDevice::read() {
   if (!available()) {
     return -1;
   }
-
+    
   return readRegister(RHR);
 }
 

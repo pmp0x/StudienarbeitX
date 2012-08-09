@@ -23,6 +23,9 @@
 		2C5B880D15CFF06E00524E9E /* WFSEthernetClient.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880915CFE64200524E9E /* WFSEthernetClient.h */; };
 		2C5B880E15CFF06E00524E9E /* WFSEthernetServer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880A15CFE64300524E9E /* WFSEthernetServer.h */; };
 		2C5B880F15CFF06E00524E9E /* WFSIPAddress.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B880B15CFE64500524E9E /* WFSIPAddress.h */; };
+		2C6CBF9215D3D49100A7E2A4 /* Improving_WiFly_Speed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CBF9115D3D49000A7E2A4 /* Improving_WiFly_Speed.cpp */; };
+		2C6CBF9315D3F1F000A7E2A4 /* SpiUart.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C50572415C83094007DAC8A /* SpiUart.h */; };
+		2C6CBF9415D3F1F000A7E2A4 /* SpiUart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C50572C15C83094007DAC8A /* SpiUart.cpp */; };
 		2CD1249815D2B85D0050DF73 /* TWS-HelloWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD1249715D2B85B0050DF73 /* TWS-HelloWorld.cpp */; };
 		2CD1249915D2B9F10050DF73 /* TinyWebServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056B515C83094007DAC8A /* TinyWebServer.cpp */; };
 		2CD1249A15D2B9F10050DF73 /* TinyWebServer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2C5056B615C83094007DAC8A /* TinyWebServer.h */; };
@@ -1683,6 +1686,7 @@
 		2C5B880915CFE64200524E9E /* WFSEthernetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSEthernetClient.h; sourceTree = "<group>"; };
 		2C5B880A15CFE64300524E9E /* WFSEthernetServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSEthernetServer.h; sourceTree = "<group>"; };
 		2C5B880B15CFE64500524E9E /* WFSIPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSIPAddress.h; sourceTree = "<group>"; };
+		2C6CBF9115D3D49000A7E2A4 /* Improving_WiFly_Speed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Improving_WiFly_Speed.cpp; sourceTree = "<group>"; };
 		2CD1249715D2B85B0050DF73 /* TWS-HelloWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "TWS-HelloWorld.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1702,6 +1706,7 @@
 				2C50573A15C83094007DAC8A /* rules.mk */,
 				2C10367515D0670900CBB490 /* Working_Terminal.cpp */,
 				2C5055C115C82F2A007DAC8A /* Test.cpp */,
+				2C6CBF9115D3D49000A7E2A4 /* Improving_WiFly_Speed.cpp */,
 				2C5060CE15C853FE007DAC8A /* Indexing */,
 				2C50574015C830F4007DAC8A /* Products */,
 			);
@@ -5484,6 +5489,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C6CBF9315D3F1F000A7E2A4 /* SpiUart.h in Sources */,
+				2C6CBF9415D3F1F000A7E2A4 /* SpiUart.cpp in Sources */,
 				2CD1249915D2B9F10050DF73 /* TinyWebServer.cpp in Sources */,
 				2CD1249A15D2B9F10050DF73 /* TinyWebServer.h in Sources */,
 				2C10367715D071EA00CBB490 /* Working Hand Server.cpp in Sources */,
@@ -5503,6 +5510,7 @@
 				2C5B880715CFE5D700524E9E /* WFSIPAddress.cpp in Sources */,
 				2C10367615D0670A00CBB490 /* Working_Terminal.cpp in Sources */,
 				2CD1249815D2B85D0050DF73 /* TWS-HelloWorld.cpp in Sources */,
+				2C6CBF9215D3D49100A7E2A4 /* Improving_WiFly_Speed.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

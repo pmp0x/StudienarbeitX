@@ -37,6 +37,7 @@
 
 #include <wirish/wirish.h>
 #include <wirish/boards.h>
+#include <libmaple.h>
 
 struct spi_pins {
     uint8 nss;
@@ -156,24 +157,26 @@ uint8 HardwareSPI::read(void) {
 void HardwareSPI::read(uint8 *buf, uint32 len) {
     uint32 rxed = 0;
     while (rxed < len) {
-
-        while (!spi_is_rx_nonempty(this->spi_d))
+        while (!spi_is_rx_nonempty(this->spi_d) ){
+//            if (!spi_is_busy(this->spi_d)) {
+//                SerialUSB.println("B");
+//                return;
+//            }
             ;
+        }
         buf[rxed++] = (uint8)spi_rx_reg(this->spi_d);
     }
 }
 
-uint32 HardwareSPI::write(uint8 byte) {
+void HardwareSPI::write(uint8 byte) {
    return this->write(&byte, 1);
 }
 
 
 
-uint32 HardwareSPI::write(const void *data, uint32 length) {
-    uint32 txed;
-    txed = spi_tx(this->spi_d, data, length);
+void HardwareSPI::write(const void *data, uint32 length) {
+    spi_tx(this->spi_d, data, length);
     spi_rx_reg(this->spi_d);
-    return txed;
 }
 
 // uint32 spi_tx(spi_dev *dev, const void *buf, uint32 len) {
