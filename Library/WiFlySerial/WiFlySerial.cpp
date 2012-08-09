@@ -1144,12 +1144,13 @@ bool WiFlySerial::serveConnection( const unsigned long reconnectWaitTime )
 {
     char bufRequest[COMMAND_BUFFER_SIZE];
     int  iRequest;
-    DEBUG_LOG(3, "Serve Connection");
+    DEBUG_LOG(2, "Serve Connection");
     iRequest = ScanForPattern( bufRequest, COMMAND_BUFFER_SIZE, WiFlyFixedPrompts[WIFLY_MSG_OPEN], true, reconnectWaitTime );
     
     if ( iRequest & PROMPT_EXPECTED_TOKEN_FOUND ) {
         //memset (bufRequest,'\0',COMMAND_BUFFER_SIZE);
         _bWiFlyInCommandMode = false;
+        _bWiFlyConnectionOpen = true;
         return true;
     } 
     

@@ -113,13 +113,14 @@ bool WFSEthernetServer::accept() {
 // TODO: Ensure no active non-server client connection.
 // TODO Speicheradresse übergeben
 
-WFSEthernetClient WFSEthernetServer::available() {
+WFSEthernetClient& WFSEthernetServer::available() {
 	WFSEthernetClient client(this->_WFSE);
     //do smth with accept aka serveConnection()
     if (accept()) {
         DEBUG_LOG(2, "Available for client");
 		client.connect();
-
+        //TODO how long does the delay has to be that all data has been transmited?!
+		delay(100);
     }
     return client;
 }

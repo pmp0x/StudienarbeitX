@@ -103,8 +103,8 @@ void WFSEthernetClient::stop() {
 
 }
 
-uint8_t WFSEthernetClient::connected(){
-	_wfs->isConnectionOpen();
+bool WFSEthernetClient::connected(){
+	return _wfs->isConnectionOpen();
 }
 
 // status

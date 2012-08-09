@@ -64,7 +64,7 @@ public:
     virtual int peek();
     virtual void flush();
     virtual void stop();
-    virtual uint8_t connected();
+    virtual bool connected();
     virtual operator bool();
     
     friend class WFSEthernetServer;

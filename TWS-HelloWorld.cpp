@@ -57,7 +57,10 @@ const char* headers[] = {
 
 
 bool index_handler(TinyWebServer& web_server) {
-
+	DEBUG_LOG(3, "index handler");
+    web_server.send_error_code(200);
+    web_server.end_headers();
+    web_server.println("<html><body><h1>Hello World!</h1></body></html>\n");
     return true;
 }
 

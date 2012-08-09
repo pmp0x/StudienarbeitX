@@ -97,134 +97,161 @@ void TinyWebServer::begin(WFSEthernet * Wfs) {
 
 // Process headers.
 bool TinyWebServer::process_headers() {
-  if (headers_) {
-    // First clear the header values from the previous HTTP request.
-    for (int i = 0; headers_[i].header; i++) {
-      if (headers_[i].value) {
-        free(headers_[i].value);
-        // Ensure the pointer is cleared once the memory is freed.
-        headers_[i].value = NULL;
-      }
+    if (headers_) {
+        // First clear the header values from the previous HTTP request.
+        for (int i = 0; headers_[i].header; i++) {
+            if (headers_[i].value) {
+                free(headers_[i].value);
+                // Ensure the pointer is cleared once the memory is freed.
+                headers_[i].value = NULL;
+            }
+        }
     }
-  }
-
-  enum State {
-    ERROR,
-    START_LINE,
-    HEADER_NAME,
-    HEADER_VALUE,
-    HEADER_VALUE_SKIP_INITIAL_SPACES,
-    HEADER_IGNORE_VALUE,
-    END_HEADERS,
-  };
-  State state = START_LINE;
-
-  char ch;
-  int pos;
-  const char* header;
-  while (1) {
-    if (should_stop_processing()) {
-      return false;
+    
+    enum State {
+        ERROR,
+        START_LINE,
+        HEADER_NAME,
+        HEADER_VALUE,
+        HEADER_VALUE_SKIP_INITIAL_SPACES,
+        HEADER_IGNORE_VALUE,
+        END_HEADERS,
+    };
+    State state = START_LINE;
+    
+    char ch;
+    int pos;
+    const char* header;
+    while (1) {
+        if (should_stop_processing()) {
+            return false;
+        }
+        if (!read_next_char(client_, (uint8_t*)&ch)) {
+            continue;
+        }
+        DEBUG_LOG(3, ch);
+        switch (state) {
+            case START_LINE:
+                if (ch == '\r') {
+                    break;
+                } else if (ch == '\n') {
+                    state = END_HEADERS;
+                } else if (isalnum(ch) || ch == '-') {
+                    pos = 0;
+                    buffer[pos++] = ch;
+                    state = HEADER_NAME;
+                } else {
+                    state = ERROR;
+                }
+                break;
+                
+            case HEADER_NAME:
+                if (pos + 1 >= sizeof(buffer)) {
+                    state = ERROR;
+                    break;
+                }
+                if (ch == ':') {
+                    buffer[pos] = 0;
+                    header = buffer;
+                    if (is_requested_header(&header)) {
+                        state = HEADER_VALUE_SKIP_INITIAL_SPACES;
+                    } else {
+                        state = HEADER_IGNORE_VALUE;
+                    }
+                    pos = 0;
+                } else if (isalnum(ch) || ch == '-') {
+                    buffer[pos++] = ch;
+                } else {
+                    state = ERROR;
+                    break;
+                }
+                break;
+                
+            case HEADER_VALUE_SKIP_INITIAL_SPACES:
+                if (pos + 1 >= sizeof(buffer)) {
+                    state = ERROR;
+                    break;
+                }
+                if (ch != ' ') {
+                    buffer[pos++] = ch;
+                    state = HEADER_VALUE;
+                }
+                break;
+                
+            case HEADER_VALUE:
+                if (pos + 1 >= sizeof(buffer)) {
+                    state = ERROR;
+                    break;
+                }
+                if (ch == '\n') {
+                    buffer[pos] = 0;
+                    if (!assign_header_value(header, buffer)) {
+                        state = ERROR;
+                        break;
+                    }
+                    state = START_LINE;
+                } else {
+                    if (ch != '\r') {
+                        buffer[pos++] = ch;
+                    }
+                }
+                break;
+                
+            case HEADER_IGNORE_VALUE:
+                if (ch == '\n') {
+                    state = START_LINE;
+                }
+                break;
+                
+            default:
+                break;
+        }
+        
+        if (state == END_HEADERS) {
+            break;
+        }
+        if (state == ERROR) {
+            return false;
+        }
     }
-    if (!read_next_char(client_, (uint8_t*)&ch)) {
-      continue;
-    }
-      DEBUG_LOG(3, ch);
-    switch (state) {
-    case START_LINE:
-      if (ch == '\r') {
-    break;
-      } else if (ch == '\n') {
-    state = END_HEADERS;
-      } else if (isalnum(ch) || ch == '-') {
-    pos = 0;
-    buffer[pos++] = ch;
-    state = HEADER_NAME;
-      } else {
-    state = ERROR;
-      }
-      break;
-
-    case HEADER_NAME:
-      if (pos + 1 >= sizeof(buffer)) {
-    state = ERROR;
-    break;
-      }
-      if (ch == ':') {
-    buffer[pos] = 0;
-    header = buffer;
-    if (is_requested_header(&header)) {
-      state = HEADER_VALUE_SKIP_INITIAL_SPACES;
-    } else {
-      state = HEADER_IGNORE_VALUE;
-    }
-    pos = 0;
-      } else if (isalnum(ch) || ch == '-') {
-    buffer[pos++] = ch;
-      } else {
-    state = ERROR;
-    break;
-      }
-      break;
-
-    case HEADER_VALUE_SKIP_INITIAL_SPACES:
-      if (pos + 1 >= sizeof(buffer)) {
-    state = ERROR;
-    break;
-      }
-      if (ch != ' ') {
-    buffer[pos++] = ch;
-    state = HEADER_VALUE;
-      }
-      break;
-
-    case HEADER_VALUE:
-      if (pos + 1 >= sizeof(buffer)) {
-    state = ERROR;
-    break;
-      }
-      if (ch == '\n') {
-    buffer[pos] = 0;
-    if (!assign_header_value(header, buffer)) {
-      state = ERROR;
-      break;
-    }
-    state = START_LINE;
-      } else {
-    if (ch != '\r') {
-      buffer[pos++] = ch;
-    }
-      }
-      break;
-
-    case HEADER_IGNORE_VALUE:
-      if (ch == '\n') {
-    state = START_LINE;
-      }
-      break;
-
-    default:
-      break;
-    }
-
-    if (state == END_HEADERS) {
-      break;
-    }
-    if (state == ERROR) {
-      return false;
-    }
-  }
-  return true;
+    return true;
 }
+
+//void TinyWebServer::process(){
+//	client_ = server_.available();
+//    if (!client_.connected() || !client_.available()) {
+//    //if ( !client_.connected() ){
+//    	DEBUG_LOG(2, "kicked out");
+//        DEBUG_LOG(2, client_.connected());
+//        DEBUG_LOG(2, client_.available());
+//        return;
+//    }
+//
+//    DEBUG_LOG(3, "Available?!");
+//    DEBUG_LOG(3, client_.available());
+//  	
+//    
+//	bool is_complete = get_line(buffer, sizeof(buffer));
+//	DEBUG_LOG(3, "First line");
+//    DEBUG_LOG(3, buffer);
+//    client_.stop();
+////    if (!buffer[0]) {
+////        DEBUG_LOG(2, "buf not written");
+////        return;
+////    }    
+//}
 
 void TinyWebServer::process() {
     client_ = server_.available();
     if (!client_.connected() || !client_.available()) {
+        //if ( !client_.connected() ){
+    	DEBUG_LOG(2, "kicked out");
         return;
     }
     
     bool is_complete = get_line(buffer, sizeof(buffer));
     if (!buffer[0]) {
+        DEBUG_LOG(2, "buf not written");
         return;
     }
 
@@ -232,6 +259,7 @@ void TinyWebServer::process() {
     DEBUG_LOG(2, buffer);
 
     if (!is_complete) {
+        DEBUG_LOG(2, "Requested path too long / buf too small");
         // The requested path is too long.
         send_error_code(414);
         client_.stop();
@@ -248,15 +276,20 @@ void TinyWebServer::process() {
         request_type_ = PUT;
     }
     path_ = get_field(buffer, 1);
+    DEBUG_LOG(3, "Request Type");
+    DEBUG_LOG(3, request_type_str);
+    DEBUG_LOG(3, "Path");
+    DEBUG_LOG(3, path_);
     
     // Process the headers.
     if (!process_headers()) {
         // Malformed header line.
+	    DEBUG_LOG(3, "Header malformed");
         send_error_code(417);
         client_.stop();
     }
-    // Header processing finished. Identify the handler to call.
     
+    // Header processing finished. Identify the handler to call.
     bool should_close = true;
     bool found = false;
     for (int i = 0; handlers_[i].path; i++) {
@@ -275,12 +308,14 @@ void TinyWebServer::process() {
     }
     
     if (!found) {
+        DEBUG_LOG(3, "404 -> Page not found");
         send_error_code(404);
         // (*this) << F("URL not found: ");
         // client_->print(path_);
         // client_->println();
     }
     if (should_close) {
+        DEBUG_LOG(3, "Have to close it");
         client_.stop();
     }
     
@@ -516,7 +551,7 @@ bool TinyWebServer::read_next_char(WFSEthernetClient& client, uint8_t* ch) {
 bool TinyWebServer::get_line(char* buffer, int size) {
   int i = 0;
   char ch;
-
+	DEBUG_LOG(3, "get line");
   buffer[0] = 0;
   for (; i < size - 1; i++) {
     if (!read_next_char(client_, (uint8_t*)&ch)) {
@@ -525,9 +560,11 @@ bool TinyWebServer::get_line(char* buffer, int size) {
     if (ch == '\n') {
       break;
     }
+      
+    DEBUG_LOG(3, ch);
     buffer[i] = ch;
   }
-  buffer[i] = 0;
+  buffer[i] = '\0';
   return i < size - 1;
 }
 
@@ -572,7 +609,7 @@ char* TinyWebServer::get_field(const char* buffer, int which) {
       return NULL;
     }
     memcpy(field, buffer + i, j - i);
-    field[j - i] = 0;
+    field[j - i] = '\0';
   }
   return field;
 }
