@@ -1,6 +1,5 @@
    text	   data	    bss	    dec	    hex	filename
       0	      0	      0	      0	      0	build/main.o
-    368	      8	     56	    432	    1b0	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Improving_WiFly_Speed.o
     116	      0	      0	    116	     74	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/adc.o
     184	      0	      0	    184	     b8	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dac.o
      34	      0	      0	     34	     22	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/libmaple/dma.o
@@ -49,7 +48,7 @@
       2	      0	      0	      2	      2	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/cxxabi-compat.o
     211	      0	      0	    211	     d3	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/ext_interrupts.o
     554	      4	     36	    594	    252	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSerial.o
-   1152	      0	      0	   1152	    480	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
+   1028	      0	      0	   1028	    404	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareSPI.o
     628	      4	     21	    653	    28d	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/HardwareTimer.o
    1001	      0	      0	   1001	    3e9	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/Print.o
     168	      0	      0	    168	     a8	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/pwm.o
@@ -66,11 +65,12 @@
      50	      0	      0	     50	     32	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_math.o
      68	      0	      0	     68	     44	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_shift.o
      38	      0	      0	     38	     26	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/libmaple/wirish/wirish_time.o
-   3133	      4	    164	   3301	    ce5	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/TinyWebServer/TinyWebServer.o
-    588	      4	      4	    596	    254	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/SpiUart.o
-    689	      0	      0	    689	    2b1	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
-    280	      2	      0	    282	    11a	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
-    324	      0	      0	    324	    144	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
+   2535	      4	    164	   2703	    a8f	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/TinyWebServer/TinyWebServer.o
+    902	      4	    128	   1034	    40a	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/SpiUart.o
+    683	      0	      0	    683	    2ab	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernet.o
+    375	      2	      0	    377	    179	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetClient.o
+    207	      0	      0	    207	     cf	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSEthernetServer.o
     204	      0	      0	    204	     cc	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WFSIPAddress.o
-   5867	    268	      0	   6135	   17f7	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
-  36830	   2029	    353	  39212	   992c	(TOTALS)
+   3987	    268	      0	   4255	   109f	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/Library/WiFlySerial/WiFlySerial.o
+    547	     40	   1536	   2123	    84b	build/Users/marcus/Dropbox/Studienarbeit/Sourcecode/StudienarbeitX/TWS-HelloWorld.o
+  34693	   2061	   1957	  38711	   9737	(TOTALS)

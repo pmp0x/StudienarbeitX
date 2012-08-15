@@ -55,6 +55,10 @@ int WFSEthernetClient::connect(WFSIPAddress ip, uint16_t port) {
 // Connect for the server
 void WFSEthernetClient::connect(){
     _wfs->connect();
+    _header_pointer = 0;
+    _wfs->_wifly->ScanForPattern(_header_buffer, 1000, "\n\n", true, 250, false);
+	DEBUG_LOG(3, "In WFSClient Buffer");
+    DEBUG_LOG(3, _header_buffer);
 }
 
 void WFSEthernetClient::write(uint8_t b) {
@@ -70,16 +74,24 @@ int WFSEthernetClient::available() {
     // WiFly supports single connection at present so only one socket.
     // TODO: support multiple sockets, or at least appear to do so.
    //    return _wfs->available(_sock);
-    return _wfs->available();
+    if (_header_buffer[0] == '\0' || _header_pointer > 1000) {
+        return -1;
+    }
+    return 1;
+    //    return _wfs->available();
 }
 
 int WFSEthernetClient::read() {
-	return _wfs->read();  
+    if (_header_pointer > 1000) {
+        return -1;
+    }
+    return _header_buffer[_header_pointer++];
+    //	return _wfs->read();  
 }
 
 //
 int WFSEthernetClient::peek() {
-    return -1;
+    return 0;
 }
 
 
@@ -88,19 +100,18 @@ int WFSEthernetClient::peek() {
 // Parameters: None
 // 
 
-void WFSEthernetClient::flush() {
-  _wfs->flush();
-
-// drain incoming characters  
-//  while (available())
-//    read();
-}
+//void WFSEthernetClient::flush() {
+//    //_wfs->flush();
+//
+//// drain incoming characters  
+////  while (available())
+////    read();
+//}
 
 void WFSEthernetClient::stop() {
-   // attempt to close the connection gracefully (send a FIN to other side)
-    
-  _wfs->disconnect();
-
+    // attempt to close the connection gracefully (send a FIN to other side)
+	memset(_header_buffer, '\0', 1000);
+    _wfs->disconnect();
 }
 
 bool WFSEthernetClient::connected(){

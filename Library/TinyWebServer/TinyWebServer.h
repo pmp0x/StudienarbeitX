@@ -83,7 +83,7 @@ public:
   //
   // Call this method from the main loop() function to have the Web
   // server handle incoming requests.
-  void process();
+  bool process();
 
   // Sends the HTTP status code to the connect HTTP client.
   void send_error_code(int code) {

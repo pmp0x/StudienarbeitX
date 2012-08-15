@@ -495,8 +495,8 @@ int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const 
 	WiFlyFixedPrompts[WIFLY_MSG_PROMPT] = (char*) this->_szWiFlyPrompt;   //??
     char* pFixedCurrent[N_PROMPTS];
 
-    DEBUG_LOG(3, "Beeing in Scan for Pattern");
-    DEBUG_LOG(3, pExpectedPrompt);
+    DEBUG_LOG(4, "Beeing in Scan for Pattern");
+    DEBUG_LOG(4, pExpectedPrompt);
     
     for (int i=0; i < N_PROMPTS; i++) {
         pFixedCurrent[i] = WiFlyFixedPrompts[i];
@@ -507,7 +507,7 @@ int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const 
     while ( bWaiting ) {
         if ( _uart->available() > 0 ) {
             chResponse = _uart->read();
-            DEBUG_LOG(4, chResponse);
+            DEBUG_LOG(5, chResponse);
             // if we capture the response
             // if the supplied buffer is too small we just capture the beginning
             if ( bCollecting && bufpos < buflen) {
@@ -521,7 +521,7 @@ int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const 
                     // deal with 'open' and 'scan' version-prompt appearing BEFORE result; ignore it
                     if ( (!bPromptAfterResult) && (iFixedPrompt == WIFLY_MSG_PROMPT || iFixedPrompt == WIFLY_MSG_PROMPT2) /* standard version-prompt */  ) {
                         bWaiting = true;
-                        DEBUG_LOG(4, "beeing here");
+                        DEBUG_LOG(5, "beeing here");
                         iPromptFound |= PROMPT_READY;
                     }
                     //standard case
@@ -533,7 +533,7 @@ int WiFlySerial::ScanForPattern( char* responseBuffer, const int buflen,  const 
                             iPromptFound |= WiFlyFixedFlags[iFixedPrompt];  // if a prompt found then grab its flag.
                             // if we find the <XXX> promopt we might wand to proceed if we havent found our token we are looking for…
                         	if (iPromptFound & PROMPT_READY ) {
-                                DEBUG_LOG(4, "Found <XXX Prompt> -> Proceed");
+                                DEBUG_LOG(5, "Found <XXX Prompt> -> Proceed");
                                 bWaiting = true;
                                 // putting even the string at the beginning, maybe it comes floats by again…
                                 pFixedCurrent[iFixedPrompt] = WiFlyFixedPrompts[iFixedPrompt];  // not 
@@ -780,7 +780,7 @@ bool WiFlySerial::SendCommand(const char *pCmd, const char *SuccessIndicator, ch
 //            DEBUG_LOG(3,pResultBuffer);
             iTry++;
             DEBUG_LOG(4, "Sending it xx Times:");
-            DEBUG_LOG(4, iTry);
+            DEBUG_LOG(5, iTry);
             DEBUG_LOG(4, iResponse);
         }
         
@@ -1066,16 +1066,15 @@ void WiFlySerial::openConnection(){
 bool WiFlySerial::closeConnection(bool bSafeClose) {
     // if a connection is open then close it.
     
-    
+    DEBUG_LOG(3, "in close Connection");
     if ( _bWiFlyConnectionOpen ) {
         // first see if connection is *STILL* open. 
       
-        bool bTrySafeClose = bSafeClose;
         bool bDoClose = true;
         
         // repeat until closed...
         while ( _bWiFlyConnectionOpen ) {
-            if (bTrySafeClose) {
+            if (bSafeClose) {
                 //getDeviceStatus(); is done in isTCPConnected
                 if ( isTCPConnected() ) {
                     bDoClose = true;
@@ -1085,20 +1084,22 @@ bool WiFlySerial::closeConnection(bool bSafeClose) {
                 }
             } // if doing safe close
             if ( bDoClose ) {
-                drain();
+                    DEBUG_LOG(3, "Close with cmd mode");
+                //drain();
                 char bufCmd[INDICATOR_BUFFER_SIZE];
                 char bufClose[INDICATOR_BUFFER_SIZE];
                 memset( bufCmd, '\0', INDICATOR_BUFFER_SIZE);
                 memset( bufClose, '\0', INDICATOR_BUFFER_SIZE);
                 
                 // close command response is a prompt, then a *CLOS* signal after.
-                SendCommand(WiFlyDevice_string_table[STI_WIFLYDEVICE_CLOSE],WiFlyFixedPrompts[WIFLY_MSG_PROMPT],    bufClose,    INDICATOR_BUFFER_SIZE, true, DEFAULT_WAIT_TIME , false);
+                _bWiFlyConnectionOpen = !SendCommand(WiFlyDevice_string_table[STI_WIFLYDEVICE_CLOSE],"*CLOS*",    bufClose,    INDICATOR_BUFFER_SIZE, true, DEFAULT_WAIT_TIME , false);
                 DEBUG_LOG(3,  bufCmd );
                 DEBUG_LOG(3,  bufClose );
                 
-                drain();
+                //drain();
                 
-                _bWiFlyInCommandMode = true;
+                _bWiFlyInCommandMode = exitCommandMode();
+
             }
         } // while
     } else {
@@ -1144,7 +1145,7 @@ bool WiFlySerial::serveConnection( const unsigned long reconnectWaitTime )
 {
     char bufRequest[COMMAND_BUFFER_SIZE];
     int  iRequest;
-    DEBUG_LOG(2, "Serve Connection");
+    //DEBUG_LOG(3, "Serve Connection");
     iRequest = ScanForPattern( bufRequest, COMMAND_BUFFER_SIZE, WiFlyFixedPrompts[WIFLY_MSG_OPEN], true, reconnectWaitTime );
     
     if ( iRequest & PROMPT_EXPECTED_TOKEN_FOUND ) {

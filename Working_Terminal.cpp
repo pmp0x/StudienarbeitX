@@ -19,28 +19,6 @@ HardwareSPI spi(1);
 SpiUartDevice SpiSerial;
 
 
-char *fiforead(){
-    uint32 const rdbl = SpiSerial.available();
-    char buf[rdbl];
-    uint32 rxved = 0;
-    SerialUSB.println("RDBL");
-    SerialUSB.println(rdbl);
-    while(rdbl > 0 && rxved < rdbl) {
-        // eigentlich muss das ja nur einmal gesendet werden… und was passiert, wenn zwischendurch etwas weiteres über UART kommt?!
-        buf[rxved++] = char(spi.transfer(RHR));
-
-    }
-    return buf;
-}
-
-void read(){
-    uint32 length;
-    length = SpiSerial.available();
-
-    spi.write(RHR | 0x80);
-
-
-}
 
 
 void setup()
@@ -50,7 +28,8 @@ void setup()
 
     while (!SerialUSB.available());
     SerialUSB.println("Foo");
-    SpiSerial.begin(&spi, 9600);
+      SpiSerial.begin(&spi, 921600);
+    //  SpiSerial.begin(&spi, 9600);
      delay(100);
 
 //    for(int i=0; i<16; i++){

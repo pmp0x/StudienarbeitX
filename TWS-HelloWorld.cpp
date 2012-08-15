@@ -45,6 +45,7 @@ TinyWebServer::PathHandler handlers[] = {
     //
     // `put_handler' is defined in TinyWebServer
     {"/", TinyWebServer::GET, &index_handler },
+   
     {NULL},
 };
 
@@ -53,14 +54,20 @@ const char* headers[] = {
     NULL
 };
 
-
+bool display(TinyWebServer& web_server){
+	    
+}
 
 
 bool index_handler(TinyWebServer& web_server) {
 	DEBUG_LOG(3, "index handler");
+    uint32 start;
+    start = millis();
     web_server.send_error_code(200);
     web_server.end_headers();
-    web_server.println("<html><body><h1>Hello World!</h1></body></html>\n");
+    web_server.println("<html><body><h1>Hello World!</h1></body></html>\n \t");
+    DEBUG_LOG(4, "Sending");
+    DEBUG_LOG(4, millis() - start);
     return true;
 }
 
@@ -68,12 +75,12 @@ TinyWebServer web(handlers, headers);
 void setup()
 {
 	
-	spi.begin(SPI_562_500KHZ, MSBFIRST, 0);
+	spi.begin(SPI_18MHZ, MSBFIRST, 0);
     SpiSerial.begin(&spi);
     while (!SerialUSB.available());
     SerialUSB.println("Foo");
-    SpiSerial.begin(&spi, 9600);
-	delay(100);
+    SpiSerial.begin(&spi, 921600);
+	delay(10);
     WiFly.begin(&SpiSerial);
     
     
@@ -88,13 +95,14 @@ void setup()
        
 	WiFly.exitCommandMode();
     WiFly.flush();
-	delay(800);
+	delay(10);
     WiFly.flush();    
     
     Ethernet.begin(&WiFly);
-    SerialUSB.println("WiFly now listening for commands.  Type 'exit' to listen for wifi traffic.  $$$ (no CR) for command-mode.");
     
     web.begin(&Ethernet);
+    SerialUSB.println("WiFly now listening for commands.  Type 'exit' to listen for wifi traffic.  $$$ (no CR) for command-mode.");
+  
    
     
     
@@ -104,7 +112,9 @@ void setup()
 void loop()
 {
     
-     web.process();
+    if(!web.process()){
+    	DEBUG_LOG(1, "FAIL!");
+    }
     
 }
 

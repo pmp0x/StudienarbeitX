@@ -62,7 +62,7 @@ public:
     virtual int read();
     //virtual int read(uint8_t *buf, size_t size);
     virtual int peek();
-    virtual void flush();
+    //virtual void flush();
     virtual void stop();
     virtual bool connected();
     virtual operator bool();
@@ -71,9 +71,13 @@ public:
     
 	using Print::write;
     
+    char _header_buffer[1000];
+    int _header_pointer;
+    
 private:
     WFSEthernet * _wfs;
     static uint16_t _srcport;
+    
 };
 
 #endif

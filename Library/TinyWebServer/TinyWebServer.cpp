@@ -129,7 +129,7 @@ bool TinyWebServer::process_headers() {
         if (!read_next_char(client_, (uint8_t*)&ch)) {
             continue;
         }
-        DEBUG_LOG(3, ch);
+        DEBUG_LOG(5, ch);
         switch (state) {
             case START_LINE:
                 if (ch == '\r') {
@@ -217,42 +217,21 @@ bool TinyWebServer::process_headers() {
     return true;
 }
 
-//void TinyWebServer::process(){
-//	client_ = server_.available();
-//    if (!client_.connected() || !client_.available()) {
-//    //if ( !client_.connected() ){
-//    	DEBUG_LOG(2, "kicked out");
-//        DEBUG_LOG(2, client_.connected());
-//        DEBUG_LOG(2, client_.available());
-//        return;
-//    }
-//
-//    DEBUG_LOG(3, "Available?!");
-//    DEBUG_LOG(3, client_.available());
-//  	
-//    
-//	bool is_complete = get_line(buffer, sizeof(buffer));
-//	DEBUG_LOG(3, "First line");
-//    DEBUG_LOG(3, buffer);
-//    client_.stop();
-////    if (!buffer[0]) {
-////        DEBUG_LOG(2, "buf not written");
-////        return;
-////    }    
-//}
 
-void TinyWebServer::process() {
+
+bool TinyWebServer::process() {
     client_ = server_.available();
+    delay(1);	
     if (!client_.connected() || !client_.available()) {
         //if ( !client_.connected() ){
-    	DEBUG_LOG(2, "kicked out");
-        return;
+    	//DEBUG_LOG(3, "kicked out");
+        return false;
     }
-    
+	DEBUG_LOG(2, "TWS:Client Accepted ");
     bool is_complete = get_line(buffer, sizeof(buffer));
     if (!buffer[0]) {
         DEBUG_LOG(2, "buf not written");
-        return;
+        return false;
     }
 
     DEBUG_LOG(2, "TWS:New request: ");
@@ -263,7 +242,7 @@ void TinyWebServer::process() {
         // The requested path is too long.
         send_error_code(414);
         client_.stop();
-        return;
+        return false;
     }
     
     char* request_type_str = get_field(buffer, 0);
@@ -321,6 +300,7 @@ void TinyWebServer::process() {
     
     free(path_);
     free(request_type_str);
+    return true;
 }
 
 bool TinyWebServer::is_requested_header(const char** header) {
@@ -363,7 +343,7 @@ void TinyWebServer::send_error_code(WFSEthernetClient& client, int code) {
 
     DEBUG_LOG(3, "TWS:Returning ");
  	DEBUG_LOG(3, code);
-
+    
   client.print("HTTP/1.1 ");
   client.print(code, DEC);
   client.print(" OK\r\n");
@@ -540,12 +520,13 @@ size_t TinyWebServer::write(const uint8_t *buffer, size_t size) {
 }
 
 bool TinyWebServer::read_next_char(WFSEthernetClient& client, uint8_t* ch) {
-  if (!client.available()) {
-    return false;
-  } else {
-    *ch = client.read();
-    return true;
-  }
+    if (!client.available()) {
+        return false;
+    } else {
+        *ch = client.read();
+        
+        return true;
+    }
 }
 
 bool TinyWebServer::get_line(char* buffer, int size) {
@@ -561,8 +542,9 @@ bool TinyWebServer::get_line(char* buffer, int size) {
       break;
     }
       
-    DEBUG_LOG(3, ch);
+    DEBUG_LOG(5, ch);
     buffer[i] = ch;
+      delay(20);
   }
   buffer[i] = '\0';
   return i < size - 1;

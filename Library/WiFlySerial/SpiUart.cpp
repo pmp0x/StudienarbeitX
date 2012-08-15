@@ -1,6 +1,7 @@
 #include "WiFlySerial/SpiUart.h"
 #include <stdint.h>
 #include "libmaple.h"
+#include "dma.h"
 
 #include "wirish.h"
 #include "HardwareSPI.h"
@@ -54,12 +55,23 @@ struct SPI_UART_cfg SPI_Uart_config = {
 };
 
 //pointer to spi object
-HardwareSPI *SPIfoo;
-
-
-
+//HardwareSPI *_SPI;
+uint8 foo[64];
+uint8  bar[64];
+SpiUartDevice::SpiUartDevice(){
+    
+    _iPointer = 0;
+    _iData = 0;
+    
+memset(foo, 0xff, sizeof(_send));
+memset(bar, '\0', sizeof(_response));
+    
+    _response = bar;
+    _send = foo;
+    
+}
 /**
-	<#Description#>
+	
 	@param s The abstract Maple Spi Device
 	@param baudrate <#baudrate description#>
  */
@@ -69,10 +81,10 @@ void SpiUartDevice::begin(HardwareSPI *s , unsigned long baudrate){
        *
        * Uses BAUD_RATE_DEFAULT as baudrate if none is given
        */
-    SPIfoo = s;
-    pinMode(SPIfoo->nssPin(),OUTPUT);
+    _SPI = s;
+    pinMode(_SPI->nssPin(),OUTPUT);
     select();
-    SPIfoo->write(0xff);
+    _SPI->write(0xff);
     deselect();
     delay(20);
     initUart(baudrate);
@@ -89,13 +101,13 @@ void SpiUartDevice::deselect() {
   /*
    * Deslects the SPI device
    */
-  digitalWrite(SPIfoo->nssPin(), HIGH);
+  digitalWrite(_SPI->nssPin(), HIGH);
 }
 void SpiUartDevice::select() {
   /*
    * Selects the SPI device
    */
-  digitalWrite(SPIfoo->nssPin(), LOW);
+  digitalWrite(_SPI->nssPin(), LOW);
 }
 	
 
@@ -170,8 +182,8 @@ void SpiUartDevice::writeRegister(uint8 registerAddress, uint8 data) {
     * Write <data> byte to the SC16IS750 register <registerAddress>
     */
   select();
-  SPIfoo->transfer(registerAddress);
-  SPIfoo->transfer(data);
+  _SPI->transfer(registerAddress);
+  _SPI->transfer(data);
   deselect();
 }
 
@@ -187,9 +199,9 @@ char SpiUartDevice::readRegister(byte registerAddress) {
     select();
 //    SerialUSB.println();
 //  SerialUSB.print("r");
-    SPIfoo->transfer(SPI_READ_MODE_FLAG | registerAddress);
+    _SPI->transfer(SPI_READ_MODE_FLAG | registerAddress);
     //  SerialUSB.print("v");
-    data = SPIfoo->transfer(SPI_DUMMY_BYTE);
+    data = _SPI->transfer(SPI_DUMMY_BYTE);
     //    SerialUSB.print("x");
     //    SerialUSB.print(registerAddress, HEX);
 //    SerialUSB.print(" - ");
@@ -227,7 +239,7 @@ uint8 SpiUartDevice::available() {
 }
 
 
-uint8 SpiUartDevice::read() {
+uint8 SpiUartDevice::read(bool dma) {
   /*
    * Read byte from UART.
    *
@@ -235,25 +247,36 @@ uint8 SpiUartDevice::read() {
    *
    * Acts in the same manner as 'Serial.read()'.
    */
-
-  if (!available()) {
-    return -1;
-  }
-
-  return readRegister(RHR);
+//    if ((_iPointer < _iData + 1) && dma) {
+//    
+//        return _response[_iPointer++];
+//    }
+//	uint32 avail = available();
+//    if (avail > 6 && dma) {
+//        _send[0] = (SPI_READ_MODE_FLAG | RHR);
+//		_SPI->RefTransfer(_send, _response);
+//    }
+//    else if(avail == 0) {
+//        return -1;
+//    }
+	if (!available()) {
+        return -1;
+    }    
+    
+    return readRegister(RHR);
 }
 
 void SpiUartDevice::bulk_read(uint8 * buf, uint32 size){
-    SPIfoo->transfer(SPI_READ_MODE_FLAG | RHR);
-    SPIfoo->read(buf, size);
+    _SPI->transfer(SPI_READ_MODE_FLAG | RHR);
+    _SPI->read(buf, size);
 }
 // char * SpiUartDevice::bulk_read(){
 //     uint8 size;
 //     size = available();
 //     char *buff = malloc(size);
 //     if (buff == NULL) return NULL;
-//     SPIfoo->transfer(SPI_READ_MODE_FLAG | RHR);
-//     SPIfoo->read(&buff, (uint32)size);
+//     _SPI->transfer(SPI_READ_MODE_FLAG | RHR);
+//     _SPI->read(&buff, (uint32)size);
 //     return buff;
 // }
 
@@ -294,14 +317,14 @@ void SpiUartDevice::write(const char *str) {
     //    }
     //    else {
     //        select();
-    //        SPIfoo->transfer(THR);
-    //        SPIfoo->write(&str, strlen(str));
+    //        _SPI->transfer(THR);
+    //        _SPI->write(&str, strlen(str));
     //        // while( size > 16 ){
-    //        //            SPIfoo->write(&str, 16);
+    //        //            _SPI->write(&str, 16);
     //        //            size -=16;
     //        //            str +=16;
     //        //        }
-    //        //        SPIfoo->write(&str, size);
+    //        //        _SPI->write(&str, size);
     //        deselect();
     //    }
 
@@ -350,6 +373,62 @@ void SpiUartDevice::flush() {
 //        SerialUSB.println(SpiSerial.readRegister(i<<3), BIN);
 //      }
 // }
+
+void DMAEvent(){
+    
+    //we get the DMA event
+    dma_irq_cause event = dma_get_irq_cause(DMA1, DMA_CH3);
+    
+    switch(event) {
+            //the event indicates that the transfer was successfully completed
+        case DMA_TRANSFER_COMPLETE:
+            //11. Disable DMA when we are done
+            dma_disable(DMA1,DMA_CH3);
+            digitalWrite(10, HIGH);
+            SerialUSB.println("Done transfering");
+            break;
+            //the event indicates that there was an error transmitting
+        case DMA_TRANSFER_ERROR:
+            //11. Disable DMA when we are done
+            dma_disable(DMA1,DMA_CH3);
+            digitalWrite(10, HIGH);
+            SerialUSB.println("Fail");
+            break;
+    }
+    
+}
+
+void SpiUartDevice::init_dma(){
+    // 4. Initialize DMA.
+    dma_init(DMA1);
+    
+    //5. Enable DMA to use SPI communication; both TX (output) and RX (input).
+    spi_tx_dma_enable(_SPI->c_dev() );
+//    //spi_rx_dma_enable(_SPI->c_dev() );
+//    for(int i=0; i<512; i++) {
+//        bytesToSend[i] = 0xFF;
+//    }
+    
+    // we create a buffer for revceiving the responses
+    //byte bytesReceived[512];
+    dma_setup_transfer(DMA1, DMA_CH2, &SPI1->regs->DR, DMA_SIZE_8BITS, _send, DMA_SIZE_8BITS, (DMA_MINC_MODE | DMA_TRNS_CMPLT | DMA_TRNS_ERR));
+    
+    dma_setup_transfer(DMA1, DMA_CH3, &SPI1->regs->DR, DMA_SIZE_8BITS, _response, DMA_SIZE_8BITS,(DMA_MINC_MODE  | DMA_FROM_MEM));
+    // 7. Attach an interrupt to the transfer. Note that we need to add
+    // the interrupt flag in step 6 (DMA_TRNS_CMPLT and DMA_TRNS_ERR). 
+    // Also, we only attach it for one of the transfers since they are 
+    // going to finish at the same time because they are in sync.
+    
+    dma_attach_interrupt(DMA1, DMA_CH3, DMAEvent);
+    
+    //8. Setup the priority for the DMA transfer.
+    dma_set_priority(DMA1, DMA_CH2, DMA_PRIORITY_VERY_HIGH);
+    dma_set_priority(DMA1, DMA_CH3, DMA_PRIORITY_VERY_HIGH);
+
+   
+    
+
+}
 
 void SpiUartDevice::ioSetDirection(unsigned char bits) {
   writeRegister(IODIR, bits);

@@ -31,17 +31,17 @@ void setup()
     SpiSerial.begin(&spi, 9600);
     SpiSerial.writeRegister(SPR, 'h');
     // Need some time to transfer…
-    //    delay(60);
+    delay(60);
     SerialUSB.println (SpiSerial.readRegister(SPR) );
 
   
 	    delay(100);
     
-    wifly.begin(&SpiSerial);
-    delay(100);
-    wifly.setBaudrate("921600");
-    SpiSerial.begin(&spi, 921600);
-    delay(100);
+//    wifly.begin(&SpiSerial);
+//    delay(100);
+//    wifly.setBaudrate("9600");
+//    SpiSerial.begin(&spi, 9600);
+//    delay(100);
     //wifly.saveSetting();
     
     
@@ -62,7 +62,7 @@ void loop()
         SerialUSB.print("(");
 		SerialUSB.print(SpiSerial.available() );
         SerialUSB.print(")");   
-        SerialUSB.write(SpiSerial.read());
+        SerialUSB.write(SpiSerial.read(true));
     }
     while(SerialUSB.available()){
         SpiSerial.write(SerialUSB.read());

@@ -249,7 +249,8 @@ void WFSEthernet::connect(){
 
 
 bool WFSEthernet::disconnect(){
-    return _wifly->closeConnection();
+
+    return     _wifly->closeConnection(true);
 }
 
 
@@ -261,7 +262,6 @@ void WFSEthernet::flush(){
 
 //TODO Implement a read function with a buf
 uint8_t WFSEthernet::read(){
-	delay(40);
     return _wifly->read();
 }
 //

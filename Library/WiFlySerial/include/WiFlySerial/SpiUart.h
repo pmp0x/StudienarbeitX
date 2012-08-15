@@ -60,18 +60,18 @@ class SpiUartDevice : public Print{
     //we need Print::print and Print::println
     using Print::print;
 
-
+	SpiUartDevice();
     void begin(HardwareSPI *s , unsigned long baudrate = BAUD_RATE_DEFAULT);
 
 
     uint8 available();
-    uint8 read();
+    uint8 read(bool dma = false);
     void bulk_read(uint8 * buf, uint32 size);
 
     void write(byte value);
     void write(const char *str);
 
-
+	
 
 
     void flush();
@@ -89,12 +89,17 @@ class SpiUartDevice : public Print{
     void deselect();
     void select();
 
-
+	void init_dma();
 
     void initUart(unsigned long baudrate);
     void configureUart(unsigned long baudrate);
     void setBaudRate(unsigned long baudrate);
     boolean uartConnected();
+    HardwareSPI * _SPI;
+    uint8 * _response;
+    uint8 * _send;
+    int _iData;
+    int _iPointer;
 };
 
 #endif
