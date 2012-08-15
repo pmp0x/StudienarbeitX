@@ -424,7 +424,7 @@ static inline uint8 spi_rx_reg(spi_dev *dev) {
  * @param dev SPI device
  * @return true, iff dev's TX register is empty.
  */
-static inline uint8 spi_is_tx_empty	(spi_dev *dev) {
+static inline uint8 spi_is_tx_empty(spi_dev *dev) {
     return dev->regs->SR & SPI_SR_TXE;
 }
 

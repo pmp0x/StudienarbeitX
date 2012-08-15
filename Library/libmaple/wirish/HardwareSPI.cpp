@@ -157,12 +157,8 @@ uint8 HardwareSPI::read(void) {
 void HardwareSPI::read(uint8 *buf, uint32 len) {
     uint32 rxed = 0;
     while (rxed < len) {
-        while (!spi_is_rx_nonempty(this->spi_d) ){
-//            if (!spi_is_busy(this->spi_d)) {
-//                SerialUSB.println("B");
-//                return;
-//            }
-            ;
+        while (!spi_is_rx_nonempty(this->spi_d) && spi_is_busy(this->spi_d) ){
+            ;            
         }
         buf[rxed++] = (uint8)spi_rx_reg(this->spi_d);
     }
@@ -199,33 +195,29 @@ uint8 HardwareSPI::transfer(uint8 byte) {
     return this->read();
 }
 
-uint32 HardwareSPI::RefTransfer(const void *txdata, uint16 *rxdata, uint32 length){
-    uint32 rxtrxed = 0;
-
-   // if(!(length > 2)) return false;
-    if(spi_is_tx_empty(this->spi_d)) {
-        this->spi_d->regs->DR = ((const uint8*)txdata)[rxtrxed];
-    }
-    else {
-        return false;
-    }
-    while(rxtrxed < length){
-        rxtrxed++;
-        while(!spi_is_tx_empty(this->spi_d));
-            ;
-        this->spi_d->regs->DR = ((const uint8*)txdata)[rxtrxed];
-
-        while (!spi_is_rx_nonempty(this->spi_d))
-            ;
-        rxdata[rxtrxed-1] = this->spi_d->regs->DR;
-
-    }
-    while (!spi_is_rx_nonempty(this->spi_d))
-        ;
-    rxdata[rxtrxed] = this->spi_d->regs->DR;
-
-    return rxtrxed;
-}
+//uint32 HardwareSPI::RefTransfer(const void *txdata, uint8 *rxdata){
+//    uint32 rxtrxed = 0;
+//    uint32 length = 7; 
+//	spi_tx(this->spi_d, txdata, ++rxtrxed);
+//   // if(!(length > 2)) return false;
+//
+//    while(rxtrxed++ < length){
+//
+//        while(!spi_is_tx_empty(this->spi_d));
+//            ;
+//        this->spi_d->regs->DR = ((const uint8*)txdata)[rxtrxed];
+//
+//        while (!spi_is_rx_nonempty(this->spi_d))
+//            ;
+//        rxdata[rxtrxed-1] = this->spi_d->regs->DR;
+//
+//    }
+//    while (!spi_is_rx_nonempty(this->spi_d))
+//        ;
+//    rxdata[rxtrxed] = this->spi_d->regs->DR;
+//
+//    return rxtrxed;
+//}
 
 
 

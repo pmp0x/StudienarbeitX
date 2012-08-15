@@ -161,7 +161,7 @@ public:
     uint8 transfer(uint8 data);
 
 
-    uint32 RefTransfer(const void *txdata, uint16 *rxdata, uint32 length);
+//    uint32 RefTransfer(const void *txdata, uint821 *rxdata);
 
     /*
      * Pin accessors
